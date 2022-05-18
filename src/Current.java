@@ -8,7 +8,6 @@ public class Current {
         if (Balance<Transferred) {
             System.out.println("Insufficient Balance");
         } else {
-            Withdraw(BankNumber,SortCode,Transferred);
             if (AccountType.equals("ISA")) {
                 if (ISA.AnnualDeposit + Transferred < ISA.Max_Annual_Deposit) {
                     Deposit(RecipientBankNumber,RecipientSortCode,Transferred);
