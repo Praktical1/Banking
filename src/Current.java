@@ -2,7 +2,7 @@ public class Current {
     private int BankNumber;
     private int SortCode;
     private int Balance;
-    public void transfer(int BankNumber, int SortCode, int RecipientBankNumber, int RecipientSortCode, int Transferred) {
+    private void transfer(int BankNumber, int SortCode, int RecipientBankNumber, int RecipientSortCode, int Transferred) {
         Balance = Bank_Accounts.getBalance();
         String AccountType = Bank_Accounts.getAccountType();
         if (Balance<Transferred) {
