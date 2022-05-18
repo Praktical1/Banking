@@ -21,7 +21,7 @@ public class ISA {
     }
 
     public void deposit(double depositAmount){
-        this.balance = balance - depositAmount;
+        this.balance = balance + depositAmount;
     }
 
     public void addInterest(double interestAmount){
