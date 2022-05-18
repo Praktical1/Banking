@@ -1,8 +1,23 @@
+import java.lang.annotation.Inherited;
+
 public class Business {
     private int BusinessNumber;
+    private Bank_Accounts Account;
 
-    public Business(int businessNumber) {
+    public Business(int businessNumber, Bank_Accounts account) {
         BusinessNumber = businessNumber;
+        Account = account;
+    }
+    public Business(Bank_Accounts account){
+        Account = account;
+    }
+
+    public Bank_Accounts getAccount() {
+        return Account;
+    }
+
+    public void setAccount(Bank_Accounts account) {
+        Account = account;
     }
 
     public int getBusinessNumber() {
@@ -14,35 +29,39 @@ public class Business {
     }
 
     //Withdraw: Takes "Value" from "account"'s balance
-    public void Withdraw(int Value, Bank_Accounts account){
-        account.setBalance(account.getBalance()-Value);
+    public void Withdraw(int Value){
+        getAccount().setBalance(getAccount().getBalance()-Value);
     }
     //Deposit: Puts "Value" into "account"'s balance
-    public void Deposit(int Value, Bank_Accounts account){
-        account.setBalance(account.getBalance()+Value);
+    public void Deposit(int Value){
+        getAccount().setBalance(getAccount().getBalance()+Value);
     }
     //Transfer: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
-    public void Transfer(int Value, Bank_Accounts account1, Bank_Accounts account2){
-        account1.setBalance(account1.getBalance()-Value);
-        switch (account2.getAccountType()){
-            case "Business", "Current" -> account2.setBalance(account2.getBalance()+Value);
-            //If ISA, checks the deposit limit and deposits accordingly
-            case "ISA"-> {
-                if(true) {
-                    //if ISA limit has not been reached and will not be surpassed
-                    account2.setBalance(account2.getBalance()+Value);
-                } else{
-                    account1.setBalance(account1.getBalance()+Value);
-                    System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
+    public void Transfer(int Value, Bank_Accounts account){
+        if(getAccount().getOwner().equals(account.getOwner())) {
+            getAccount().setBalance(getAccount().getBalance() - Value);
+            switch (account.getAccountType()) {
+                case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
+                //If ISA, checks the deposit limit and deposits accordingly
+                case "ISA" -> {
+                    if (ISA(account).getAnnualDeposit() + Value < ISA(account).getMaxAnnualDeposit()) {
+                        //if ISA limit has not been reached and will not be surpassed
+                        account.setBalance(account.getBalance() + Value);
+                    } else {
+                        getAccount().setBalance(getAccount().getBalance() + Value);
+                        System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
+                    }
                 }
             }
+        }else{
+            System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
         }
     }
-    public void Pay(int Value, Bank_Accounts account1, Bank_Accounts account2){
-        Transfer(Value,account1,account2);
+    public void Pay(int Value, Bank_Accounts account){
+        Transfer(Value,account);
         //Add to log file
     }
-    public void Upkeep(Bank_Accounts account){
-        account.setBalance(account.getBalance()-50);
+    public void Upkeep(){
+        getAccount().setBalance(getAccount().getBalance()-50);
     }
 }
