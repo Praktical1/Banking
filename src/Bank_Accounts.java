@@ -3,12 +3,22 @@ public class Bank_Accounts {
     private int PIN;
     private float Balance;
     private Bank bank;
+    private String AccountType;
 
-    public Bank_Accounts(int bankNumber, int PIN, float balance, Bank bank) {
+    public Bank_Accounts(int bankNumber, int PIN, float balance, Bank bank, String accountType) {
         BankNumber = bankNumber;
         this.PIN = PIN;
         this.bank = bank;
         Balance = balance;
+        AccountType = accountType;
+    }
+
+    public String getAccountType() {
+        return AccountType;
+    }
+
+    public void setAccountType(String accountType) {
+        AccountType = accountType;
     }
 
     public float getBalance() {
