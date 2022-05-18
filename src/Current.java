@@ -1,7 +1,7 @@
 public class Current {
     private int BankNumber;
     private int SortCode;
-    private int Balance;
+    private float Balance;
     private void transfer(int BankNumber, int SortCode, int RecipientBankNumber, int RecipientSortCode, int Transferred) {
         Balance = Bank_Accounts.getBalance();
         String AccountType = Bank_Accounts.getAccountType();
@@ -24,7 +24,7 @@ public class Current {
         }
     }
     private void Deposit(int BankNumber, int SortCode, int Deposited) {
-        Bank_Accounts.setBalance() = Bank_Accounts.getBalance() + Deposited;
+        Bank_Accounts.setBalance(Bank_Accounts.getBalance() + Deposited);
     }
 
     private boolean Withdraw(int bankNumber, int sortCode, int Withdrawn) {

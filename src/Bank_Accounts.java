@@ -1,9 +1,9 @@
 public class Bank_Accounts {
     private int BankNumber;
     private int PIN;
-    private float Balance;
+    private static float Balance;
     private Bank bank;
-    private String AccountType;
+    private static String AccountType;
     private Customer Owner;
 
     public Bank_Accounts(int bankNumber, int PIN, float balance, Bank bank, String accountType, Customer owner) {
@@ -23,7 +23,7 @@ public class Bank_Accounts {
         Owner = owner;
     }
 
-    public String getAccountType() {
+    public static String getAccountType() {
         return AccountType;
     }
 
@@ -31,11 +31,11 @@ public class Bank_Accounts {
         AccountType = accountType;
     }
 
-    public float getBalance() {
+    public static float getBalance() {
         return Balance;
     }
 
-    public void setBalance(float balance) {
+    public static void setBalance(float balance) {
         Balance = balance;
     }
 
