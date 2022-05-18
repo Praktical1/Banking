@@ -17,9 +17,12 @@ public class Business {
     public void Withdraw(int Value, Bank_Accounts account){
         account.setBalance(account.getBalance()-Value);
     }
-
-    //Pay: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
-    public void Pay(int Value, Bank_Accounts account1, Bank_Accounts account2){
+    //Deposit: Puts "Value" into "account"'s balance
+    public void Deposit(int Value, Bank_Accounts account){
+        account.setBalance(account.getBalance()+Value);
+    }
+    //Transfer: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
+    public void Transfer(int Value, Bank_Accounts account1, Bank_Accounts account2){
         account1.setBalance(account1.getBalance()-Value);
         switch (account2.getAccountType()){
             case "Business", "Current" -> account2.setBalance(account2.getBalance()+Value);
@@ -34,6 +37,10 @@ public class Business {
                 }
             }
         }
+    }
+    public void Pay(int Value, Bank_Accounts account1, Bank_Accounts account2){
+        Transfer(Value,account1,account2);
+        //Add to log file
     }
     public void Upkeep(Bank_Accounts account){
         account.setBalance(account.getBalance()-50);
