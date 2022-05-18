@@ -1,12 +1,22 @@
 public class Bank_Accounts {
     private int BankNumber;
     private int PIN;
+    private float Balance;
     private Bank bank;
 
-    public Bank_Accounts(int bankNumber, int PIN, Bank bank) {
+    public Bank_Accounts(int bankNumber, int PIN, float balance, Bank bank) {
         BankNumber = bankNumber;
         this.PIN = PIN;
         this.bank = bank;
+        Balance = balance;
+    }
+
+    public float getBalance() {
+        return Balance;
+    }
+
+    public void setBalance(float balance) {
+        Balance = balance;
     }
 
     public int getBankNumber() {
