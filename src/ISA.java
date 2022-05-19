@@ -3,10 +3,19 @@ public class ISA {
     public int InterestRate = 2;
     public int balance;
 
+    private Bank_Accounts Account;
+
     public int CurrentAnnualDeposit;
-    public ISA(int interestRate) {
-        InterestRate = interestRate;
+    public ISA(Bank_Accounts Account, int amountAddedIntoAccount) {
+        this.Account = Account;
+        CurrentAnnualDeposit = amountAddedIntoAccount;
+
     }
+
+    public Bank_Accounts getAccount() {
+        return Account;
+    }
+
     public void setCurrentAnnualDeposit(int amountAddedIntoAccount){
         this.CurrentAnnualDeposit = amountAddedIntoAccount;
     }
