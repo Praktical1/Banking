@@ -62,9 +62,6 @@ public class Bank_Accounts {
     public void setBank(Bank bank) {
         this.bank = bank;
     }
-    public Bank_Accounts getAccount(){
-        return this;
-    }
     public int VerifyPayment(int Payment){
         if(Payment>=0){
             return Payment;

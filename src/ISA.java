@@ -3,7 +3,7 @@ public class ISA {
     public int InterestRate = 2;
     public int balance;
 
-    public static int amountAddedIntoAccount;
+    public int amountAddedIntoAccount;
     public ISA(int interestRate) {
         InterestRate = interestRate;
     }
