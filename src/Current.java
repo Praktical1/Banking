@@ -12,10 +12,11 @@ public class Current {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
-                if (ISA.getCurrentAnnualDeposit() + Transferred < ISA.MaxAnnualDeposit) {
+                ISA ISAAccount = Main_Program.FindISAAccount(account);
+                if (ISAAccount.getCurrentAnnualDeposit() + Transferred < ISA.MaxAnnualDeposit) {
                     account.setBalance(account.getBalance() + Transferred);
                     getAccount().setBalance(getAccount().getBalance() - Transferred);
-                    ISA.setCurrentAnnualDeposit(ISA.getCurrentAnnualDeposit()+Transferred);
+                    ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Transferred);
                 } else {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
                 }
@@ -34,9 +35,11 @@ public class Current {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
-                if (ISA.getCurrentAnnualDeposit() + Payment < ISA.MaxAnnualDeposit) {
+                ISA ISAAccount = Main_Program.FindISAAccount(account);
+                if (ISAAccount.getCurrentAnnualDeposit() + Payment < ISA.MaxAnnualDeposit) {
                     account.setBalance(account.getBalance() + Payment);
                     getAccount().setBalance(getAccount().getBalance() - Payment);
+                    ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Payment);
                     Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getISASortCode(),Payment);
                 } else {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
