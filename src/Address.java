@@ -6,11 +6,11 @@ public class Address {
     String PostCode;
 
     public Address(String house, String road, String town, String county, String postCode) {
-        House = house;
-        Road = road;
-        Town = town;
-        County = county;
-        PostCode = postCode;
+        this.House = house;
+        this.Road = road;
+        this.Town = town;
+        this.County = county;
+        this.PostCode = postCode;
     }
 
     public String getHouse() {
