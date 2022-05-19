@@ -60,7 +60,7 @@ public class Log {
             System.out.println("Log for Recipient account is missing, New log will be created");
         }
         //Adding new entry into Log for Paid
-        LogStorage.add(0,CurrentTime + "   " + RecipientAccountNumber + "   "+ RecipientSortCode + "    Payment " + PaymentPounds);
+        LogStorage.add(0,CurrentTime + "   " + RecipientAccountNumber + "   "+ RecipientSortCode + "   Received " + PaymentPounds);
         //Writing Log for Paid
         try {
             FileWriter myWriter = new FileWriter("Log"+AccountNumber+SortCode+".txt");
