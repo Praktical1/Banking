@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Added Bank account creation">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +40,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/prize/OneDrive/Documents/Capita Training/Java/Quiz_v2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/Quiz_v2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -61,6 +64,7 @@
       <workItem from="1652177897647" duration="489000" />
       <workItem from="1652879268670" duration="719000" />
       <workItem from="1652881100970" duration="2780000" />
+      <workItem from="1652949279963" duration="7262000" />
     </task>
     <task id="LOCAL-00001" summary="Created class constructors">
       <created>1652883112893</created>
@@ -97,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652893069758</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reduced requirements for function calls">
+      <created>1652894695868</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652894695868</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +120,8 @@
     <MESSAGE value="Business accounts methods created" />
     <MESSAGE value="Business accounts methods updated" />
     <MESSAGE value="Bank Account inherits Customer details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bank Account inherits Customer details" />
+    <MESSAGE value="Reduced requirements for function calls" />
+    <MESSAGE value="Added Bank account creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Bank account creation" />
   </component>
 </project>

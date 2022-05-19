@@ -1,12 +1,12 @@
 public class Bank_Accounts {
     private int BankNumber;
-    private int PIN;
-    private static float Balance;
+    private String PIN;
+    private static int Balance;
     private Bank bank;
     private static String AccountType;
     private Customer Owner;
 
-    public Bank_Accounts(int bankNumber, int PIN, float balance, Bank bank, String accountType, Customer owner) {
+    public Bank_Accounts(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner) {
         BankNumber = bankNumber;
         this.PIN = PIN;
         this.bank = bank;
@@ -31,11 +31,11 @@ public class Bank_Accounts {
         AccountType = accountType;
     }
 
-    public static float getBalance() {
+    public static int getBalance() {
         return Balance;
     }
 
-    public static void setBalance(float balance) {
+    public static void setBalance(int balance) {
         Balance = balance;
     }
 
@@ -47,11 +47,11 @@ public class Bank_Accounts {
         BankNumber = bankNumber;
     }
 
-    public int getPIN() {
+    public String getPIN() {
         return PIN;
     }
 
-    public void setPIN(int PIN) {
+    public void setPIN(String PIN) {
         this.PIN = PIN;
     }
 

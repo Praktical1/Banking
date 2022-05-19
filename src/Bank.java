@@ -1,14 +1,15 @@
 public class Bank {
+    private String Name;
     private int CurrentSortCode;
     private int ISASortCode;
     private int BusinessSortCode;
 
-    public Bank(int currentSortCode, int ISASortCode, int businessSortCode) {
+    public Bank(int currentSortCode, int ISASortCode, int businessSortCode, String name) {
         CurrentSortCode = currentSortCode;
         this.ISASortCode = ISASortCode;
         BusinessSortCode = businessSortCode;
+        Name = name;
     }
-
     public int getCurrentSortCode() {
         return CurrentSortCode;
     }

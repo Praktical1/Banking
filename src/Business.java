@@ -1,4 +1,4 @@
-import java.lang.annotation.Inherited;
+
 
 public class Business {
     private int BusinessNumber;
@@ -44,7 +44,7 @@ public class Business {
                 case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
                 //If ISA, checks the deposit limit and deposits accordingly
                 case "ISA" -> {
-                    if (ISA(account).getAnnualDeposit() + Value < ISA(account).getMaxAnnualDeposit()) {
+                    if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
                         //if ISA limit has not been reached and will not be surpassed
                         account.setBalance(account.getBalance() + Value);
                     } else {
@@ -58,7 +58,20 @@ public class Business {
         }
     }
     public void Pay(int Value, Bank_Accounts account){
-        Transfer(Value,account);
+        getAccount().setBalance(Bank_Accounts.getBalance() - Value);
+        switch (Bank_Accounts.getAccountType()) {
+            case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
+            //If ISA, checks the deposit limit and deposits accordingly
+            case "ISA" -> {
+                if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
+                    //if ISA limit has not been reached and will not be surpassed
+                    account.setBalance(account.getBalance() + Value);
+                } else {
+                    getAccount().setBalance(getAccount().getBalance() + Value);
+                    System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
+                }
+            }
+        }
         //Add to log file
     }
     public void Upkeep(){
