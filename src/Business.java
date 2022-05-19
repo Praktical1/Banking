@@ -72,7 +72,11 @@ public class Business {
                 }
             }
         }
-        //Add to log file
+        switch(account.getAccountType()){
+            case "Current" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getCurrentSortCode(),Value);
+            case "ISA" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getISASortCode(),Value);
+            case "Business" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getBusinessSortCode(),Value);
+        }
     }
     public void Upkeep(){
         getAccount().setBalance(getAccount().getBalance()-50);
