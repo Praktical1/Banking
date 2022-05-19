@@ -37,7 +37,7 @@ public class Current {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
                 }
             } else if (AccountType.equals("Business")) {
-                Business.Deposit(RecipientAccountNumber,RecipientSortCode,Payment);
+                Business.Deposit(Payment);
                 Withdraw(AccountNumber,SortCode,PIN,Payment);
                 Log.Log(AccountNumber,SortCode,RecipientAccountNumber,RecipientSortCode,Payment);
             } else {

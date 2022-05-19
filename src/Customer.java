@@ -109,9 +109,14 @@ public class Customer {
                         System.out.println("Enter registered business number");
                         int businessnum = in.nextInt();
                         Main_Program.BusinessAccounts.add(new Business(businessnum,Main_Program.Accounts.get(-1)));
+                        System.out.println("Your Chequebook will be sent to your current address");
                     }
-                    case "ISA":{}
-                    case "Current":{}
+                    case "ISA"->{
+                        Main_Program.ISAAccounts.add(new ISA(2));
+                    }
+                    case "Current"->{
+                        Main_Program.CurrentAccounts.add(new Current());
+                    }
                 }
             }
         }while(!ValidBank);
@@ -119,27 +124,18 @@ public class Customer {
     //newBankNumber: Generates a new valid bank number using the Luhn algorithm
     private int newBankNumber(){
         Random rng = new Random();
-        int[] accountdigit = new int[16];
-        for (int i = 0; i < 15; i++) {
-            accountdigit[i] =rng.nextInt(10);
-        }
-        //makes sure the first bank account digit is not 0
-        if(accountdigit[0] == 0){ accountdigit[0]+= 1;}
-        int sum = 0;
-        //Luhn algorithm for generating valid bank account numbers
-        for (int i = 0; i < 7; i++) {
-            int first = 2*accountdigit[2*i]%10;
-            sum += first+((2*accountdigit[2*i])-first)/10+accountdigit[2*i+1];
-        }
-        int first = (accountdigit[15]*2)%10;
-        sum += first+(2*accountdigit[15]-first)/10;
-        accountdigit[15] = 10-(sum%10);
-        //concatenating the account number digits
-        int accountnum = 0;
-        for(int i:accountdigit){
-            accountnum *= 10;
-            accountnum += i;
-        }
+        int accountnum;
+        boolean validaccount = true;
+        do {
+            do {
+                accountnum = rng.nextInt(100000000);
+            } while (accountnum < 10000000);
+            for(Bank_Accounts i:Main_Program.Accounts){
+                if(accountnum == i.getBankNumber()){
+                    validaccount = false;
+                }
+            }
+        }while(!validaccount);
         return accountnum;
     }
     //newPIN: generates a new randomised PIN number
