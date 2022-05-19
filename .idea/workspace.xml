@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Worked on ISA changes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,10 +20,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/master" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Roy" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,72 +63,39 @@
       <updated>1652177896317</updated>
       <workItem from="1652177897647" duration="489000" />
       <workItem from="1652879268670" duration="719000" />
-      <workItem from="1652881100970" duration="2780000" />
+      <workItem from="1652881100970" duration="1318000" />
+      <workItem from="1652949337175" duration="5665000" />
+      <workItem from="1652956422147" duration="71000" />
     </task>
-    <task id="LOCAL-00001" summary="Created class constructors">
-      <created>1652883112893</created>
+    <task id="LOCAL-00001" summary="Worked on ISA changes">
+      <created>1652888230580</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1652883112893</updated>
+      <updated>1652888230580</updated>
     </task>
-    <task id="LOCAL-00002" summary="added balance">
-      <created>1652886112857</created>
+    <task id="LOCAL-00002" summary="Worked on ISA changes">
+      <created>1652950516882</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1652886112857</updated>
+      <updated>1652950516882</updated>
     </task>
-    <task id="LOCAL-00003" summary="Business accounts methods created">
-      <created>1652888124808</created>
+    <task id="LOCAL-00003" summary="Worked on ISA changes">
+      <created>1652954464165</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1652888124808</updated>
+      <updated>1652954464165</updated>
     </task>
-    <task id="LOCAL-00004" summary="Business accounts methods updated">
-      <created>1652889353468</created>
+    <task id="LOCAL-00004" summary="Worked on ISA changes">
+      <created>1652954624184</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1652889353468</updated>
+      <updated>1652954624184</updated>
     </task>
-    <task id="LOCAL-00005" summary="Bank Account inherits Customer details">
-      <created>1652893069758</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1652893069758</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Log class created with Log function, &#10;Changes made to variable names in current and payment function added.">
-      <created>1652955960576</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1652955960576</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Just fixed an error with the logging of payment received being recorded as payment out">
-      <created>1652956596147</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1652956596147</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added Payment verification">
-      <created>1652959275927</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652959275927</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added Payment verification">
-      <created>1652960812918</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1652960812918</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,5 +111,10 @@
     <MESSAGE value="Just fixed an error with the logging of payment received being recorded as payment out" />
     <MESSAGE value="Added Payment verification" />
     <option name="LAST_COMMIT_MESSAGE" value="Added Payment verification" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
+    <MESSAGE value="Worked on ISA changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Worked on ISA changes" />
   </component>
 </project>
