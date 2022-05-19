@@ -7,8 +7,7 @@
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,14 +103,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652962007693</updated>
     </task>
-    <task id="LOCAL-00006" summary="Converting to match business">
-      <created>1652967462743</created>
+    <task id="LOCAL-00006" summary="Still need to resolve static problem">
+      <created>1652966038297</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1652967462744</updated>
+      <updated>1652966038297</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Still need to resolve static problem">
+      <created>1652966306158</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652966306158</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,7 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
-    <MESSAGE value="Converting to match business" />
-    <option name="LAST_COMMIT_MESSAGE" value="Converting to match business" />
+    <MESSAGE value="Still need to resolve static problem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Still need to resolve static problem" />
   </component>
 </project>
