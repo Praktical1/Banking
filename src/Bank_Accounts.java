@@ -65,4 +65,9 @@ public class Bank_Accounts {
     public Bank_Accounts getAccount(){
         return this;
     }
+    public int VerifyPayment(int Payment){
+        if(Payment>=0){
+            return Payment;
+        } else{ return 0;}
+    }
 }
