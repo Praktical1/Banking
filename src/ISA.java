@@ -1,5 +1,5 @@
 public class ISA {
-    public static double Max_Annual_Deposit = 20_000;
+    public double Max_Annual_Deposit = 20_000;
     public int InterestRate = 2;
     public int balance;
 
