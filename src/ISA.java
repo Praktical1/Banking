@@ -1,30 +1,40 @@
 public class ISA {
     public static double Max_Annual_Deposit = 20_000;
-    public double InterestRate = 0.02;
-    public double balance;
+    public int InterestRate = 2;
+    public int balance;
 
-    public void setBalance(double balance){
+    public int amountAddedIntoAccount;
+    public ISA(int interestRate) {
+        InterestRate = interestRate;
+    }
+    public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
+        this.amountAddedIntoAccount = amountAddedIntoAccount;
+    }
+
+    public void setBalance(int balance){
         this.balance = balance;
     }
 
     //The following methods need to be looked at and revised
-    public void transfer(double transferAmount){
+    public void transfer(int transferAmount){
         this.balance = balance - transferAmount;
     }
 
-    public void withdraw(double withDrawAmount){
+    public void withdraw(int withDrawAmount){
         this.balance = balance - withDrawAmount;
     }
 
-    public void pay(double paymentAmount){
+    public void pay(int paymentAmount){
         this.balance = balance - paymentAmount;
     }
 
-    public void deposit(double depositAmount){
+    public void deposit(int depositAmount){
         this.balance = balance + depositAmount;
     }
 
-    public void addInterest(double interestAmount){
+    public void addInterest(int interestAmount){
         this.InterestRate += interestAmount;
     }
+
+
 }
