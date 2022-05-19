@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Just fixed an error with the logging of payment received being recorded as payment out">
+      <change beforePath="$PROJECT_DIR$/src/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Log.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652893069758</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Log class created with Log function, &#10;Changes made to variable names in current and payment function added.">
+      <created>1652955960576</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652955960576</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Just fixed an error with the logging of payment received being recorded as payment out">
+      <created>1652956596147</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652956596147</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +122,8 @@
     <MESSAGE value="Business accounts methods created" />
     <MESSAGE value="Business accounts methods updated" />
     <MESSAGE value="Bank Account inherits Customer details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bank Account inherits Customer details" />
+    <MESSAGE value="Log class created with Log function, &#10;Changes made to variable names in current and payment function added." />
+    <MESSAGE value="Just fixed an error with the logging of payment received being recorded as payment out" />
+    <option name="LAST_COMMIT_MESSAGE" value="Just fixed an error with the logging of payment received being recorded as payment out" />
   </component>
 </project>
