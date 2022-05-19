@@ -64,7 +64,8 @@
       <workItem from="1652177897647" duration="489000" />
       <workItem from="1652879268670" duration="719000" />
       <workItem from="1652881100970" duration="1318000" />
-      <workItem from="1652949337175" duration="4990000" />
+      <workItem from="1652949337175" duration="5665000" />
+      <workItem from="1652956422147" duration="71000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -80,7 +81,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652950516882</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Worked on ISA changes">
+      <created>1652954464165</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652954464165</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Worked on ISA changes">
+      <created>1652954624184</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652954624184</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -98,6 +113,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
     <option name="LAST_COMMIT_MESSAGE" value="Worked on ISA changes" />
   </component>
