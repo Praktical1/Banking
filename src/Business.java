@@ -48,7 +48,7 @@ public class Business {
                 case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
                 //If ISA, checks the deposit limit and deposits accordingly
                 case "ISA" -> {
-                    if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
+                    if (ISA.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
                         //if ISA limit has not been reached and will not be surpassed
                         account.setBalance(account.getBalance() + Value);
                     } else {
@@ -67,7 +67,7 @@ public class Business {
             case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
             //If ISA, checks the deposit limit and deposits accordingly
             case "ISA" -> {
-                if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
+                if (ISA.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
                     //if ISA limit has not been reached and will not be surpassed
                     account.setBalance(account.getBalance() + Value);
                 } else {
