@@ -7,7 +7,6 @@ public class ISA {
     public ISA(double interestRate) {
         InterestRate = interestRate;
     }
-
     public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
         this.amountAddedIntoAccount = amountAddedIntoAccount;
     }
