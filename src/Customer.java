@@ -1,8 +1,7 @@
-import java.sql.SQLOutput;
+
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.random.*;
 public class Customer {
     String Name;
     int Age;
@@ -95,12 +94,12 @@ public class Customer {
             System.out.println("Enter the name of the Bank you want to open an account with");
             String BankName = in.nextLine();
             //gets the bank by the bank name
-            Bank bank = findBank(BankName);
+            Bank bank = Main_Program.FindBank(BankName);
             if (bank.getCurrentSortCode() == 0) {
                 System.out.println("Error: Bank name does not match any bank in our records");
             } else {
-                return new Bank_Accounts(newBankNumber(), newPIN(), 0, bank, accountType, User);
                 ValidBank = true;
+                return new Bank_Accounts(newBankNumber(), newPIN(), 0, bank, accountType, User);
             }
         }while(!ValidBank);
         return null;

@@ -33,4 +33,12 @@ public class Bank {
     public void setBusinessSortCode(int businessSortCode) {
         BusinessSortCode = businessSortCode;
     }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
 }
