@@ -18,4 +18,31 @@ public class Main_Program {
         }
         return new Bank(0,0,0,"");
     }
+    public static Business FindBusinessAccount(Bank_Accounts account){
+        for (int i = 0; i < BusinessAccounts.size(); i++) {
+            if (BusinessAccounts.get(i).getAccount().equals(account)){
+                return BusinessAccounts.get(i);
+            }
+        }
+        System.out.println("Error, Could not find this Business account");
+        return null;
+    }
+    public static ISA FindISAAccount(Bank_Accounts account){
+        for (int i = 0; i < ISAAccounts.size(); i++) {
+            if (ISAAccounts.get(i).getAccount().equals(account)){
+                return ISAAccounts.get(i);
+            }
+        }
+        System.out.println("Error, Could not find this ISA account");
+        return null;
+    }
+    public static Current FindCurrentAccount(Bank_Accounts account){
+        for (int i = 0; i < CurrentAccounts.size(); i++) {
+            if (CurrentAccounts.get(i).getAccount().equals(account)){
+                return CurrentAccounts.get(i);
+            }
+        }
+        System.out.println("Error, Could not find this Current account");
+        return null;
+    }
 }

@@ -48,9 +48,11 @@ public class Business {
                 case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
                 //If ISA, checks the deposit limit and deposits accordingly
                 case "ISA" -> {
-                    if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
+                    ISA ISAAccount = Main_Program.FindISAAccount(account);
+                    if (ISAAccount.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
                         //if ISA limit has not been reached and will not be surpassed
                         account.setBalance(account.getBalance() + Value);
+                        ISAAccount.setAmountAddedIntoAccount(ISAAccount.getAmountAddedIntoAccount()+Value);
                     } else {
                         getAccount().setBalance(getAccount().getBalance() + Value);
                         System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
@@ -62,20 +64,23 @@ public class Business {
         }
     }
     public void Pay(int Value, Bank_Accounts account){
-        getAccount().setBalance(Bank_Accounts.getBalance() - Value);
-        switch (Bank_Accounts.getAccountType()) {
+        getAccount().setBalance(getAccount().getBalance() - Value);
+        switch (getAccount().getAccountType()) {
             case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
             //If ISA, checks the deposit limit and deposits accordingly
             case "ISA" -> {
-                if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
+                ISA ISAAccount = Main_Program.FindISAAccount(account);
+                if (ISAAccount.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
                     //if ISA limit has not been reached and will not be surpassed
                     account.setBalance(account.getBalance() + Value);
+                    ISAAccount.setAmountAddedIntoAccount(ISAAccount.getAmountAddedIntoAccount()+Value);
                 } else {
                     getAccount().setBalance(getAccount().getBalance() + Value);
                     System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
                 }
             }
         }
+        //logs the transaction
         switch(account.getAccountType()){
             case "Current" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getCurrentSortCode(),Value);
             case "ISA" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getISASortCode(),Value);
@@ -86,4 +91,3 @@ public class Business {
         getAccount().setBalance(getAccount().getBalance()-50);
     }
 }
-

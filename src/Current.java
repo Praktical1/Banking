@@ -1,58 +1,65 @@
 public class Current {
-    private static int Balance;
-    private static void transfer(int AccountNumber, int SortCode, int PIN, int RecipientAccountNumber, int RecipientSortCode, int Transferred) {
-        Balance = Bank_Accounts.getBalance();
-        String AccountType = Bank_Accounts.getAccountType();
-        if (Balance<Transferred) {
+    private Bank_Accounts Account;
+    public Current(Bank_Accounts account){
+        Account = account;
+    }
+    public Bank_Accounts getAccount() {
+        return Account;
+    }
+    public void transfer(int Transferred, Bank_Accounts account) {
+        String AccountType = getAccount().getAccountType();
+        if (getAccount().getBalance()<Transferred) {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
-                if (ISA.AnnualDeposit + Transferred < ISA.Max_Annual_Deposit) {
-                    ISA.Deposit(RecipientAccountNumber,RecipientSortCode,Transferred);
-                    Withdraw(AccountNumber,SortCode,PIN, Transferred);
+                if (ISA.getAmountAddedIntoAccount() + Transferred < ISA.Max_Annual_Deposit) {
+                    account.setBalance(account.getBalance() + Transferred);
+                    getAccount().setBalance(getAccount().getBalance() - Transferred);
+                    ISA.setAmountAddedIntoAccount(ISA.getAmountAddedIntoAccount()+Transferred);
                 } else {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
                 }
             } else if (AccountType.equals("Business")) {
-                Business.Deposit(RecipientAccountNumber,RecipientSortCode,Transferred);
-                Withdraw(AccountNumber,SortCode,PIN,Transferred);
+                account.setBalance(account.getBalance() + Transferred);
+                getAccount().setBalance(getAccount().getBalance() - Transferred);
             } else {
-                Deposit(RecipientAccountNumber,RecipientSortCode,Transferred);
-                Withdraw(AccountNumber,SortCode,PIN,Transferred);
+                account.setBalance(account.getBalance() + Transferred);
+                getAccount().setBalance(getAccount().getBalance() - Transferred);
             }
         }
     }
-    private static void pay(int AccountNumber, int SortCode, int PIN, int RecipientAccountNumber, int RecipientSortCode, int Payment) {
-        Balance = Bank_Accounts.getBalance();
-        String AccountType = Bank_Accounts.getAccountType();
-        if (Balance<Payment) {
+    private void pay(int Payment, Bank_Accounts account) {
+        String AccountType = getAccount().getAccountType();
+        if (getAccount().getBalance()<Payment) {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
-                if (ISA.AnnualDeposit + Payment < ISA.Max_Annual_Deposit) {
-                    ISA.Deposit(RecipientAccountNumber,RecipientSortCode,Payment);
-                    Withdraw(AccountNumber,SortCode,PIN,Payment);
-                    Log.Log(AccountNumber,SortCode,RecipientAccountNumber,RecipientSortCode,Payment);
+                if (ISA.getAmountAddedIntoAccount() + Payment < ISA.Max_Annual_Deposit) {
+                    account.setBalance(account.getBalance() + Payment);
+                    getAccount().setBalance(getAccount().getBalance() - Payment);
+                    Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getISASortCode(),Payment);
                 } else {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
                 }
             } else if (AccountType.equals("Business")) {
-                Business.Deposit(RecipientAccountNumber,RecipientSortCode,Payment);
-                Withdraw(AccountNumber,SortCode,PIN,Payment);
-                Log.Log(AccountNumber,SortCode,RecipientAccountNumber,RecipientSortCode,Payment);
+                account.setBalance(account.getBalance() + Payment);
+                getAccount().setBalance(getAccount().getBalance() - Payment);
+                Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getBusinessSortCode(),Payment);
             } else {
-                Deposit(RecipientAccountNumber,RecipientSortCode,Payment);
-                Withdraw(AccountNumber,SortCode,PIN,Payment);
-                Log.Log(AccountNumber,SortCode,RecipientAccountNumber,RecipientSortCode,Payment);
+                account.setBalance(account.getBalance() + Payment);
+                getAccount().setBalance(getAccount().getBalance() - Payment);
+                Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getCurrentSortCode(),Payment);
             }
         }
     }
 
-    private static void Deposit(int AccountNumber, int SortCode, int Deposited) {
-        Bank_Accounts.setBalance(Bank_Accounts.getBalance() + Deposited);
+    private void Deposit(int Deposited) {
+        Deposited = Account.VerifyPayment(Deposited);
+        getAccount().setBalance(getAccount().getBalance() + Deposited);
     }
 
-    private static void Withdraw(int AccountNumber, int sortCode, int PIN, int Withdrawn) {
-        Bank_Accounts.setBalance(Bank_Accounts.getBalance() + Withdrawn);
+    private void Withdraw(int Withdrawn) {
+        Withdrawn = Account.VerifyPayment(Withdrawn);
+        getAccount().setBalance(getAccount().getBalance() + Withdrawn);
     }
 }

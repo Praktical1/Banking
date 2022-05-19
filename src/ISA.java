@@ -1,5 +1,5 @@
 public class ISA {
-    public static double Max_Annual_Deposit = 20_000;
+    public static int Max_Annual_Deposit = 2_000_000;
     public int InterestRate = 2;
     public int balance;
 
@@ -10,7 +10,9 @@ public class ISA {
     public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
         this.amountAddedIntoAccount = amountAddedIntoAccount;
     }
-
+    public int getAmountAddedIntoAccount() {
+        return amountAddedIntoAccount;
+    }
     public void setBalance(int balance){
         this.balance = balance;
     }
