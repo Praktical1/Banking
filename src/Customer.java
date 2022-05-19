@@ -67,7 +67,8 @@ public class Customer {
         this.address = address;
     }
 
-    public Bank_Accounts CreateBankAccount (Customer User){
+    //CreateBankAccount: gives the user a choice of new bank account
+    public void CreateBankAccount (Customer User){
         //checks if the account creator is over 16
         if(User.Age >= 16){
             Scanner in = new Scanner(System.in);
@@ -86,7 +87,9 @@ public class Customer {
             }
         }
     }
-    private Bank_Accounts newBankAccount (String accountType, Customer User){
+
+    //newBankAccount: Creates a new bank account and the relevant account type object
+    private void newBankAccount (String accountType, Customer User){
         boolean ValidBank = false;
         do {
             //determines the bank the account will be with
@@ -99,11 +102,21 @@ public class Customer {
                 System.out.println("Error: Bank name does not match any bank in our records");
             } else {
                 ValidBank = true;
-                return new Bank_Accounts(newBankNumber(), newPIN(), 0, bank, accountType, User);
+
+                Main_Program.Accounts.add(new Bank_Accounts(newBankNumber(), newPIN(), 0, bank, accountType, User));
+                switch (accountType){
+                    case "Business"->{
+                        System.out.println("Enter registered business number");
+                        int businessnum = in.nextInt();
+                        Main_Program.BusinessAccounts.add(new Business(businessnum,Main_Program.Accounts.get(-1)));
+                    }
+                    case "ISA":{}
+                    case "Current":{}
+                }
             }
         }while(!ValidBank);
-        return null;
     }
+    //newBankNumber: Generates a new valid bank number using the Luhn algorithm
     private int newBankNumber(){
         Random rng = new Random();
         int[] accountdigit = new int[16];
@@ -129,10 +142,18 @@ public class Customer {
         }
         return accountnum;
     }
+    //newPIN: generates a new randomised PIN number
     private String newPIN(){
         Random rng = new Random();
         int pin = rng.nextInt(10000);
         String strpin = String.valueOf(pin);
+        System.out.println("""
+                               *****IMPORTANT*****
+                               REMEMBER YOUR PIN
+                if you forget your PIN, we cannot recover it
+                         Your PIN is:        """+strpin);
+        Scanner in = new Scanner(System.in);
+        in.nextLine();
         return strpin;
     }
 }
