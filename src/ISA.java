@@ -3,14 +3,16 @@ public class ISA {
     public int InterestRate = 2;
     public int balance;
 
-    public int amountAddedIntoAccount;
+    public static int amountAddedIntoAccount;
     public ISA(int interestRate) {
         InterestRate = interestRate;
     }
     public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
         this.amountAddedIntoAccount = amountAddedIntoAccount;
     }
-
+    public static int getAmountAddedIntoAccount() {
+        return amountAddedIntoAccount;
+    }
     public void setBalance(int balance){
         this.balance = balance;
     }

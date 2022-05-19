@@ -33,7 +33,7 @@ public class Business {
         getAccount().setBalance(getAccount().getBalance()-Value);
     }
     //Deposit: Puts "Value" into "account"'s balance
-    public void Deposit(int Value){
+    public static void Deposit(int Value){
         getAccount().setBalance(getAccount().getBalance()+Value);
     }
     //Transfer: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
@@ -63,7 +63,7 @@ public class Business {
             case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
             //If ISA, checks the deposit limit and deposits accordingly
             case "ISA" -> {
-                if (ISA(account).getAnnualDeposit() + Value < ISA.Max_Annual_Deposit) {
+                if (ISA.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
                     //if ISA limit has not been reached and will not be surpassed
                     account.setBalance(account.getBalance() + Value);
                 } else {

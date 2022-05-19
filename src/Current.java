@@ -7,7 +7,7 @@ public class Current {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
-                if (ISA.AnnualDeposit + Transferred < ISA.Max_Annual_Deposit) {
+                if (ISA.getAmountAddedIntoAccount() + Transferred < ISA.Max_Annual_Deposit) {
                     ISA.Deposit(RecipientAccountNumber,RecipientSortCode,Transferred);
                     Withdraw(AccountNumber,SortCode,PIN, Transferred);
                 } else {
