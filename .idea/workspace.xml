@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +132,7 @@
     <MESSAGE value="Log class created with Log function, &#10;Changes made to variable names in current and payment function added." />
     <MESSAGE value="Just fixed an error with the logging of payment received being recorded as payment out" />
     <MESSAGE value="Added getter for annual deposit and changed its variable to static, also configured both business and current to match" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added getter for annual deposit and changed its variable to static, also configured both business and current to match" />
+    <MESSAGE value="store" />
+    <option name="LAST_COMMIT_MESSAGE" value="store" />
   </component>
 </project>
