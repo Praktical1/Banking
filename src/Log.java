@@ -76,5 +76,4 @@ public class Log {
             g.printStackTrace();
         }
     }
-    static void
 }
