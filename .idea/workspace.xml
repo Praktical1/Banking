@@ -45,7 +45,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/Banking&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/ArrayChallenge&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -101,16 +101,16 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created class constructors" />
+    <MESSAGE value="added balance" />
+    <MESSAGE value="Business accounts methods created" />
+    <MESSAGE value="Business accounts methods updated" />
+    <MESSAGE value="Bank Account inherits Customer details" />
+    <MESSAGE value="Log class created with Log function, &#10;Changes made to variable names in current and payment function added." />
+    <MESSAGE value="Just fixed an error with the logging of payment received being recorded as payment out" />
+    <MESSAGE value="Added Payment verification" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Payment verification" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />

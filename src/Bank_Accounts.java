@@ -1,12 +1,42 @@
 public class Bank_Accounts {
     private int BankNumber;
-    private int PIN;
+    private String PIN;
+    private static int Balance;
     private Bank bank;
+    private static String AccountType;
+    private Customer Owner;
 
-    public Bank_Accounts(int bankNumber, int PIN, Bank bank) {
+    public Bank_Accounts(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner) {
         BankNumber = bankNumber;
         this.PIN = PIN;
         this.bank = bank;
+        Balance = balance;
+        AccountType = accountType;
+        Owner = owner;
+    }
+
+    public Customer getOwner() {
+        return Owner;
+    }
+
+    public void setOwner(Customer owner) {
+        Owner = owner;
+    }
+
+    public static String getAccountType() {
+        return AccountType;
+    }
+
+    public void setAccountType(String accountType) {
+        AccountType = accountType;
+    }
+
+    public static int getBalance() {
+        return Balance;
+    }
+
+    public static void setBalance(int balance) {
+        Balance = balance;
     }
 
     public int getBankNumber() {
@@ -17,11 +47,11 @@ public class Bank_Accounts {
         BankNumber = bankNumber;
     }
 
-    public int getPIN() {
+    public String getPIN() {
         return PIN;
     }
 
-    public void setPIN(int PIN) {
+    public void setPIN(String PIN) {
         this.PIN = PIN;
     }
 
@@ -31,5 +61,13 @@ public class Bank_Accounts {
 
     public void setBank(Bank bank) {
         this.bank = bank;
+    }
+    public Bank_Accounts getAccount(){
+        return this;
+    }
+    public int VerifyPayment(int Payment){
+        if(Payment>=0){
+            return Payment;
+        } else{ return 0;}
     }
 }
