@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652956596147</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added getter for annual deposit and changed its variable to static, also configured both business and current to match">
+      <created>1652960198175</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652960198175</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -127,6 +132,7 @@
     <MESSAGE value="Bank Account inherits Customer details" />
     <MESSAGE value="Log class created with Log function, &#10;Changes made to variable names in current and payment function added." />
     <MESSAGE value="Just fixed an error with the logging of payment received being recorded as payment out" />
-    <option name="LAST_COMMIT_MESSAGE" value="Just fixed an error with the logging of payment received being recorded as payment out" />
+    <MESSAGE value="Added getter for annual deposit and changed its variable to static, also configured both business and current to match" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added getter for annual deposit and changed its variable to static, also configured both business and current to match" />
   </component>
 </project>
