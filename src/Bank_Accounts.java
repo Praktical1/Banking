@@ -1,9 +1,9 @@
 public class Bank_Accounts {
     private int BankNumber;
     private String PIN;
-    private static int Balance;
+    private int Balance;
     private Bank bank;
-    private static String AccountType;
+    private String AccountType;
     private Customer Owner;
 
     public Bank_Accounts(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner) {
@@ -23,7 +23,7 @@ public class Bank_Accounts {
         Owner = owner;
     }
 
-    public static String getAccountType() {
+    public String getAccountType() {
         return AccountType;
     }
 
@@ -31,11 +31,11 @@ public class Bank_Accounts {
         AccountType = accountType;
     }
 
-    public static int getBalance() {
+    public int getBalance() {
         return Balance;
     }
 
-    public static void setBalance(int balance) {
+    public void setBalance(int balance) {
         Balance = balance;
     }
 

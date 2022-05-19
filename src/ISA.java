@@ -10,7 +10,7 @@ public class ISA {
     public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
         this.amountAddedIntoAccount = amountAddedIntoAccount;
     }
-    public static int getAmountAddedIntoAccount() {
+    public int getAmountAddedIntoAccount() {
         return amountAddedIntoAccount;
     }
     public void setBalance(int balance){

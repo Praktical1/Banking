@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Worked on ISA changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,17 +102,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created class constructors" />
-    <MESSAGE value="added balance" />
-    <MESSAGE value="Business accounts methods created" />
-    <MESSAGE value="Business accounts methods updated" />
-    <MESSAGE value="Bank Account inherits Customer details" />
-    <MESSAGE value="Log class created with Log function, &#10;Changes made to variable names in current and payment function added." />
-    <MESSAGE value="Just fixed an error with the logging of payment received being recorded as payment out" />
-    <MESSAGE value="Added Payment verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Payment verification" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
