@@ -1,5 +1,3 @@
-
-
 public class Business {
     private int BusinessNumber;
     private Bank_Accounts Account;
@@ -88,3 +86,4 @@ public class Business {
         getAccount().setBalance(getAccount().getBalance()-50);
     }
 }
+
