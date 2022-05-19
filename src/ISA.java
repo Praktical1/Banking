@@ -3,6 +3,15 @@ public class ISA {
     public double InterestRate = 0.02;
     public double balance;
 
+    public double amountAddedIntoAccount;
+    public ISA(double interestRate) {
+        InterestRate = interestRate;
+    }
+
+    public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
+        this.amountAddedIntoAccount = amountAddedIntoAccount;
+    }
+
     public void setBalance(double balance){
         this.balance = balance;
     }
@@ -27,4 +36,6 @@ public class ISA {
     public void addInterest(double interestAmount){
         this.InterestRate += interestAmount;
     }
+
+
 }
