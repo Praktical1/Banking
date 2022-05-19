@@ -60,10 +60,10 @@ public class Log {
             System.out.println("Log for Recipient account is missing, New log will be created");
         }
         //Adding new entry into Log for Paid
-        LogStorage.add(0,CurrentTime + "   " + RecipientAccountNumber + "   "+ RecipientSortCode + "   Received " + PaymentPounds);
+        LogStorage.add(0,CurrentTime + "   " + AccountNumber + "   "+ SortCode + "   Received " + PaymentPounds);
         //Writing Log for Paid
         try {
-            FileWriter myWriter = new FileWriter("Log"+AccountNumber+SortCode+".txt");
+            FileWriter myWriter = new FileWriter("Log"+RecipientAccountNumber+RecipientSortCode+".txt");
             for (int i=0; i<LogStorage.size(); i++){
                 if (i>0) {
                     myWriter.write(System.getProperty( "line.separator" ));
@@ -76,4 +76,5 @@ public class Log {
             g.printStackTrace();
         }
     }
+    static void
 }
