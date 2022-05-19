@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Changed double to int">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,45 +95,34 @@
       <option name="project" value="LOCAL" />
       <updated>1652954624184</updated>
     </task>
-    <task id="LOCAL-00005" summary="Worked on ISA changes">
-      <created>1652962007693</created>
+    <task id="LOCAL-00005" summary="Changed double to int">
+      <created>1652969625344</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1652962007693</updated>
+      <updated>1652969625344</updated>
     </task>
-    <task id="LOCAL-00006" summary="Still need to resolve static problem">
-      <created>1652966038297</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1652966038297</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Still need to resolve static problem">
-      <created>1652966306158</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1652966306158</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Updated variable names">
-      <created>1652968219145</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1652968219145</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
-    <MESSAGE value="Still need to resolve static problem" />
-    <MESSAGE value="Updated variable names" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated variable names" />
+    <MESSAGE value="Changed double to int" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed double to int" />
   </component>
 </project>
