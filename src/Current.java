@@ -7,8 +7,8 @@ public class Current {
         return Account;
     }
     public void transfer(int Transferred, Bank_Accounts account) {
-        String AccountType = Bank_Accounts.getAccountType();
-        if (Bank_Accounts.getBalance()<Transferred) {
+        String AccountType = getAccount().getAccountType();
+        if (getAccount().getBalance()<Transferred) {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
@@ -29,8 +29,8 @@ public class Current {
         }
     }
     private void pay(int Payment, Bank_Accounts account) {
-        String AccountType = Bank_Accounts.getAccountType();
-        if (Bank_Accounts.getBalance()<Payment) {
+        String AccountType = getAccount().getAccountType();
+        if (getAccount().getBalance()<Payment) {
             System.out.println("Insufficient Balance");
         } else {
             if (AccountType.equals("ISA")) {
@@ -55,11 +55,11 @@ public class Current {
 
     private void Deposit(int Deposited) {
         Deposited = Account.VerifyPayment(Deposited);
-        Bank_Accounts.setBalance(Bank_Accounts.getBalance() + Deposited);
+        getAccount().setBalance(getAccount().getBalance() + Deposited);
     }
 
     private void Withdraw(int Withdrawn) {
         Withdrawn = Account.VerifyPayment(Withdrawn);
-        Bank_Accounts.setBalance(Bank_Accounts.getBalance() + Withdrawn);
+        getAccount().setBalance(getAccount().getBalance() + Withdrawn);
     }
 }
