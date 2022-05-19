@@ -91,4 +91,3 @@ public class Business {
         getAccount().setBalance(getAccount().getBalance()-50);
     }
 }
-
