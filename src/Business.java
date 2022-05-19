@@ -49,10 +49,10 @@ public class Business {
                 //If ISA, checks the deposit limit and deposits accordingly
                 case "ISA" -> {
                     ISA ISAAccount = Main_Program.FindISAAccount(account);
-                    if (ISAAccount.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
+                    if (ISAAccount.getCurrentAnnualDeposit() + Value < ISA.MaxAnnualDeposit) {
                         //if ISA limit has not been reached and will not be surpassed
                         account.setBalance(account.getBalance() + Value);
-                        ISAAccount.setAmountAddedIntoAccount(ISAAccount.getAmountAddedIntoAccount()+Value);
+                        ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Value);
                     } else {
                         getAccount().setBalance(getAccount().getBalance() + Value);
                         System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
@@ -70,10 +70,10 @@ public class Business {
             //If ISA, checks the deposit limit and deposits accordingly
             case "ISA" -> {
                 ISA ISAAccount = Main_Program.FindISAAccount(account);
-                if (ISAAccount.getAmountAddedIntoAccount() + Value < ISA.Max_Annual_Deposit) {
+                if (ISAAccount.getCurrentAnnualDeposit() + Value < ISA.MaxAnnualDeposit) {
                     //if ISA limit has not been reached and will not be surpassed
                     account.setBalance(account.getBalance() + Value);
-                    ISAAccount.setAmountAddedIntoAccount(ISAAccount.getAmountAddedIntoAccount()+Value);
+                    ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Value);
                 } else {
                     getAccount().setBalance(getAccount().getBalance() + Value);
                     System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
@@ -91,3 +91,4 @@ public class Business {
         getAccount().setBalance(getAccount().getBalance()-50);
     }
 }
+

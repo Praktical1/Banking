@@ -1,17 +1,17 @@
 public class ISA {
-    public static int Max_Annual_Deposit = 2_000_000;
+    public static int MaxAnnualDeposit = 2_000_000;
     public int InterestRate = 2;
     public int balance;
 
-    public int amountAddedIntoAccount;
+    public int CurrentAnnualDeposit;
     public ISA(int interestRate) {
         InterestRate = interestRate;
     }
-    public void setAmountAddedIntoAccount(int amountAddedIntoAccount){
-        this.amountAddedIntoAccount = amountAddedIntoAccount;
+    public void setCurrentAnnualDeposit(int amountAddedIntoAccount){
+        this.CurrentAnnualDeposit = amountAddedIntoAccount;
     }
-    public int getAmountAddedIntoAccount() {
-        return amountAddedIntoAccount;
+    public int getCurrentAnnualDeposit() {
+        return CurrentAnnualDeposit;
     }
     public void setBalance(int balance){
         this.balance = balance;
