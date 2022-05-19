@@ -67,6 +67,7 @@ public class Customer {
         this.address = address;
     }
 
+    //CreateBankAccount: gives the user a choice of new bank account
     public void CreateBankAccount (Customer User){
         //checks if the account creator is over 16
         if(User.Age >= 16){
@@ -86,6 +87,8 @@ public class Customer {
             }
         }
     }
+
+    //newBankAccount: Creates a new bank account and the relevant account type object
     private void newBankAccount (String accountType, Customer User){
         boolean ValidBank = false;
         do {
@@ -113,6 +116,7 @@ public class Customer {
             }
         }while(!ValidBank);
     }
+    //newBankNumber: Generates a new valid bank number using the Luhn algorithm
     private int newBankNumber(){
         Random rng = new Random();
         int[] accountdigit = new int[16];
@@ -138,10 +142,18 @@ public class Customer {
         }
         return accountnum;
     }
+    //newPIN: generates a new randomised PIN number
     private String newPIN(){
         Random rng = new Random();
         int pin = rng.nextInt(10000);
         String strpin = String.valueOf(pin);
+        System.out.println("""
+                               *****IMPORTANT*****
+                               REMEMBER YOUR PIN
+                if you forget your PIN, we cannot recover it
+                         Your PIN is:        """+strpin);
+        Scanner in = new Scanner(System.in);
+        in.nextLine();
         return strpin;
     }
 }
