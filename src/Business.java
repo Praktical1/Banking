@@ -30,10 +30,16 @@ public class Business {
 
     //Withdraw: Takes "Value" from "account"'s balance
     public void Withdraw(int Value){
-        getAccount().setBalance(getAccount().getBalance()-Value);
+        Value = Account.VerifyPayment(Value);
+        if(getAccount().getBalance() >= Value) {
+            getAccount().setBalance(getAccount().getBalance() - Value);
+        }else{
+            System.out.println("Error: Insufficient Funds");
+        }
     }
     //Deposit: Puts "Value" into "account"'s balance
     public void Deposit(int Value){
+        Value = Account.VerifyPayment(Value);
         getAccount().setBalance(getAccount().getBalance()+Value);
     }
     //Transfer: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
