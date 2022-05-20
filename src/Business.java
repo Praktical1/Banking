@@ -42,30 +42,37 @@ public class Business {
     }
     //Transfer: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
     public void Transfer(int Value, Bank_Accounts account){
-        if(getAccount().getOwner().equals(account.getOwner())) {
-            getAccount().setBalance(getAccount().getBalance() - Value);
-            switch (account.getAccountType()) {
-                case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
-                //If ISA, checks the deposit limit and deposits accordingly
-                case "ISA" -> {
-                    ISA ISAAccount = Main_Program.FindISAAccount(account);
-                    if (ISAAccount.getCurrentAnnualDeposit() + Value < ISA.MaxAnnualDeposit) {
-                        //if ISA limit has not been reached and will not be surpassed
-                        account.setBalance(account.getBalance() + Value);
-                        ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Value);
-                    } else {
-                        getAccount().setBalance(getAccount().getBalance() + Value);
-                        System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
-                    }
-                }
+        Value = account.VerifyPayment(Value);
+        if(getAccount().getBalance() >= Value) {
+            if (getAccount().getOwner().equals(account.getOwner())) {
+                movemoney(account, Value);
+            } else {
+                System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
             }
         }else{
-            System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
+            System.out.println("Error: Insufficient Funds");
         }
     }
     public void Pay(int Value, Bank_Accounts account){
+        Value = account.VerifyPayment(Value);
+        if(getAccount().getBalance() >= Value) {
+            movemoney(account, Value);
+            //logs the transaction
+            switch (account.getAccountType()) {
+                case "Current" ->
+                        Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
+                case "ISA" ->
+                        Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
+                case "Business" ->
+                        Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+            }
+        }else{
+            System.out.println("Error: Insufficient Funds");
+        }
+    }
+    private void movemoney(Bank_Accounts account, int Value){
         getAccount().setBalance(getAccount().getBalance() - Value);
-        switch (getAccount().getAccountType()) {
+        switch (account.getAccountType()) {
             case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
             //If ISA, checks the deposit limit and deposits accordingly
             case "ISA" -> {
@@ -79,12 +86,6 @@ public class Business {
                     System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
                 }
             }
-        }
-        //logs the transaction
-        switch(account.getAccountType()){
-            case "Current" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getCurrentSortCode(),Value);
-            case "ISA" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getISASortCode(),Value);
-            case "Business" -> Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getBusinessSortCode(),Value);
         }
     }
     public void Upkeep(){

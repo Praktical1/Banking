@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +66,7 @@
       <workItem from="1652881100970" duration="1318000" />
       <workItem from="1652949337175" duration="5665000" />
       <workItem from="1652956422147" duration="71000" />
+      <workItem from="1653052195465" duration="961000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -99,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652969625344</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed Customer">
+      <created>1652970293408</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652970293408</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,7 +131,7 @@
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
     <MESSAGE value="Changed double to int" />
-    <MESSAGE value="Consistent with error messages from business class, Also if statement to check if account holder is same for transfer function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Consistent with error messages from business class, Also if statement to check if account holder is same for transfer function" />
+    <MESSAGE value="Fixed Customer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Customer" />
   </component>
 </project>
