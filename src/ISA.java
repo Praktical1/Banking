@@ -9,7 +9,6 @@ public class ISA {
     public ISA(Bank_Accounts Account, int amountAddedIntoAccount) {
         this.Account = Account;
         CurrentAnnualDeposit = amountAddedIntoAccount;
-
     }
 
     public Bank_Accounts getAccount() {
@@ -46,6 +45,4 @@ public class ISA {
     public void addInterest(int interestAmount){
         this.InterestRate += interestAmount;
     }
-
-
 }
