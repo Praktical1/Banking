@@ -20,9 +20,6 @@ public class Current {
                 } else {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
                 }
-            } else if (AccountType.equals("Business")) {
-                account.setBalance(account.getBalance() + Transferred);
-                getAccount().setBalance(getAccount().getBalance() - Transferred);
             } else {
                 account.setBalance(account.getBalance() + Transferred);
                 getAccount().setBalance(getAccount().getBalance() - Transferred);
@@ -44,10 +41,6 @@ public class Current {
                 } else {
                     System.out.println("Cannot transfer, Annual deposit limit will be reached");
                 }
-            } else if (AccountType.equals("Business")) {
-                account.setBalance(account.getBalance() + Payment);
-                getAccount().setBalance(getAccount().getBalance() - Payment);
-                Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(),account.getBankNumber(),account.getBank().getBusinessSortCode(),Payment);
             } else {
                 account.setBalance(account.getBalance() + Payment);
                 getAccount().setBalance(getAccount().getBalance() - Payment);
