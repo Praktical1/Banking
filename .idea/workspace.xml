@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +66,7 @@
       <workItem from="1652881100970" duration="1318000" />
       <workItem from="1652949337175" duration="5665000" />
       <workItem from="1652956422147" duration="71000" />
-      <workItem from="1653052195465" duration="1613000" />
+      <workItem from="1653052195465" duration="1962000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -116,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653053195652</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Commented redundant code">
+      <created>1653053851960</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653053851960</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +147,7 @@
     <MESSAGE value="Changed double to int" />
     <MESSAGE value="Fixed Customer" />
     <MESSAGE value="Improved readability and added extra security" />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved readability and added extra security" />
+    <MESSAGE value="Commented redundant code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commented redundant code" />
   </component>
 </project>
