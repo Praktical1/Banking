@@ -18,7 +18,10 @@ public class Main_Program {
         }
         return new Bank(0,0,0,"");
     }
-    public static Business FindBusinessAccount(Bank_Accounts account){
+
+    //For future use: FindBusinessAccount will find the business account object related to a bank account object
+
+    /*public static Business FindBusinessAccount(Bank_Accounts account){
         for (int i = 0; i < BusinessAccounts.size(); i++) {
             if (BusinessAccounts.get(i).getAccount().equals(account)){
                 return BusinessAccounts.get(i);
@@ -26,7 +29,9 @@ public class Main_Program {
         }
         System.out.println("Error, Could not find this Business account");
         return null;
-    }
+    }*/
+
+    //FindISAAccount: Finds the ISA account object related to a bank account object
     public static ISA FindISAAccount(Bank_Accounts account){
         for (int i = 0; i < ISAAccounts.size(); i++) {
             if (ISAAccounts.get(i).getAccount().equals(account)){
@@ -36,7 +41,10 @@ public class Main_Program {
         System.out.println("Error, Could not find this ISA account");
         return null;
     }
-    public static Current FindCurrentAccount(Bank_Accounts account){
+
+    //For future use: FindCurrentAccount will find the current account object related to a bank account object
+
+    /*public static Current FindCurrentAccount(Bank_Accounts account){
         for (int i = 0; i < CurrentAccounts.size(); i++) {
             if (CurrentAccounts.get(i).getAccount().equals(account)){
                 return CurrentAccounts.get(i);
@@ -44,6 +52,6 @@ public class Main_Program {
         }
         System.out.println("Error, Could not find this Current account");
         return null;
-    }
+    }*/
 }
 
