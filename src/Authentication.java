@@ -87,7 +87,7 @@ public class Authentication {
                             Username = "";
                             Lock = false;
                         } else {
-                            System.out.println("Incorrect username/password, Try again ("+(3-attempts)+" attempts left");   //lets user know login is incorrect (password at fault)
+                            System.out.println("Incorrect username/password, Try again ("+(3-attempts)+" attempts left)");   //lets user know login is incorrect (password at fault)
                         }
                     }
                 } else {
@@ -97,7 +97,7 @@ public class Authentication {
                         Username = "";
                         Lock = false;
                     } else {
-                        System.out.println("Incorrect username/password, Try again ("+(3-attempts)+" attempts left");   //lets user know login is incorrect (Username at fault)
+                        System.out.println("Incorrect username/password, Try again ("+(3-attempts)+") attempts left)");   //lets user know login is incorrect (Username at fault)
                     }
                 }
             }
