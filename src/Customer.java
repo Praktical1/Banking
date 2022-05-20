@@ -8,9 +8,9 @@ public class Customer {
     Date DOB;
     int PhoneNumber;
     int MobNumber;
-    Address address;
+    Address[] address;
 
-    public Customer(String name, int age, Date DOB, int phoneNumber, int mobNumber, Address address) {
+    public Customer(String name, int age, Date DOB, int phoneNumber, int mobNumber, Address[] address) {
         Name = name;
         Age = age;
         this.DOB = DOB;
@@ -59,11 +59,11 @@ public class Customer {
         MobNumber = mobNumber;
     }
 
-    public Address getAddress() {
+    public Address[] getAddress() {
         return address;
     }
 
-    public void setAddress(Address address) {
+    public void setAddress(Address[] address) {
         this.address = address;
     }
 
