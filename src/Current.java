@@ -1,7 +1,7 @@
-public class Current {
+public class Current extends Bank_Accounts{
     private Bank_Accounts Account;
-    public Current(Bank_Accounts account){
-        Account = account;
+    public Current(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner){
+        super(bankNumber, PIN, balance, bank, accountType, owner);
     }
     public Bank_Accounts getAccount() {
         return Account;
