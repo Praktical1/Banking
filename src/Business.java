@@ -43,19 +43,20 @@ public class Business extends Bank_Accounts{
     }
     public void Pay(int Value, Bank_Accounts account){
         Value = account.VerifyPayment(Value);
-        if(getBalance() >= Value) {
-            movemoney(account, Value);
-            //logs the transaction
-            switch (account.getAccountType()) {
-                case "Current" ->
-                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
-                case "ISA" ->
-                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
-                case "Business" ->
-                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+        if(!getOwner().equals(account.getOwner())) {
+            if (getBalance() >= Value) {
+                movemoney(account, Value);
+                //logs the transaction
+                switch (account.getAccountType()) {
+                    case "Current" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
+                    case "ISA" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
+                    case "Business" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+                }
+            } else {
+                System.out.println("Error: Insufficient Funds");
             }
         }else{
-            System.out.println("Error: Insufficient Funds");
+            System.out.println("Error: Please use Transfer to transfer money between your accounts");
         }
     }
     private void movemoney(Bank_Accounts account, int Value){

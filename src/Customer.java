@@ -68,9 +68,9 @@ public class Customer {
     }
 
     //CreateBankAccount: gives the user a choice of new bank account
-    public void CreateBankAccount (Customer User){
+    public void CreateBankAccount (){
         //checks if the account creator is over 16
-        if(User.Age >= 16){
+        if(Age >= 16){
             Scanner in = new Scanner(System.in);
             System.out.print("""
                     What type of bank account would you like to open?
@@ -80,16 +80,16 @@ public class Customer {
             String Choice = in.nextLine();
             //determines the type of bank account created
             switch(Choice){
-                case "A" -> newBankAccount("Current", User);
-                case "B" -> newBankAccount("ISA", User);
-                case "C" -> newBankAccount("Business", User);
+                case "A" -> newBankAccount("Current");
+                case "B" -> newBankAccount("ISA");
+                case "C" -> newBankAccount("Business");
                 default -> System.out.println("Error: Invalid bank account type selected");
             }
         }
     }
 
     //newBankAccount: Creates a new bank account and the relevant account type object
-    private void newBankAccount (String accountType, Customer User){
+    private void newBankAccount (String accountType){
         boolean ValidBank = false;
         do {
             //determines the bank the account will be with
@@ -106,14 +106,14 @@ public class Customer {
                     case "Business"->{
                         System.out.println("Enter registered business number");
                         int businessnum = in.nextInt();
-                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank, accountType, User,businessnum));
+                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank, accountType, this,businessnum));
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
                     case "ISA"->{
                         Main_Program.ISAAccounts.add(new ISA((Main_Program.Accounts.get(-1)),0));
                     }
                     case "Current"->{
-                        Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, User));
+                        Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, this));
                     }
                 }
             }
