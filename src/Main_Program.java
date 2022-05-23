@@ -236,5 +236,15 @@ public class Main_Program {
             }
         }while(!validChoice);
     }
+    public static void CreateBank(){
+        System.out.println("Please input sort code for Current Accounts");
+    }
+    public static void ManageAccount(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("Please enter the account number:");
+        int AccountNumber = in.nextInt();
+        System.out.print("Please enter the sort code:");
+        int SortCode = in.nextInt();
+    }
 }
 
