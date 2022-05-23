@@ -137,11 +137,27 @@ public class Main_Program {
             System.out.println("How many months has the customer lived at this address? (to the closest month rounded up)");
             months += in.nextInt();
         }while(months<36&index<3);
+        Calendar Birthday = DOB;
+        Birthday.set(Calendar.YEAR,LocalDate.now().getYear());
+        int addyear = 0;
+        if(Birthday.getTimeInMillis() > System.currentTimeMillis()){
+            addyear = -1;
+        }
         //Creates a new customer with all the info (getting an age based upon current time is a nightmare)
-        Users.add(new Customer(name,LocalDate.now().getYear()-DOB.get(Calendar.YEAR), DOB.getTime(),Phone,Mobile,home));
+        Users.add(new Customer(name,LocalDate.now().getYear()-DOB.get(Calendar.YEAR) + addyear, DOB.getTime(),Phone,Mobile,home));
     }
-    public static void ManageCustomer(){
 
+    public static void ManageCustomer(){
+        System.out.println("Enter the Customer name:");
+        Scanner in = new Scanner(System.in);
+        String name = in.nextLine();
+        boolean validUser = false;
+        for(Customer i:Users){
+            if(i.getName().equals(name)){
+                validUser = true;
+
+            }
+        }
     }
 }
 
