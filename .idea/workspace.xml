@@ -5,10 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653312597079</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Business extends Bank_Accounts">
+      <created>1653314934180</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653314934180</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +203,7 @@
     <MESSAGE value="Variable name fix" />
     <MESSAGE value="Age accuracy fix &amp; beginning of manage customer menu" />
     <MESSAGE value="Increased legibility and commented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Increased legibility and commented" />
+    <MESSAGE value="Business extends Bank_Accounts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Business extends Bank_Accounts" />
   </component>
 </project>

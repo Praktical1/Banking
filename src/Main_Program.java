@@ -151,7 +151,7 @@ public class Main_Program {
     }
 
     public static void ManageCustomer(){
-        System.out.println("Enter the Customer's Bank number name:");
+        System.out.println("Enter the Customer's name:");
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
         boolean validUser = false;
@@ -160,11 +160,11 @@ public class Main_Program {
                 validUser = true;
                 System.out.println("""
                         Choose a customer operation:
-                            Create bank account
-                            Manage bank account
-                            Change customer details
-                            Remove customer""");
-
+                        1:    Create bank account
+                        2:    Manage bank account
+                        3:    Change customer details
+                        4:    Remove customer""");
+                int choice = in.nextInt();
             }
         }
     }
