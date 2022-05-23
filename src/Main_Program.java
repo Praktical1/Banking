@@ -16,7 +16,7 @@ public class Main_Program {
     static ArrayList<Bank_Accounts> Accounts = new ArrayList<>();
     static String Username;
     public static void main(String[] args) throws ParseException {
-        Username = Authentication.LogIn();
+        Username = Authentication.Login();
         Boolean Exit = false;
         if (Username.equals("")){Exit = true;}
         while(!Exit){
