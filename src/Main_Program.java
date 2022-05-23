@@ -151,13 +151,19 @@ public class Main_Program {
     }
 
     public static void ManageCustomer(){
-        System.out.println("Enter the Customer name:");
+        System.out.println("Enter the Customer's Bank number name:");
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
         boolean validUser = false;
         for(Customer i:Users){
             if(i.getName().equals(name)){
                 validUser = true;
+                System.out.println("""
+                        Choose a customer operation:
+                            Create bank account
+                            Manage bank account
+                            Change customer details
+                            Remove customer""");
 
             }
         }

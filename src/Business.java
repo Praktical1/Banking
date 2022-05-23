@@ -1,21 +1,9 @@
-public class Business {
+public class Business extends Bank_Accounts{
     private int BusinessNumber;
-    private Bank_Accounts Account;
 
-    public Business(int businessNumber, Bank_Accounts account) {
+    public Business(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner, int businessNumber) {
+        super(bankNumber, PIN, balance, bank, accountType, owner);
         BusinessNumber = businessNumber;
-        Account = account;
-    }
-    public Business(Bank_Accounts account){
-        Account = account;
-    }
-
-    public Bank_Accounts getAccount() {
-        return Account;
-    }
-
-    public void setAccount(Bank_Accounts account) {
-        Account = account;
     }
 
     public int getBusinessNumber() {
@@ -28,23 +16,23 @@ public class Business {
 
     //Withdraw: Takes "Value" from "account"'s balance
     public void Withdraw(int Value){
-        Value = Account.VerifyPayment(Value);
-        if(getAccount().getBalance() >= Value) {
-            getAccount().setBalance(getAccount().getBalance() - Value);
+        Value = VerifyPayment(Value);
+        if(getBalance() >= Value) {
+            setBalance(getBalance() - Value);
         }else{
             System.out.println("Error: Insufficient Funds");
         }
     }
     //Deposit: Puts "Value" into "account"'s balance
     public void Deposit(int Value){
-        Value = Account.VerifyPayment(Value);
-        getAccount().setBalance(getAccount().getBalance()+Value);
+        Value = VerifyPayment(Value);
+        setBalance(getBalance()+Value);
     }
     //Transfer: Takes "Value" from "account1" and deposits it in "account2" if account 2 is not an ISA
     public void Transfer(int Value, Bank_Accounts account){
         Value = account.VerifyPayment(Value);
-        if(getAccount().getBalance() >= Value) {
-            if (getAccount().getOwner().equals(account.getOwner())) {
+        if(getBalance() >= Value) {
+            if (getOwner().equals(account.getOwner())) {
                 movemoney(account, Value);
             } else {
                 System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
@@ -55,23 +43,23 @@ public class Business {
     }
     public void Pay(int Value, Bank_Accounts account){
         Value = account.VerifyPayment(Value);
-        if(getAccount().getBalance() >= Value) {
+        if(getBalance() >= Value) {
             movemoney(account, Value);
             //logs the transaction
             switch (account.getAccountType()) {
                 case "Current" ->
-                        Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
+                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
                 case "ISA" ->
-                        Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
+                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
                 case "Business" ->
-                        Log.Log(getAccount().getBankNumber(), getAccount().getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
             }
         }else{
             System.out.println("Error: Insufficient Funds");
         }
     }
     private void movemoney(Bank_Accounts account, int Value){
-        getAccount().setBalance(getAccount().getBalance() - Value);
+        setBalance(getBalance() - Value);
         switch (account.getAccountType()) {
             case "Business", "Current" -> account.setBalance(account.getBalance() + Value);
             //If ISA, checks the deposit limit and deposits accordingly
@@ -82,14 +70,14 @@ public class Business {
                     account.setBalance(account.getBalance() + Value);
                     ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Value);
                 } else {
-                    getAccount().setBalance(getAccount().getBalance() + Value);
+                    setBalance(getBalance() + Value);
                     System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
                 }
             }
         }
     }
     public void Upkeep(){
-        getAccount().setBalance(getAccount().getBalance()-50);
+        setBalance(getBalance()-50);
     }
 }
 

@@ -102,13 +102,11 @@ public class Customer {
                 System.out.println("Error: Bank name does not match any bank in our records");
             } else {
                 ValidBank = true;
-
-                Main_Program.Accounts.add(new Bank_Accounts(newBankNumber(), newPIN(), 0, bank, accountType, User));
                 switch (accountType){
                     case "Business"->{
                         System.out.println("Enter registered business number");
                         int businessnum = in.nextInt();
-                        Main_Program.BusinessAccounts.add(new Business(businessnum,Main_Program.Accounts.get(-1)));
+                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank, accountType, User,businessnum));
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
                     case "ISA"->{
