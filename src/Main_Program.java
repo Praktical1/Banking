@@ -1,10 +1,8 @@
-import java.sql.SQLOutput;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
 public class Main_Program {
@@ -17,8 +15,7 @@ public class Main_Program {
     static String Username;
     public static void main(String[] args) throws ParseException {
         Username = Authentication.Login();
-        Boolean Exit = false;
-        if (Username.equals("")){Exit = true;}
+        boolean Exit = Username.equals("");
         while(!Exit){
             System.out.println("\n\nHello " + Username + """
                                     
@@ -32,7 +29,7 @@ public class Main_Program {
                     3: Exit
                     """);
             Scanner in = new Scanner(System.in);
-            int answer = 0;
+            int answer;
             answer = in.nextInt();
             switch (answer) {
                 case 1 -> CreateCustomer();
@@ -65,9 +62,9 @@ public class Main_Program {
 
     //FindISAAccount: Finds the ISA account object related to a bank account object
     public static ISA FindISAAccount(Bank_Accounts account){
-        for (int i = 0; i < ISAAccounts.size(); i++) {
-            if (ISAAccounts.get(i).getAccount().equals(account)){
-                return ISAAccounts.get(i);
+        for (ISA i : ISAAccounts) {
+            if (i.getAccount().equals(account)) {
+                return i;
             }
         }
         System.out.println("Error, Could not find this ISA account");
@@ -94,7 +91,7 @@ public class Main_Program {
         System.out.println("\nDate of Birth (dd mm yyyy):");
 
         String DOBString = in.nextLine();
-        DateFormat formatter = new SimpleDateFormat("dd mm yyyy");
+        DateFormat formatter = new SimpleDateFormat("dd MM yyyy");
         //Date and time is a nightmare. Calendar type is different from Date type yet both represent a date
         //also, most features of Date are being depreciated so Calendar is used here
         Calendar DOB = Calendar.getInstance();
@@ -123,17 +120,17 @@ public class Main_Program {
         Address[] home = new Address[3];
 
         do{
-            index ++;
+            index += 1;
             System.out.println("For Address #"+index+"\n  House Name/Number:");
-            home[index].House = in.nextLine();
+            home[index].setHouse(in.nextLine());
             System.out.println("  Road:");
-            home[index].Road = in.nextLine();
+            home[index].setRoad(in.nextLine());
             System.out.println("  Town/Village/City:");
-            home[index].Town = in.nextLine();
+            home[index].setTown(in.nextLine());
             System.out.println("  County/Province:");
-            home[index].County = in.nextLine();
+            home[index].setCounty(in.nextLine());
             System.out.println("  PostCode/ZipCode:");
-            home[index].PostCode = in.nextLine();
+            home[index].setPostCode(in.nextLine());
             System.out.println("How many months has the customer lived at this address? (to the closest month rounded up)");
             months += in.nextInt();
         }while(months<36&index<3);
@@ -158,15 +155,86 @@ public class Main_Program {
         for(Customer i:Users){
             if(i.getName().equals(name)){
                 validUser = true;
-                System.out.println("""
-                        Choose a customer operation:
-                        1:    Create bank account
-                        2:    Manage bank account
-                        3:    Change customer details
-                        4:    Remove customer""");
-                int choice = in.nextInt();
+                boolean validChoice = true;
+                do {
+                    System.out.println("""
+                            Choose a customer operation:
+                            1:    Create bank account
+                            2:    Manage bank account
+                            3:    Change customer details
+                            4:    Remove customer""");
+                    int choice = in.nextInt();
+                    switch (choice) {
+                        case 1 -> i.CreateBankAccount();
+                        //case 2 -> i.ManageAccount()
+                        case 3 -> ChangeCustomerDetails(i);
+                        //case 4 -> removeCustomer()
+                        default -> {
+                            System.out.println("Error: Invalid choice");
+                            validChoice = false;
+                        }
+                    }
+                }while(!validChoice);
+            }else{
+                System.out.println("Error, No user found");
             }
         }
+    }
+
+    //Allows the details of a customer to be changed
+    public static void ChangeCustomerDetails(Customer User){
+        boolean validChoice = true;
+        do {
+            System.out.println("""
+                    What details require change?:
+                    1:    Change name
+                    2:    Change phone number
+                    3:    Change mobile number
+                    4:    Add new address""");
+            Scanner in = new Scanner(System.in);
+            int Choice = in.nextInt();
+            switch (Choice) {
+
+                //changes the name
+                case 1 -> {
+                    System.out.println("Change name to:");
+                    User.setName(in.nextLine());
+                }
+
+                //changes the phone number
+                case 2 -> {
+                    System.out.println("Change phone number to:");
+                    User.setPhoneNumber(in.nextInt());
+                }
+
+                //changes or adds a mobile number
+                case 3 -> {
+                    System.out.println("Change mobile number to:");
+                    User.setMobNumber(in.nextInt());
+                }
+
+                //adds a new address (and removes oldest address if there are 3 addresses already)
+                case 4 -> {
+                    Address address = new Address("","","","","");
+                    System.out.println("Enter new address:\n   House name/number:");
+                    address.setHouse(in.nextLine());
+                    System.out.println("   Road name:");
+                    address.setRoad(in.nextLine());
+                    System.out.println("   Town/city/village name:");
+                    address.setTown(in.nextLine());
+                    System.out.println("   County/Province name:");
+                    address.setCounty(in.nextLine());
+                    System.out.println("   Post Code:");
+                    address.setPostCode(in.nextLine());
+                    User.setAddress(new Address[]{address,User.getAddress()[0],User.getAddress()[1]});
+                }
+                //Error message
+                default -> {
+                    System.out.println("Error: invalid choice");
+                    validChoice = false;
+                }
+            }
+        }while(!validChoice);
     }
 }
 
