@@ -5,27 +5,32 @@ public class Current extends Bank_Accounts{
 
     public void transfer(int Transferred, Bank_Accounts account) {
         String AccountType = getAccountType();
-        if (getBalance()<Transferred) {
-            System.out.println("Error: Insufficient Funds");
-        } else {
-            if (AccountType.equals("ISA")) {
-                ISA ISAAccount = Main_Program.FindISAAccount(account);
-                if (ISAAccount.getCurrentAnnualDeposit() + Transferred < ISA.MaxAnnualDeposit) {
+        if(getOwner().equals(account.getOwner())) {
+            if (getBalance()<Transferred) {
+                System.out.println("Error: Insufficient Funds");
+            } else {
+                if (AccountType.equals("ISA")) {
+                    ISA ISAAccount = Main_Program.FindISAAccount(account);
+                    if (ISAAccount.getCurrentAnnualDeposit() + Transferred < ISA.MaxAnnualDeposit) {
+                        account.setBalance(account.getBalance() + Transferred);
+                        setBalance(getBalance() - Transferred);
+                        ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Transferred);
+                    } else {
+                        System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
+                    }
+                } else {
                     account.setBalance(account.getBalance() + Transferred);
                     setBalance(getBalance() - Transferred);
-                    ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Transferred);
-                } else {
-                    System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
                 }
-            } else {
-                account.setBalance(account.getBalance() + Transferred);
-                setBalance(getBalance() - Transferred);
             }
+        } else {
+            System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
         }
+
     }
     private void pay(int Payment, Bank_Accounts account) {
         String AccountType = getAccountType();
-        if(getOwner().equals(account.getOwner())) {
+        if(!getOwner().equals(account.getOwner())) {
             if (getBalance() < Payment) {
                 System.out.println("Error: Insufficient Funds");
             } else {
@@ -46,7 +51,7 @@ public class Current extends Bank_Accounts{
                 }
             }
         } else {
-            System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
+            System.out.println("Error: Cannot pay to own account, Please use the transfer function to send money to someone else");
         }
     }
 
