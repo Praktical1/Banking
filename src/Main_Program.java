@@ -169,7 +169,7 @@ public class Main_Program {
         }
     }
     public static void CreateBank(){
-        System.out.println("Please input sort code for");
+        System.out.println("Please input sort code for Current Accounts");
     }
     public static void ManageAccount(){
         Scanner in = new Scanner(System.in);

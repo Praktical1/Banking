@@ -26,7 +26,6 @@ public class Current extends Bank_Accounts{
         } else {
             System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
         }
-
     }
     private void pay(int Payment, Bank_Accounts account) {
         String AccountType = getAccountType();
