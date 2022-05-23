@@ -174,6 +174,7 @@
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
     <MESSAGE value="Changed double to int" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed double to int" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
   </component>
 </project>
