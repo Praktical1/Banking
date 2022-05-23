@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Changed double to int">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +44,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/Banking1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/ArrayChallenge&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -63,8 +65,9 @@
       <workItem from="1652881100970" duration="1318000" />
       <workItem from="1652949337175" duration="5665000" />
       <workItem from="1652956422147" duration="71000" />
-      <workItem from="1653052195465" duration="8807000" />
-      <workItem from="1653297065158" duration="1309000" />
+      <workItem from="1652995744503" duration="13000" />
+      <workItem from="1653089661182" duration="92000" />
+      <workItem from="1653230722608" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -101,70 +104,56 @@
       <option name="project" value="LOCAL" />
       <updated>1652969625344</updated>
     </task>
-    <task id="LOCAL-00006" summary="Fixed Customer">
-      <created>1652970293408</created>
+    <task id="LOCAL-00006" summary="Changed double to int">
+      <created>1652970107039</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1652970293408</updated>
+      <updated>1652970107039</updated>
     </task>
-    <task id="LOCAL-00007" summary="Improved readability and added extra security">
-      <created>1653053195652</created>
+    <task id="LOCAL-00007" summary="Changed double to int">
+      <created>1652970337254</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1653053195652</updated>
+      <updated>1652970337254</updated>
     </task>
-    <task id="LOCAL-00008" summary="Commented redundant code">
-      <created>1653053851960</created>
+    <task id="LOCAL-00008" summary="Changed double to int">
+      <created>1652970400902</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1653053851960</updated>
+      <updated>1652970400902</updated>
     </task>
-    <task id="LOCAL-00009" summary="Small changes">
-      <created>1653054189011</created>
+    <task id="LOCAL-00009" summary="Changed double to int">
+      <created>1652970416820</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1653054189011</updated>
+      <updated>1652970416820</updated>
     </task>
-    <task id="LOCAL-00010" summary="Authentication class created in its entirety">
-      <created>1653061311692</created>
+    <task id="LOCAL-00010" summary="Changed double to int">
+      <created>1652970466884</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1653061311692</updated>
+      <updated>1652970466884</updated>
     </task>
-    <task id="LOCAL-00011" summary="attempt message fixed">
-      <created>1653061934887</created>
+    <task id="LOCAL-00011" summary="Changed double to int">
+      <created>1652970523761</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1653061934887</updated>
+      <updated>1652970523761</updated>
     </task>
-    <task id="LOCAL-00012" summary="Variable name fix">
-      <created>1653299179197</created>
+    <task id="LOCAL-00012" summary="Changed double to int">
+      <created>1653089671873</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1653299179197</updated>
+      <updated>1653089671873</updated>
     </task>
-    <task id="LOCAL-00013" summary="Age accuracy fix &amp; beginning of manage customer menu">
-      <created>1653312455251</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1653312455252</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Increased legibility and commented">
-      <created>1653312597079</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1653312597079</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,15 +174,7 @@
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
     <MESSAGE value="Changed double to int" />
-    <MESSAGE value="Fixed Customer" />
-    <MESSAGE value="Improved readability and added extra security" />
-    <MESSAGE value="Commented redundant code" />
-    <MESSAGE value="Small changes" />
-    <MESSAGE value="Authentication class created in its entirety" />
-    <MESSAGE value="attempt message fixed" />
-    <MESSAGE value="Variable name fix" />
-    <MESSAGE value="Age accuracy fix &amp; beginning of manage customer menu" />
-    <MESSAGE value="Increased legibility and commented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Increased legibility and commented" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
   </component>
 </project>

@@ -1,18 +1,22 @@
-public class ISA {
+public class ISA extends Bank_Accounts {
     public static int MaxAnnualDeposit = 2_000_000;
-    public int InterestRate = 2;
-    public int balance;
-
-    private Bank_Accounts Account;
-
+    private int InterestRate = 2;
     public int CurrentAnnualDeposit;
-    public ISA(Bank_Accounts Account, int amountAddedIntoAccount) {
-        this.Account = Account;
-        CurrentAnnualDeposit = amountAddedIntoAccount;
+
+    public ISA(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner, int currentAnnualDeposit) {
+        super(bankNumber, PIN, balance, bank, accountType, owner);
+        CurrentAnnualDeposit = currentAnnualDeposit;
+
     }
 
-    public Bank_Accounts getAccount() {
-        return Account;
+    public static int getMaxAnnualDeposit() {
+        return MaxAnnualDeposit;
+    }
+
+
+
+    public static void setMaxAnnualDeposit(int maxAnnualDeposit) {
+        MaxAnnualDeposit = maxAnnualDeposit;
     }
 
     public void setCurrentAnnualDeposit(int amountAddedIntoAccount){
@@ -21,25 +25,43 @@ public class ISA {
     public int getCurrentAnnualDeposit() {
         return CurrentAnnualDeposit;
     }
-    public void setBalance(int balance){
-        this.balance = balance;
-    }
 
     //The following methods need to be looked at and revised
     public void transfer(int transferAmount){
-        this.balance = balance - transferAmount;
+        setBalance(getBalance() - transferAmount);
+        transferAmount = VerifyPayment(transferAmount);
+        if(transferAmount != 0 & (getBalance() - (int)(1+transferAmount/0.75))>=0){
+            setBalance(getBalance() - (int)(1+transferAmount/0.75));
+        }
+        else {
+            System.out.println("Insufficient funds");
+        }
     }
 
     public void withdraw(int withDrawAmount){
-        this.balance = balance - withDrawAmount;
+        withDrawAmount = VerifyPayment(withDrawAmount);
+        if(withDrawAmount != 0 & (getBalance() - (int)(1+withDrawAmount/0.75))>=0){
+            setBalance(getBalance() - (int)(1+withDrawAmount/0.75));
+        }
+        else {
+            System.out.println("Insufficient funds");
+        }
+
     }
 
     public void pay(int paymentAmount){
-        this.balance = balance - paymentAmount;
+        paymentAmount = VerifyPayment(paymentAmount);
+        if(paymentAmount != 0 & (getBalance() - paymentAmount>=0)){
+            setBalance(getBalance() - paymentAmount);
+        }
+        else{
+            System.out.println("Insufficient funds");
+        }
     }
 
     public void deposit(int depositAmount){
-        this.balance = balance + depositAmount;
+        setBalance(getBalance() + (int)(depositAmount*1.25));
+
     }
 
     public void addInterest(int interestAmount){
