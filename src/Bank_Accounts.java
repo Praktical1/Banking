@@ -43,10 +43,6 @@ public class Bank_Accounts {
         return BankNumber;
     }
 
-    public void setBankNumber(int bankNumber) {
-        BankNumber = bankNumber;
-    }
-
     public String getPIN() {
         return PIN;
     }

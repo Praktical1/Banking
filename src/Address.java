@@ -1,9 +1,9 @@
 public class Address {
-    String House;
-    String Road;
-    String Town;
-    String County;
-    String PostCode;
+    private String House;
+    private String Road;
+    private String Town;
+    private String County;
+    private String PostCode;
 
     public Address(String house, String road, String town, String county, String postCode) {
         this.House = house;
