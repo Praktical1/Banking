@@ -110,7 +110,7 @@ public class Customer {
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
                     case "ISA"->{
-                        Main_Program.ISAAccounts.add(new ISA((Main_Program.Accounts.get(-1)),0));
+                        Main_Program.ISAAccounts.add(new ISA(newBankNumber(),newPIN(),0,bank,accountType,this,0));
                     }
                     case "Current"->{
                         Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, this));
