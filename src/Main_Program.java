@@ -137,12 +137,15 @@ public class Main_Program {
             System.out.println("How many months has the customer lived at this address? (to the closest month rounded up)");
             months += in.nextInt();
         }while(months<36&index<3);
+
+        //Checks if the current year's birthday has happened
         Calendar Birthday = DOB;
         Birthday.set(Calendar.YEAR,LocalDate.now().getYear());
         int addyear = 0;
         if(Birthday.getTimeInMillis() > System.currentTimeMillis()){
             addyear = -1;
         }
+
         //Creates a new customer with all the info (getting an age based upon current time is a nightmare)
         Users.add(new Customer(name,LocalDate.now().getYear()-DOB.get(Calendar.YEAR) + addyear, DOB.getTime(),Phone,Mobile,home));
     }
