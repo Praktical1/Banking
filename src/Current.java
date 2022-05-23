@@ -1,4 +1,4 @@
-public class Current {
+public class Current{
     private Bank_Accounts Account;
     public Current(Bank_Accounts account){
         Account = account;
