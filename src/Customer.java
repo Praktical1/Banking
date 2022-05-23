@@ -113,7 +113,7 @@ public class Customer {
                         Main_Program.ISAAccounts.add(new ISA((Main_Program.Accounts.get(-1)),0));
                     }
                     case "Current"->{
-                        Main_Program.CurrentAccounts.add(new Current(Main_Program.Accounts.get(-1)));
+                        Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, User));
                     }
                 }
             }
