@@ -177,7 +177,7 @@ public class Main_Program {
                     int choice = in.nextInt();
                     switch (choice) {
                         case 1 -> i.CreateBankAccount();
-                        //case 2 -> i.ManageAccount()
+                        case 2 -> ManageAccount(i);
                         case 3 -> ChangeCustomerDetails(i);
                         case 4 -> {
                             i.removeCustomer();
