@@ -242,9 +242,24 @@ public class Main_Program {
     public static void ManageAccount(){
         Scanner in = new Scanner(System.in);
         System.out.print("Please enter the account number:");
+        while (!in.hasNextInt()) {
+            System.out.println("Please enter your account number");
+            in.next();
+        }
         int AccountNumber = in.nextInt();
         System.out.print("Please enter the sort code:");
+        while (!in.hasNextInt()) {
+            System.out.println("Please enter your sort code");
+            in.next();
+        }
         int SortCode = in.nextInt();
+        System.out.print("Please enter PIN");
+        while (!in.hasNextInt()) {
+            System.out.println("Please enter your pin");
+            in.next();
+        }
+        int Pin = in.nextInt();
+
     }
 }
 

@@ -27,8 +27,9 @@ public class Admin {
             System.out.println(" ");
             System.out.println("[1] Create User");
             System.out.println("[2] Delete User");
-            System.out.println("[3] Log Out");
-            System.out.println("Please choose option 1, 2 or 3");
+            System.out.println("[3] Add Bank");
+            System.out.println("[4] Log Out");
+            System.out.println("Please choose option 1, 2, 3 or 4");
             String MenuChoice = in.nextLine();
             //Admin menu option responsible for adding user
             if (MenuChoice.equals("1")) {
@@ -91,10 +92,14 @@ public class Admin {
                         }
                     }
                 }
-                //Meets condition required to exit the loop for admin menu
+
             } else if (MenuChoice.equals("3")) {
+                System.out.println("Please input Bank name, branch in the following format \"Bank/Branch\"");
+                System.out.println("Please input sort code for Current Accounts");
+            //Meets condition required to exit the loop for admin menu
+            } else if (MenuChoice.equals("4")) {
                 AdminLoggedIn = false;
-                //Catches an input that does not meet requirements of the menu options
+            //Catches an input that does not meet requirements of the menu options
             } else {
                 System.out.println("Invalid input, please choose either \"1\", \"2\" or \"3\"");                //Informs user that input doesn't match requirements
             }
