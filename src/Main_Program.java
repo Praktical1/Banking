@@ -314,7 +314,7 @@ public class Main_Program {
                         in.next();
                     }
                     int Choice = in.nextInt();
-                    boolean ChoiceCheck = false;
+                    boolean ChoiceCheck = true;
                     do {
                         switch (Choice) {
                             //View Balance
@@ -332,14 +332,14 @@ public class Main_Program {
                             //Pay
                             case 3 -> {
                                 Bank_Accounts RecipientAccount = AutoFindBankAccount();
-                                if (Account != null) {
+                                if (RecipientAccount != null) {
                                     Pay(Account,RecipientAccount);
                                 }
                             }
                             //Transfer
                             case 4 -> {
                                 Bank_Accounts RecipientAccount = AutoFindBankAccount();
-                                if (Account != null) {
+                                if (RecipientAccount != null) {
                                     Transfer(Account,RecipientAccount);
                                 }
                             }
@@ -382,6 +382,7 @@ public class Main_Program {
                             }
                             //Error of incorrect choice
                             default -> {
+                                ChoiceCheck = false;
                                 System.out.println("Please choose either option 1,2,3,4,5 or 6");
                             }
                         }
