@@ -27,7 +27,7 @@ public class Current extends Bank_Accounts{
             System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
         }
     }
-    private void pay(int Payment, Bank_Accounts account) {
+    public void pay(int Payment, Bank_Accounts account) {
         String AccountType = getAccountType();
         if(!getOwner().equals(account.getOwner())) {
             if (getBalance() < Payment) {
@@ -54,12 +54,12 @@ public class Current extends Bank_Accounts{
         }
     }
 
-    private void Deposit(int Deposited) {
+    public void Deposit(int Deposited) {
         Deposited = VerifyPayment(Deposited);
         setBalance(getBalance() + Deposited);
     }
 
-    private void Withdraw(int Withdrawn) {
+    public void Withdraw(int Withdrawn) {
         if (getBalance()<Withdrawn) {
             System.out.println("Error: Insufficient Funds");
         } else {
