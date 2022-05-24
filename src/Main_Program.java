@@ -267,14 +267,46 @@ public class Main_Program {
             in.next();
         }
         int SortCode = in.nextInt();
+        Bank_Accounts Account = FindBankAccount(AccountNumber,SortCode);
         System.out.print("Please enter PIN");
         while (!in.hasNextInt()) {
             System.out.println("Please enter your pin");
             in.next();
         }
         int Pin = in.nextInt();
-        Bank_Accounts Account = FindBankAccount(AccountNumber,SortCode);
-        if (Pin==Account.getPIN())
+        if (Pin==Account.getPIN()) {
+            System.out.println("| Account Menu |");
+            System.out.println(" ");
+            System.out.println(" [0] View Balance");
+            System.out.println(" [1] Deposit");
+            System.out.println(" [2] Withdraw");
+            System.out.println(" [3] Pay");
+            System.out.println(" [4] Transfer");
+            System.out.println(" [5] Change PIN");
+            System.out.println(" [6] Print Log");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter your pin");
+                in.next();
+            }
+            int Choice = in.nextInt();
+            switch (Choice) {
+                //View Balance
+                case 0 -> {
+
+                }
+            }
+        } else {
+            boolean check = true;
+            do {
+                System.out.println("Would you like to change pin (Y/N)?");
+                String Choice = in.nextLine();
+                if (Choice.equalsIgnoreCase("Y")) {
+
+                } else if (Choice.equalsIgnoreCase("N")) {
+
+                }
+            } while (check);
+        }
     }
 }
 
