@@ -1,7 +1,7 @@
 public class Business extends Bank_Accounts{
     private int BusinessNumber;
 
-    public Business(int bankNumber, int PIN, int balance, Bank bank, String accountType, Customer owner, int businessNumber) {
+    public Business(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner, int businessNumber) {
         super(bankNumber, PIN, balance, bank, accountType, owner);
         BusinessNumber = businessNumber;
     }
