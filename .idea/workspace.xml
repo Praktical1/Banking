@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_jupiter.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Banking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Banking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Bank_Accounts_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Bank_Accounts_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Business_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Business_Tests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,17 +46,86 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/prize/OneDrive/Documents/Capita Training/Java/Classes",
+    "last_opened_file_path": "C:/Users/abrah/IdeaProjects/Banking",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
+  <component name="RunManager" selected="JUnit.Business_Tests.TransferNotSame">
+    <configuration name="Business_Tests.DepositNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="DepositNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferMoney" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferNotSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferNotSame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferTooMuch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferTooMuch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
+        <item itemvalue="JUnit.Business_Tests.TransferNegative" />
+        <item itemvalue="JUnit.Business_Tests.TransferTooMuch" />
+        <item itemvalue="JUnit.Business_Tests.TransferMoney" />
+        <item itemvalue="JUnit.Business_Tests.DepositNegative" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -70,6 +143,11 @@
       <workItem from="1653089661182" duration="92000" />
       <workItem from="1653230722608" duration="11000" />
       <workItem from="1653392878763" duration="5355000" />
+      <workItem from="1653401509147" duration="224000" />
+      <workItem from="1653401756752" duration="99000" />
+      <workItem from="1653401875881" duration="59000" />
+      <workItem from="1653401967739" duration="61000" />
+      <workItem from="1653402046014" duration="3069000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -211,21 +289,7 @@
       <option name="project" value="LOCAL" />
       <updated>1653399478690</updated>
     </task>
-    <task id="LOCAL-00021" summary="another try">
-      <created>1653399727166</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1653399727166</updated>
-    </task>
-    <task id="LOCAL-00022" summary="another try">
-      <created>1653399975442</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1653399975442</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +318,6 @@
     <MESSAGE value="PIN was a string for some reason" />
     <MESSAGE value="PIN was a string for some reason revised edition" />
     <MESSAGE value="Changes backup" />
-    <MESSAGE value="another try" />
-    <option name="LAST_COMMIT_MESSAGE" value="another try" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes backup" />
   </component>
 </project>
