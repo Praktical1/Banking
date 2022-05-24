@@ -268,44 +268,50 @@ public class Main_Program {
         }
         int SortCode = in.nextInt();
         Bank_Accounts Account = FindBankAccount(AccountNumber,SortCode);
-        System.out.print("Please enter PIN");
-        while (!in.hasNextInt()) {
-            System.out.println("Please enter your pin");
-            in.next();
-        }
-        int Pin = in.nextInt();
-        if (Pin==Account.getPIN()) {
-            System.out.println("| Account Menu |");
-            System.out.println(" ");
-            System.out.println(" [0] View Balance");
-            System.out.println(" [1] Deposit");
-            System.out.println(" [2] Withdraw");
-            System.out.println(" [3] Pay");
-            System.out.println(" [4] Transfer");
-            System.out.println(" [5] Change PIN");
-            System.out.println(" [6] Print Log");
+        boolean ChoiceCheck = true;
+        do {
+            System.out.print("Please enter PIN");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter your pin");
                 in.next();
             }
-            int Choice = in.nextInt();
-            switch (Choice) {
-                //View Balance
-                case 0 -> {
-
+            int Pin = in.nextInt();
+            if (Pin.equals(Account.getPIN())) {
+                System.out.println("| Account Menu |");
+                System.out.println(" ");
+                System.out.println(" [0] View Balance");
+                System.out.println(" [1] Deposit");
+                System.out.println(" [2] Withdraw");
+                System.out.println(" [3] Pay");
+                System.out.println(" [4] Transfer");
+                System.out.println(" [5] Change PIN");
+                System.out.println(" [6] Print Log");
+                while (!in.hasNextInt()) {
+                    System.out.println("Please enter your pin");
+                    in.next();
                 }
-            }
-        } else {
-            boolean check = true;
-            do {
-                System.out.println("Would you like to change pin (Y/N)?");
-                String Choice = in.nextLine();
-                if (Choice.equalsIgnoreCase("Y")) {
+                int Choice = in.nextInt();
+                switch (Choice) {
+                    //View Balance
+                    case 0 -> {
 
-                } else if (Choice.equalsIgnoreCase("N")) {
-
+                    }
                 }
-            } while (check);
+            } else {
+                boolean check = true;
+                do {
+                    System.out.println("Would you like to change pin (Y/N)?");
+                    String Choice = in.nextLine();
+                    if (Choice.equalsIgnoreCase("Y")) {
+                        Account.setPIN(Customer.newPIN());
+                        check = false;
+                    } else if (Choice.equalsIgnoreCase("N")) {
+                        System.out.println("Exiting account");
+                        check = false;
+                    }
+                } while (check);
+        }
+
         }
     }
 }
