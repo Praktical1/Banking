@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,8 +70,7 @@
       <workItem from="1652995744503" duration="13000" />
       <workItem from="1653089661182" duration="92000" />
       <workItem from="1653230722608" duration="11000" />
-      <workItem from="1653335694120" duration="515000" />
-      <workItem from="1653377657241" duration="4852000" />
+      <workItem from="1653392878763" duration="985000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -164,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653322738790</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed Customer creating new ISA account">
+      <created>1653323360227</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1653323360227</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +193,7 @@
     <MESSAGE value="Changed double to int" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="Fixed FindISAAccount" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed FindISAAccount" />
+    <MESSAGE value="Fixed Customer creating new ISA account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Customer creating new ISA account" />
   </component>
 </project>
