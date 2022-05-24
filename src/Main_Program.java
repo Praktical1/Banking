@@ -270,7 +270,8 @@ public class Main_Program {
             in.next();
         }
         int Pin = in.nextInt();
-
+        Bank_Accounts Account = FindBankAccount(AccountNumber,SortCode);
+        if (Pin==Account.getPIN())
     }
 }
 
