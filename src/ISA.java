@@ -3,7 +3,7 @@ public class ISA extends Bank_Accounts {
     private int InterestRate = 2;
     public int CurrentAnnualDeposit;
 
-    public ISA(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner, int currentAnnualDeposit) {
+    public ISA(int bankNumber, int PIN, int balance, Bank bank, String accountType, Customer owner, int currentAnnualDeposit) {
         super(bankNumber, PIN, balance, bank, accountType, owner);
         CurrentAnnualDeposit = currentAnnualDeposit;
 

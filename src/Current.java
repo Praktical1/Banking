@@ -1,5 +1,5 @@
 public class Current extends Bank_Accounts{
-    public Current(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner){
+    public Current(int bankNumber, int PIN, int balance, Bank bank, String accountType, Customer owner){
         super(bankNumber, PIN, balance, bank, accountType, owner);
     }
 

@@ -1,4 +1,4 @@
-public class Bank_Accounts {
+public abstract class Bank_Accounts {
     private final int BankNumber;
     private int PIN;
     private int Balance;
@@ -62,8 +62,6 @@ public class Bank_Accounts {
         return this;
     }
     public int VerifyPayment(int Payment){
-        if(Payment>=0){
-            return Payment;
-        } else{ return 0;}
+        return Math.max(Payment, 0);
     }
 }

@@ -109,12 +109,10 @@ public class Customer {
                         Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank, accountType, this,businessnum));
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
-                    case "ISA"->{
-                        Main_Program.ISAAccounts.add(new ISA(newBankNumber(),newPIN(),0,bank,accountType,this,0));
-                    }
-                    case "Current"->{
-                        Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, this));
-                    }
+                    case "ISA"-> Main_Program.ISAAccounts.add(new ISA(newBankNumber(),newPIN(),0,bank,accountType,this,0));
+
+                    case "Current"-> Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, this));
+
                 }
             }
         }while(!ValidBank);
@@ -137,20 +135,22 @@ public class Customer {
         return accountnum;
     }
     //newPIN: generates a new randomised PIN number
-    private String newPIN(){
+    private int newPIN(){
         Random rng = new Random();
         int pin = rng.nextInt(10000);
-        String strpin = String.valueOf(pin);
         System.out.println("""
                                *****IMPORTANT*****
                                REMEMBER YOUR PIN
                 if you forget your PIN, we cannot recover it
-                         Your PIN is:        """+strpin);
+                         Your PIN is:        """+pin);
         Scanner in = new Scanner(System.in);
         in.nextLine();
-        return strpin;
+        return pin;
     }
+
+    //removes the customer from the system
     public void removeCustomer(){
+        //misinput checking
         System.out.println("Are you sure you want to be removed from our System? (Y/N)");
         Scanner in = new Scanner(System.in);
         String response = in.nextLine().toLowerCase();
