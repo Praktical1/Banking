@@ -171,7 +171,7 @@ public class Main_Program {
                     System.out.println("""
                             Choose a customer operation:
                             1:    Create bank account
-                            2:    Manage bank account
+                            2:    Manage bank accounts
                             3:    Change customer details
                             4:    Remove customer""");
                     int choice = in.nextInt();
@@ -179,7 +179,10 @@ public class Main_Program {
                         case 1 -> i.CreateBankAccount();
                         //case 2 -> i.ManageAccount()
                         case 3 -> ChangeCustomerDetails(i);
-                        //case 4 -> removeCustomer()
+                        case 4 -> {
+                            i.removeCustomer();
+                            Users.remove(i);
+                        }
                         default -> {
                             System.out.println("Error: Invalid choice");
                             validChoice = false;

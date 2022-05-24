@@ -1,5 +1,5 @@
 public class Bank_Accounts {
-    private int BankNumber;
+    private final int BankNumber;
     private String PIN;
     private int Balance;
     private Bank bank;

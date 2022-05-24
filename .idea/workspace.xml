@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
@@ -70,7 +71,7 @@
       <workItem from="1652995744503" duration="13000" />
       <workItem from="1653089661182" duration="92000" />
       <workItem from="1653230722608" duration="11000" />
-      <workItem from="1653392878763" duration="985000" />
+      <workItem from="1653392878763" duration="3246000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -170,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653323360227</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Created method to search for bank accounts with the account number and sort code">
+      <created>1653393900071</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653393900071</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +202,7 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="Fixed FindISAAccount" />
     <MESSAGE value="Fixed Customer creating new ISA account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Customer creating new ISA account" />
+    <MESSAGE value="Created method to search for bank accounts with the account number and sort code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created method to search for bank accounts with the account number and sort code" />
   </component>
 </project>

@@ -151,6 +151,29 @@ public class Customer {
         return strpin;
     }
     public void removeCustomer(){
-        System.out.println("Are you sure you want to be removed from our System?");
+        System.out.println("Are you sure you want to be removed from our System? (Y/N)");
+        Scanner in = new Scanner(System.in);
+        String response = in.nextLine().toLowerCase();
+        switch(response){
+            case "y" -> {
+                int totbal = 0;
+                for(Bank_Accounts i :Main_Program.Accounts) {
+                    if(i.getOwner().equals(this)) {
+                        switch(i.getAccountType()) {
+                            case "Current", "Business" -> totbal += i.getBalance();
+                            case "ISA" -> totbal += i.getBalance()*0.75;
+                        }
+                        i.setBalance(0);
+                    }
+                }
+                System.out.println("Your total remaining balance was £"+ (float)(totbal/100)+"\nWould you like to withdraw all of it? (Y/N)");
+                response = in.nextLine().toLowerCase();
+                switch(response) {
+                    case "y" -> System.out.println("Customer must collect their money within the collection period");
+                    default ->{}
+                }
+            }
+            default -> {}
+            }
+        }
     }
-}
