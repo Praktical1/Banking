@@ -189,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653396526589</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Backup">
+      <created>1653398153968</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653398153968</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +223,7 @@
     <MESSAGE value="Created method to search for bank accounts with the account number and sort code" />
     <MESSAGE value="Added remove customer function" />
     <MESSAGE value="PIN was a string for some reason" />
-    <option name="LAST_COMMIT_MESSAGE" value="PIN was a string for some reason" />
+    <MESSAGE value="Backup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backup" />
   </component>
 </project>

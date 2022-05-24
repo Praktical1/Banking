@@ -285,7 +285,7 @@ public class Main_Program {
                 System.out.println(" [3] Pay");
                 System.out.println(" [4] Transfer");
                 System.out.println(" [5] Change PIN");
-                System.out.println(" [6] Print Log");
+                System.out.println(" [6] View Log");
                 while (!in.hasNextInt()) {
                     System.out.println("Please enter your pin");
                     in.next();
@@ -294,6 +294,36 @@ public class Main_Program {
                 switch (Choice) {
                     //View Balance
                     case 0 -> {
+                        System.out.println(Account.getBalance());
+                    }
+                    //Deposit
+                    case 1 -> {
+                        if (Account.getAccountType().equals("ISA")) {
+                            ISA.De
+                        }
+                    }
+                    //Withdraw
+                    case 2 -> {
+
+                    }
+                    //Pay
+                    case 3 -> {
+
+                    }
+                    //Transfer
+                    case 4 -> {
+
+                    }
+                    //Change PIN
+                    case 5 -> {
+
+                    }
+                    //View Log
+                    case 6 -> {
+
+                    }
+                    //Error of incorrect choice
+                    default -> {
 
                     }
                 }
