@@ -275,7 +275,7 @@ public class Main_Program {
                 System.out.println("Please enter your pin");
                 in.next();
             }
-            int Pin = in.nextInt();
+            String Pin = in.nextLine();
             if (Pin.equals(Account.getPIN())) {
                 System.out.println("| Account Menu |");
                 System.out.println(" ");
@@ -299,7 +299,6 @@ public class Main_Program {
                     //Deposit
                     case 1 -> {
                         if (Account.getAccountType().equals("ISA")) {
-                            Curr
                         }
                     }
                     //Withdraw
