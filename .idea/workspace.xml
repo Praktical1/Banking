@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,7 @@
       <workItem from="1652995744503" duration="13000" />
       <workItem from="1653089661182" duration="92000" />
       <workItem from="1653230722608" duration="11000" />
-      <workItem from="1653392878763" duration="3246000" />
+      <workItem from="1653392878763" duration="3600000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -178,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653393900071</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added remove customer function">
+      <created>1653396319572</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1653396319572</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +207,7 @@
     <MESSAGE value="Fixed FindISAAccount" />
     <MESSAGE value="Fixed Customer creating new ISA account" />
     <MESSAGE value="Created method to search for bank accounts with the account number and sort code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created method to search for bank accounts with the account number and sort code" />
+    <MESSAGE value="Added remove customer function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added remove customer function" />
   </component>
 </project>
