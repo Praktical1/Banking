@@ -82,6 +82,17 @@ public class Main_Program {
         System.out.println("Error, Could not find this Current account");
         return null;
     }*/
+
+    //For finding bank accounts from the account number and sort code
+    public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
+        for (Bank_Accounts i : Accounts){
+            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
+                return i;
+            }
+        }
+        System.out.println("Error: Could not find bank account with these numbers");
+        return null;
+    }
     public static void CreateCustomer() throws ParseException {
         //Staff enters details of a new customer
         Scanner in = new Scanner(System.in);

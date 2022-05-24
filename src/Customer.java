@@ -150,4 +150,7 @@ public class Customer {
         in.nextLine();
         return strpin;
     }
+    public void removeCustomer(){
+        System.out.println("Are you sure you want to be removed from our System?");
+    }
 }
