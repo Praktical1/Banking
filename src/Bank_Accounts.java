@@ -1,12 +1,12 @@
 public class Bank_Accounts {
-    private int BankNumber;
-    private String PIN;
+    private final int BankNumber;
+    private int PIN;
     private int Balance;
     private Bank bank;
     private String AccountType;
     private Customer Owner;
 
-    public Bank_Accounts(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner) {
+    public Bank_Accounts(int bankNumber, int PIN, int balance, Bank bank, String accountType, Customer owner) {
         BankNumber = bankNumber;
         this.PIN = PIN;
         this.bank = bank;
@@ -43,11 +43,11 @@ public class Bank_Accounts {
         return BankNumber;
     }
 
-    public String getPIN() {
+    public int getPIN() {
         return PIN;
     }
 
-    public void setPIN(String PIN) {
+    public void setPIN(int PIN) {
         this.PIN = PIN;
     }
 
