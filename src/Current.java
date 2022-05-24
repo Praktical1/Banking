@@ -3,7 +3,7 @@ public class Current extends Bank_Accounts{
         super(bankNumber, PIN, balance, bank, accountType, owner);
     }
 
-    public void transfer(int Transferred, Bank_Accounts account) {
+    public void Transfer(int Transferred, Bank_Accounts account) {
         String AccountType = getAccountType();
         if(getOwner().equals(account.getOwner())) {
             if (getBalance()<Transferred) {
@@ -27,7 +27,7 @@ public class Current extends Bank_Accounts{
             System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
         }
     }
-    public void pay(int Payment, Bank_Accounts account) {
+    public void Pay(int Payment, Bank_Accounts account) {
         String AccountType = getAccountType();
         if(!getOwner().equals(account.getOwner())) {
             if (getBalance() < Payment) {

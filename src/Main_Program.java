@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -253,95 +255,351 @@ public class Main_Program {
     public static void CreateBank(){
         System.out.println("Please input sort code for Current Accounts");
     }
-    public static void ManageAccount(){
-        Scanner in = new Scanner(System.in);
-        System.out.print("Please enter the account number:");
-        while (!in.hasNextInt()) {
-            System.out.println("Please enter your account number");
-            in.next();
-        }
-        int AccountNumber = in.nextInt();
-        System.out.print("Please enter the sort code:");
-        while (!in.hasNextInt()) {
-            System.out.println("Please enter your sort code");
-            in.next();
-        }
-        int SortCode = in.nextInt();
-        Bank_Accounts Account = FindBankAccount(AccountNumber,SortCode);
-        boolean ChoiceCheck = true;
+    private static Bank_Accounts AutoFindBankAccount(){
+        boolean AccountFound = false;
+        Bank_Accounts Account = null;
+        int attempt = 0;
         do {
-            System.out.print("Please enter PIN");
-            while (!in.hasNextInt()) {
-                System.out.println("Please enter your pin");
-                in.next();
-            }
-            String Pin = in.nextLine();
-            if (Pin.equals(Account.getPIN())) {
-                System.out.println("| Account Menu |");
-                System.out.println(" ");
-                System.out.println(" [0] View Balance");
-                System.out.println(" [1] Deposit");
-                System.out.println(" [2] Withdraw");
-                System.out.println(" [3] Pay");
-                System.out.println(" [4] Transfer");
-                System.out.println(" [5] Change PIN");
-                System.out.println(" [6] View Log");
+            do {
+                Scanner in = new Scanner(System.in);
+                System.out.print("Please enter the account number:");
+                while (!in.hasNextInt()) {
+                    System.out.println("Please enter the account number");
+                    in.next();
+                }
+                int AccountNumber = in.nextInt();
+                System.out.print("Please enter the sort code:");
+                while (!in.hasNextInt()) {
+                    System.out.println("Please enter the sort code");
+                    in.next();
+                }
+                int SortCode = in.nextInt();
+                Account = FindBankAccount(AccountNumber,SortCode);
+                if (Account != null) {
+                    AccountFound = true;
+                }
+            } while (!AccountFound);
+        }while (attempt<3);
+        if (attempt==3) {
+            System.out.println("Please confirm the account number and sort code before continuing");
+        }
+        return Account;
+    }
+    public static void ManageAccount(){
+        Bank_Accounts Account = AutoFindBankAccount();
+        Scanner in = new Scanner(System.in);
+        if (Account != null) {
+            boolean PinCheck  = false;
+            int attempts = 0;
+            do {
+                System.out.print("Please enter PIN");
                 while (!in.hasNextInt()) {
                     System.out.println("Please enter your pin");
                     in.next();
                 }
-                int Choice = in.nextInt();
-                switch (Choice) {
-                    //View Balance
-                    case 0 -> {
-                        System.out.println(Account.getBalance());
+                String Pin = in.nextLine();
+                if (Pin.equals(Account.getPIN())) {
+                    PinCheck = true;
+                    System.out.println("| Account Menu |");
+                    System.out.println(" ");
+                    System.out.println(" [0] View Balance");
+                    System.out.println(" [1] Deposit");
+                    System.out.println(" [2] Withdraw");
+                    System.out.println(" [3] Pay");
+                    System.out.println(" [4] Transfer");
+                    System.out.println(" [5] Change PIN");
+                    System.out.println(" [6] View Log");
+                    while (!in.hasNextInt()) {
+                        System.out.println("Please enter your pin");
+                        in.next();
                     }
-                    //Deposit
-                    case 1 -> {
-                        if (Account.getAccountType().equals("ISA")) {
+                    int Choice = in.nextInt();
+                    boolean ChoiceCheck = false;
+                    do {
+                        switch (Choice) {
+                            //View Balance
+                            case 0 -> {
+                                System.out.println(Account.getBalance());
+                            }
+                            //Deposit
+                            case 1 -> {
+                                Deposit(Account);
+                            }
+                            //Withdraw
+                            case 2 -> {
+                                Withdraw(Account);
+                            }
+                            //Pay
+                            case 3 -> {
+                                Bank_Accounts RecipientAccount = AutoFindBankAccount();
+                                if (Account != null) {
+                                    Pay(Account,RecipientAccount);
+                                }
+                            }
+                            //Transfer
+                            case 4 -> {
+                                Bank_Accounts RecipientAccount = AutoFindBankAccount();
+                                if (Account != null) {
+                                    Transfer(Account,RecipientAccount);
+                                }
+                            }
+                            //Change PIN
+                            case 5 -> {
+                                boolean check = true;
+                                do {
+                                    System.out.println("Would you like to change pin (Y/N)?");
+                                    String Choicepin = in.nextLine();
+                                    if (Choicepin.equalsIgnoreCase("Y")) {
+                                        Customer customer = Account.getOwner();
+                                        Account.setPIN(customer.newPIN());
+                                        check = false;
+                                    } else if (Choicepin.equalsIgnoreCase("N")) {
+                                        check = false;
+                                    }
+                                } while (check);
+                            }
+                            //View Log
+                            case 6 -> {
+                                int AccountNumber = Account.getBankNumber();
+                                int SortCode;
+                                if (Account.getAccountType().equals("ISA")) {
+                                    SortCode = Account.getBank().getISASortCode();
+                                } else if (Account.getAccountType().equals("Current")) {
+                                    SortCode = Account.getBank().getCurrentSortCode();
+                                } else {
+                                    SortCode = Account.getBank().getBusinessSortCode();
+                                }
+                                try {
+                                    File LogData = new File("Log"+AccountNumber+SortCode+".txt");
+                                    Scanner myReader = new Scanner(LogData);
+                                    while (myReader.hasNextLine()) {
+                                        System.out.println((myReader.nextLine()));
+                                    }
+                                    myReader.close();
+                                } catch (FileNotFoundException e) {
+                                    System.out.println("Log for account is missing, New log will be created");
+                                }
+                            }
+                            //Error of incorrect choice
+                            default -> {
+                                System.out.println("Please choose either option 1,2,3,4,5 or 6");
+                            }
                         }
-                    }
-                    //Withdraw
-                    case 2 -> {
+                    } while (!ChoiceCheck);
+                } else if (attempts == 2){
+                    boolean check = true;
+                    do {
+                        System.out.println("Would you like to change pin (Y/N)?");
+                        String Choice = in.nextLine();
+                        if (Choice.equalsIgnoreCase("Y")) {
+                            Customer customer = Account.getOwner();
+                            Account.setPIN(customer.newPIN());
+                            check = false;
 
-                    }
-                    //Pay
-                    case 3 -> {
-
-                    }
-                    //Transfer
-                    case 4 -> {
-
-                    }
-                    //Change PIN
-                    case 5 -> {
-
-                    }
-                    //View Log
-                    case 6 -> {
-
-                    }
-                    //Error of incorrect choice
-                    default -> {
-
-                    }
+                        } else if (Choice.equalsIgnoreCase("N")) {
+                            System.out.println("Exiting account");
+                            check = false;
+                        }
+                        PinCheck = true;
+                    } while (check);
+                } else {
+                    System.out.println("Wrong Pin");
+                    attempts ++;
                 }
-            } else {
-                boolean check = true;
-                do {
-                    System.out.println("Would you like to change pin (Y/N)?");
-                    String Choice = in.nextLine();
-                    if (Choice.equalsIgnoreCase("Y")) {
-                        Customer customerpin = Account.getOwner();
-                        Account.setPIN(customerpin.newPIN());
-                        check = false;
-                    } else if (Choice.equalsIgnoreCase("N")) {
-                        System.out.println("Exiting account");
-                        check = false;
-                    }
-                } while (check);
+            } while (!PinCheck);
+        }
+    }
+    private static void Deposit(Bank_Accounts Account) {
+        boolean check = true;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.println("How much would you like to deposit in pence?");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter only integers");
+                in.next();
             }
-        } while (ChoiceCheck);
+            int Depositvalue = in.nextInt();
+            System.out.println("Are you sure you want to deposit " + ((double) Depositvalue) / 100 + " pound(s)?   [Y/N]");
+            String confirm = in.nextLine();
+            boolean check2 = true;
+            do {
+                if (confirm.equalsIgnoreCase("Y")) {
+                    check = false;
+                    check2 = false;
+                    if (Account.getAccountType().equals("ISA")) {
+                        ISA account = FindISAAccount(Account);
+                        account.deposit(Depositvalue);
+                    } else if (Account.getAccountType().equals("Current")) {
+                        Current account = FindCurrentAccount(Account);
+                        account.Deposit(Depositvalue);
+                    } else {
+                        Business account = FindBusinessAccount(Account);
+                        account.Deposit(Depositvalue);
+                    }
+                } else if (confirm.equalsIgnoreCase("N")) {
+                    check2 = false;
+                    System.out.println("Do you still want to deposit money? [Y/N]");
+                    confirm = in.nextLine();
+                    boolean check3 = true;
+                    do {
+                        if (confirm.equalsIgnoreCase("Y")) {
+                            check3 = false;
+                        } else if (confirm.equalsIgnoreCase("N")) {
+                            check3 = false;
+                            check = false;
+                        } else {
+                            System.out.println("Please choose either Y or N");
+                        }
+                    } while (check3);
+                } else {
+                    System.out.println("Please choose either Y or N");
+                }
+            } while (check2);
+        } while (check);
+    }
+    private static void Withdraw(Bank_Accounts Account) {
+        boolean check = true;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.println("How much would you like to withdraw in pence?");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter only integers");
+                in.next();
+            }
+            int Withdrawvalue = in.nextInt();
+            System.out.println("Are you sure you want to withdraw " + ((double) Withdrawvalue) / 100 + " pound(s)?   [Y/N]");
+            String confirm = in.nextLine();
+            boolean check2 = true;
+            do {
+                if (confirm.equalsIgnoreCase("Y")) {
+                    check = false;
+                    check2 = false;
+                    if (Account.getAccountType().equals("ISA")) {
+                        ISA account = FindISAAccount(Account);
+                        account.withdraw(Withdrawvalue);
+                    } else if (Account.getAccountType().equals("Current")) {
+                        Current account = FindCurrentAccount(Account);
+                        account.Withdraw(Withdrawvalue);
+                    } else {
+                        Business account = FindBusinessAccount(Account);
+                        account.Withdraw(Withdrawvalue);
+                    }
+                } else if (confirm.equalsIgnoreCase("N")) {
+                    check2 = false;
+                    System.out.println("Do you still want to withdraw money? [Y/N]");
+                    confirm = in.nextLine();
+                    boolean check3 = true;
+                    do {
+                        if (confirm.equalsIgnoreCase("Y")) {
+                            check3 = false;
+                        } else if (confirm.equalsIgnoreCase("N")) {
+                            check3 = false;
+                            check = false;
+                        } else {
+                            System.out.println("Please choose either Y or N");
+                        }
+                    } while (check3);
+                } else {
+                    System.out.println("Please choose either Y or N");
+                }
+            } while (check2);
+        } while (check);
+    }
+    private static void Pay(Bank_Accounts Account, Bank_Accounts RecipientAccount){
+        boolean check = true;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" in pence?");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter only integers");
+                in.next();
+            }
+            int PayValue = in.nextInt();
+            System.out.println("Are you sure you want to pay "+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + " pound(s)?   [Y/N]");
+            String confirm = in.nextLine();
+            boolean check2 = true;
+            do {
+                if (confirm.equalsIgnoreCase("Y")) {
+                    check = false;
+                    check2 = false;
+                    if (RecipientAccount.getAccountType().equals("ISA")) {
+                        ISA account = FindISAAccount(Account);
+                        account.pay(PayValue,RecipientAccount);
+                    } else if (RecipientAccount.getAccountType().equals("Current")) {
+                        Current account = FindCurrentAccount(Account);
+                        account.Pay(PayValue,RecipientAccount);
+                    } else {
+                        Business account = FindBusinessAccount(Account);
+                        account.Pay(PayValue,RecipientAccount);
+                    }
+                } else if (confirm.equalsIgnoreCase("N")) {
+                    check2 = false;
+                    System.out.println("Do you still want to pay someone? [Y/N]");
+                    confirm = in.nextLine();
+                    boolean check3 = true;
+                    do {
+                        if (confirm.equalsIgnoreCase("Y")) {
+                            check3 = false;
+                        } else if (confirm.equalsIgnoreCase("N")) {
+                            check3 = false;
+                            check = false;
+                        } else {
+                            System.out.println("Please choose either Y or N");
+                        }
+                    } while (check3);
+                } else {
+                    System.out.println("Please choose either Y or N");
+                }
+            } while (check2);
+        } while (check);
+    }
+    private static void Transfer(Bank_Accounts Account, Bank_Accounts RecipientAccount) {
+        boolean check = true;
+        do {
+            Scanner in = new Scanner(System.in);
+            System.out.println("How much would you like to transfer to "+ RecipientAccount.getOwner() +" in pence?");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter only integers");
+                in.next();
+            }
+            int PayValue = in.nextInt();
+            System.out.println("Are you sure you want to transfer "+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + " pound(s)?   [Y/N]");
+            String confirm = in.nextLine();
+            boolean check2 = true;
+            do {
+                if (confirm.equalsIgnoreCase("Y")) {
+                    check = false;
+                    check2 = false;
+                    if (RecipientAccount.getAccountType().equals("ISA")) {
+                        ISA account = FindISAAccount(Account);
+                        account.transfer(PayValue,RecipientAccount);
+                    } else if (RecipientAccount.getAccountType().equals("Current")) {
+                        Current account = FindCurrentAccount(Account);
+                        account.Transfer(PayValue,RecipientAccount);
+                    } else {
+                        Business account = FindBusinessAccount(Account);
+                        account.Transfer(PayValue,RecipientAccount);
+                    }
+                } else if (confirm.equalsIgnoreCase("N")) {
+                    check2 = false;
+                    System.out.println("Do you still want to transfer money between accounts? [Y/N]");
+                    confirm = in.nextLine();
+                    boolean check3 = true;
+                    do {
+                        if (confirm.equalsIgnoreCase("Y")) {
+                            check3 = false;
+                        } else if (confirm.equalsIgnoreCase("N")) {
+                            check3 = false;
+                            check = false;
+                        } else {
+                            System.out.println("Please choose either Y or N");
+                        }
+                    } while (check3);
+                } else {
+                    System.out.println("Please choose either Y or N");
+                }
+            } while (check2);
+        } while (check);
     }
 }
 
