@@ -332,8 +332,8 @@ public class Main_Program {
                     System.out.println("Would you like to change pin (Y/N)?");
                     String Choice = in.nextLine();
                     if (Choice.equalsIgnoreCase("Y")) {
-                        Customer customerpin = newPIN();
-                        Account.setPIN(Customer.newPIN());
+                        Customer customerpin = Account.getOwner();
+                        Account.setPIN(customerpin.newPIN());
                         check = false;
                     } else if (Choice.equalsIgnoreCase("N")) {
                         System.out.println("Exiting account");
