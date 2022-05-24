@@ -135,17 +135,28 @@ public class Customer {
         return accountnum;
     }
     //newPIN: generates a new randomised PIN number
-    private int newPIN(){
+    public String newPIN(){
         Random rng = new Random();
+        //formats pin as ####
         int pin = rng.nextInt(10000);
+        String strpin = "";
+        if(pin<10) {
+            strpin = "000" ;
+        } else if (pin<100) {
+            strpin = "00";
+        }else if (pin < 1000){
+            strpin = "0";
+        }
+        strpin += String.valueOf(pin);
+        //Displays pin
         System.out.println("""
                                *****IMPORTANT*****
                                REMEMBER YOUR PIN
                 if you forget your PIN, we cannot recover it
-                         Your PIN is:        """+pin);
+                         Your PIN is:        """ +strpin);
         Scanner in = new Scanner(System.in);
         in.nextLine();
-        return pin;
+        return strpin;
     }
 
     //removes the customer from the system
