@@ -65,7 +65,7 @@ public class Main_Program {
     //FindISAAccount: Finds the ISA account object related to a bank account object
     public static ISA FindISAAccount(Bank_Accounts account){
         for (ISA i : ISAAccounts) {
-            if (i.getAccount().equals(account)) {
+            if (i.getAccount().getBankNumber() == account.getBankNumber()) {
                 return i;
             }
         }

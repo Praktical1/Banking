@@ -27,7 +27,7 @@ public class ISA extends Bank_Accounts {
     }
 
     //The following methods need to be looked at and revised
-    public void transfer(int transferAmount){
+    public void transfer(int transferAmount, Bank_Accounts recipientAccount){
         setBalance(getBalance() - transferAmount);
         transferAmount = VerifyPayment(transferAmount);
         if(transferAmount != 0 & (getBalance() - (int)(1+transferAmount/0.75))>=0){
@@ -49,7 +49,7 @@ public class ISA extends Bank_Accounts {
 
     }
 
-    public void pay(int paymentAmount){
+    public void pay(int paymentAmount, Bank_Accounts recipientAccount){
         paymentAmount = VerifyPayment(paymentAmount);
         if(paymentAmount != 0 & (getBalance() - paymentAmount>=0)){
             setBalance(getBalance() - paymentAmount);
