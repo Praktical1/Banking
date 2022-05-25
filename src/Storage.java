@@ -7,43 +7,45 @@ import java.util.Scanner;
 
 public class Storage {
     public static ArrayList Populate(String type, ArrayList list) {
-
-            Temp;
-            switch (type) {
-                case "ISA" -> {
-                    try {
-                        int limit=Limit(type);
-                        File f = new File(type+".txt");
-                        Scanner myReader = new Scanner(f);
-                        int index = 0;
-                        ArrayList<ISA> Temp= new ArrayList<>();
-                        while (myReader.hasNextLine()) {
-                            Temp.add(myReader.nextLine());
-                        }
-                        index++;
-                        if (index == limit) {
-                            index = 0;
-                            list.add(Temp);
-                            Temp = new ArrayList<>();
-                        }
-                    myReader.close();
-                    } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
-                        System.out.println(type+" database missing, creating new empty database");
-                        //Variables holding sample?
-
-                        //Creates new database with default admin login included
-                        try {
-                            FileWriter myWriter = new FileWriter(type+".txt");
-                            myWriter.close();
-                            System.out.println("Successfully Written File");
-                        } catch (IOException g) {
-                            System.out.println("Error occurred with writing");
-                            g.printStackTrace();
-                        }
-                        //Adds samples?
+        switch (type) {
+            case "ISA" -> {
+                try {
+                    int limit = Limit(type);
+                    File f = new File(type + ".txt");
+                    Scanner myReader = new Scanner(f);
+                    int index = 0;
+                    ArrayList<ISA> Temp = new ArrayList<>();
+                    while (myReader.hasNextLine()) {
+                        Temp.add(new ISA(Integer.valueOf(myReader.nextLine()), myReader.nextLine(), Integer.valueOf(myReader.nextLine()),new Bank(Integer.valueOf(myReader.nextLine()),Integer.valueOf(myReader.nextLine()),Integer.valueOf(myReader.nextLine()),myReader.nextLine()),myReader.nextLine(),));
 
                     }
-        return list;
+
+
+                    index++;
+                    if (index == limit) {
+                        index = 0;
+                        list.add(Temp);
+                        Temp = new ArrayList<>();
+                    }
+                    myReader.close();
+                } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+                    System.out.println(type + " database missing, creating new empty database");
+                    //Variables holding sample?
+
+                    //Creates new database with default admin login included
+                    try {
+                        FileWriter myWriter = new FileWriter(type + ".txt");
+                        myWriter.close();
+                        System.out.println("Successfully Written File");
+                    } catch (IOException g) {
+                        System.out.println("Error occurred with writing");
+                        g.printStackTrace();
+                    }
+                    //Adds samples?
+
+                }
+            }
+        }
     }
     public static void Save(String type, ArrayList list) {
         try {
