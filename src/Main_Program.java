@@ -13,7 +13,6 @@ public class Main_Program {
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
-    static ArrayList<Bank_Accounts> Accounts = new ArrayList<>();
     static String Username;
     public static void main(String[] args) throws ParseException {
         Username = Authentication.Login();
@@ -65,7 +64,7 @@ public class Main_Program {
     //FindISAAccount: Finds the ISA account object related to a bank account object
     public static ISA FindISAAccount(Bank_Accounts account){
         for (ISA i : ISAAccounts) {
-            if (i.getAccount().equals(account)) {
+            if (i.getAccount().getBankNumber() == account.getBankNumber()) {
                 return i;
             }
         }
@@ -87,7 +86,17 @@ public class Main_Program {
 
     //For finding bank accounts from the account number and sort code
     public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
-        for (Bank_Accounts i : Accounts){
+        for (Bank_Accounts i : ISAAccounts){
+            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
+                return i;
+            }
+        }
+        for (Bank_Accounts i : BusinessAccounts){
+            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
+                return i;
+            }
+        }
+        for (Bank_Accounts i : CurrentAccounts){
             if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
                 return i;
             }
@@ -164,37 +173,44 @@ public class Main_Program {
         System.out.println("Enter the Customer's name:");
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
+        System.out.println("Enter your Current Post code (e.g AA1 1AA");
+        String postcode = in.nextLine();
+        System.out.println("Enter your house name/number");
+        String hname = in.nextLine();
         boolean validUser = false;
-        for(Customer i:Users){
-            if(i.getName().equals(name)){
-                validUser = true;
-                boolean validChoice = true;
-                do {
-                    System.out.println("""
-                            Choose a customer operation:
-                            1:    Create bank account
-                            2:    Manage bank accounts
-                            3:    Change customer details
-                            4:    Remove customer""");
-                    int choice = in.nextInt();
-                    switch (choice) {
-                        case 1 -> i.CreateBankAccount();
-                        case 2 -> ManageAccount();
-                        case 3 -> ChangeCustomerDetails(i);
-                        case 4 -> {
-                            i.removeCustomer();
-                            Users.remove(i);
+        do {
+            for (Customer i : Users) {
+                if (i.getName().equals(name) & i.getAddress()[0].getPostCode().equals(postcode) & i.getAddress()[0].getHouse().equals(hname)) {
+                    validUser = true;
+                    boolean validChoice = true;
+                    do {
+                        System.out.println("""
+                                Choose a customer operation:
+                                1:    Create bank account
+                                2:    Manage bank accounts
+                                3:    Change customer details
+                                4:    Remove customer""");
+                        String choice = in.nextLine();
+                        switch (choice) {
+                            case "1" -> i.CreateBankAccount();
+                            case "2" -> ManageAccount();
+                            case "3" -> ChangeCustomerDetails(i);
+                            case "4" -> {
+                                i.removeCustomer();
+                                Users.remove(i);
+                            }
+                            default -> {
+                                System.out.println("Error: Invalid choice");
+                                validChoice = false;
+                            }
                         }
-                        default -> {
-                            System.out.println("Error: Invalid choice");
-                            validChoice = false;
-                        }
-                    }
-                }while(!validChoice);
-            }else{
+                    } while (!validChoice);
+                }
+            }
+            if(!validUser){
                 System.out.println("Error, No user found");
             }
-        }
+        }while(!validUser);
     }
 
     //Allows the details of a customer to be changed
@@ -257,31 +273,29 @@ public class Main_Program {
     }
     private static Bank_Accounts AutoFindBankAccount(){
         boolean AccountFound = false;
-        Bank_Accounts Account = null;
+        Bank_Accounts Account;
         int attempt = 0;
         do {
-            do {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Please enter the account number:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the account number");
-                    in.next();
-                }
-                int AccountNumber = in.nextInt();
-                System.out.print("Please enter the sort code:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the sort code");
-                    in.next();
-                }
-                int SortCode = in.nextInt();
-                Account = FindBankAccount(AccountNumber,SortCode);
-                if (Account != null) {
-                    AccountFound = true;
-                } else {
-                    attempt++;
-                }
-            } while (!AccountFound);
-        }while (attempt<3);
+            Scanner in = new Scanner(System.in);
+            System.out.print("Please enter the account number:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the account number");
+                in.next();
+            }
+            int AccountNumber = in.nextInt();
+            System.out.print("Please enter the sort code:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the sort code");
+                in.next();
+            }
+            int SortCode = in.nextInt();
+            Account = FindBankAccount(AccountNumber,SortCode);
+            if (Account != null) {
+                AccountFound = true;
+            } else {
+                attempt++;
+            }
+        } while (!AccountFound & attempt<3);
         if (attempt==3) {
             System.out.println("Please confirm the account number and sort code before continuing");
         }
@@ -289,33 +303,31 @@ public class Main_Program {
     }
     public static void ManageAccount(){
         boolean AccountFound = false;
-        Bank_Accounts Account = null;
+        Bank_Accounts Account;
         int AccountNumber;
         int SortCode;
         int attempt = 0;
         do {
-            do {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Please enter the account number:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the account number");
-                    in.next();
-                }
-                AccountNumber = in.nextInt();
-                System.out.print("Please enter the sort code:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the sort code");
-                    in.next();
-                }
-                SortCode = in.nextInt();
-                Account = FindBankAccount(AccountNumber,SortCode);
-                if (Account != null) {
-                    AccountFound = true;
-                } else {
-                    attempt++;
-                }
-            } while (!AccountFound);
-        }while (attempt<3);
+            Scanner in = new Scanner(System.in);
+            System.out.print("Please enter the account number:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the account number");
+                in.next();
+            }
+            AccountNumber = in.nextInt();
+            System.out.print("Please enter the sort code:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the sort code");
+                in.next();
+            }
+            SortCode = in.nextInt();
+            Account = FindBankAccount(AccountNumber,SortCode);
+            if (Account != null) {
+                AccountFound = true;
+            } else {
+                attempt++;
+            }
+        } while (!AccountFound & attempt<3);
         if (attempt==3) {
             System.out.println("Please confirm the account number and sort code before continuing");
         }
@@ -334,7 +346,6 @@ public class Main_Program {
                     PinCheck = true;
                     boolean MenuStay = true;
                     do {
-
                         System.out.println("| Account Menu |");
                         System.out.println(" ");
                         System.out.println(" [0] View Balance");

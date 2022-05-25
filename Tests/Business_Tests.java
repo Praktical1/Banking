@@ -77,5 +77,51 @@ public class Business_Tests {
         assertEquals(1000,Account1.getBalance());
         assertEquals(1000,Account2.getBalance());
     }
-
+    @Test
+    void TransferToISA(){
+        var value = 100;
+        Main_Program.ISAAccounts.add(Account4);
+        Account2.Transfer(value,Account4);
+        assertEquals(900,Account2.getBalance());
+        assertEquals(1100,Account4.getBalance());
+        Main_Program.ISAAccounts.remove(0);
+    }
+    @Test
+    void TransferToISAOverLimit(){
+        var value = 100;
+        Account4.setCurrentAnnualDeposit(2000000);
+        Main_Program.ISAAccounts.add(Account4);
+        Account2.Transfer(value,Account4);
+        assertEquals(1000,Account2.getBalance());
+        assertEquals(1000,Account4.getBalance());
+        Main_Program.ISAAccounts.remove(0);
+    }
+    @Test
+    void TransferToNotSameOwner(){
+        var value = 100;
+        Account1.Transfer(value,Account2);
+        assertEquals(1000,Account1.getBalance());
+        assertEquals(1000,Account2.getBalance());
+    }
+    @Test
+    void PayMoney(){
+        var value = 100;
+        Account1.Pay(value,Account2);
+        assertEquals(900,Account1.getBalance());
+        assertEquals(1100,Account2.getBalance());
+    }
+    @Test
+    void PayTooMuch(){
+        var value = 1001;
+        Account1.Pay(value,Account2);
+        assertEquals(1000,Account1.getBalance());
+        assertEquals(1000,Account2.getBalance());
+    }
+    @Test
+    void PayNegative(){
+        var value = -1;
+        Account1.Pay(value,Account2);
+        assertEquals(1000,Account1.getBalance());
+        assertEquals(1000,Account2.getBalance());
+    }
 }
