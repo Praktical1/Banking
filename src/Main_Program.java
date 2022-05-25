@@ -332,100 +332,117 @@ public class Main_Program {
                 String Pin = in.nextLine();
                 if (Pin.equals(Account.getPIN())) {
                     PinCheck = true;
-                    System.out.println("| Account Menu |");
-                    System.out.println(" ");
-                    System.out.println(" [0] View Balance");
-                    System.out.println(" [1] Deposit");
-                    System.out.println(" [2] Withdraw");
-                    System.out.println(" [3] Pay");
-                    System.out.println(" [4] Transfer");
-                    System.out.println(" [5] Change PIN");
-                    System.out.println(" [6] View Log");
-                    if (Account.getAccountType().equals("Business")) {
-                        System.out.println(" [7] Update Business Number");
-                    }
-                    System.out.println(" [9] Exit");
-                    while (!in.hasNextInt()) {
-                        System.out.println("Please enter your pin");
-                        in.next();
-                    }
-                    int Choice = in.nextInt();
-                    boolean ChoiceCheck = true;
+                    boolean MenuStay = true;
                     do {
-                        switch (Choice) {
-                            //View Balance
-                            case 0 -> System.out.println(Account.getBalance());
-                            //Deposit
-                            case 1 -> Deposit(Account);
-                            //Withdraw
-                            case 2 -> Withdraw(Account);
-                            //Pay
-                            case 3 -> {
-                                Bank_Accounts RecipientAccount = AutoFindBankAccount();
-                                if (RecipientAccount != null) {
-                                    Pay(Account,RecipientAccount);
-                                }
-                            }
-                            //Transfer
-                            case 4 -> {
-                                Bank_Accounts RecipientAccount = AutoFindBankAccount();
-                                if (RecipientAccount != null) {
-                                    Transfer(Account,RecipientAccount);
-                                }
-                            }
-                            //Change PIN
-                            case 5 -> {
-                                boolean check = true;
-                                do {
-                                    System.out.println("Would you like to change pin (Y/N)?");
-                                    String Choicepin = in.nextLine();
-                                    if (Choicepin.equalsIgnoreCase("Y")) {
-                                        Customer customer = Account.getOwner();
-                                        Account.setPIN(customer.newPIN());
-                                        check = false;
-                                    } else if (Choicepin.equalsIgnoreCase("N")) {
-                                        check = false;
+
+                        System.out.println("| Account Menu |");
+                        System.out.println(" ");
+                        System.out.println(" [0] View Balance");
+                        System.out.println(" [1] Deposit");
+                        System.out.println(" [2] Withdraw");
+                        System.out.println(" [3] Pay");
+                        System.out.println(" [4] Transfer");
+                        System.out.println(" [5] Change PIN");
+                        System.out.println(" [6] View Log");
+                        if (Account.getAccountType().equals("Business")) {
+                            System.out.println(" [7] Update Business Number");
+                        } else if (Account.getAccountType().equals("ISA")) {
+                            System.out.println(" [7] View Current Annual Deposit");
+                        }
+                        System.out.println(" [9] Exit");
+                        while (!in.hasNextInt()) {
+                            System.out.println("Please enter a menu option");
+                            in.next();
+                        }
+                        int Choice = in.nextInt();
+                        boolean ChoiceCheck = true;
+                        do {
+                            switch (Choice) {
+                                //View Balance
+                                case 0 -> System.out.println(Account.getBalance());
+                                //Deposit
+                                case 1 -> Deposit(Account);
+                                //Withdraw
+                                case 2 -> Withdraw(Account);
+                                //Pay
+                                case 3 -> {
+                                    Bank_Accounts RecipientAccount = AutoFindBankAccount();
+                                    if (RecipientAccount != null) {
+                                        Pay(Account,RecipientAccount);
                                     }
-                                } while (check);
-                            }
-                            //View Log
-                            case 6 -> {
-                                try {
-                                    File LogData = new File("Log"+AccountNumber+SortCode+".txt");
-                                    Scanner myReader = new Scanner(LogData);
-                                    while (myReader.hasNextLine()) {
-                                        System.out.println((myReader.nextLine()));
-                                    }
-                                    myReader.close();
-                                } catch (FileNotFoundException e) {
-                                    System.out.println("Log for account is missing, New log will be created");
                                 }
-                            }
-                            //Update Business Number
-                            case 7 -> {
-                                if (Account.getAccountType().equals("Business")) {
-                                    Business account = FindBusinessAccount(Account);
-                                    System.out.println("Current Business Number: "+ account.getBusinessNumber());
-                                    System.out.print("New Business Number:");
-                                    while (!in.hasNextInt()) {
-                                        System.out.println("Please enter your pin");
-                                        in.next();
+                                //Transfer
+                                case 4 -> {
+                                    Bank_Accounts RecipientAccount = AutoFindBankAccount();
+                                    if (RecipientAccount != null) {
+                                        Transfer(Account,RecipientAccount);
                                     }
-                                    int NewBusinessNumber = in.nextInt();
-                                    account.setBusinessNumber(NewBusinessNumber);
-                                } else {
+                                }
+                                //Change PIN
+                                case 5 -> {
+                                    boolean check = true;
+                                    do {
+                                        System.out.println("Would you like to change pin (Y/N)?");
+                                        String Choicepin = in.nextLine();
+                                        if (Choicepin.equalsIgnoreCase("Y")) {
+                                            Customer customer = Account.getOwner();
+                                            Account.setPIN(customer.newPIN());
+                                            check = false;
+                                        } else if (Choicepin.equalsIgnoreCase("N")) {
+                                            check = false;
+                                        }
+                                    } while (check);
+                                }
+                                //View Log
+                                case 6 -> {
+                                    try {
+                                        File LogData = new File("Log"+AccountNumber+SortCode+".txt");
+                                        Scanner myReader = new Scanner(LogData);
+                                        while (myReader.hasNextLine()) {
+                                            System.out.println((myReader.nextLine()));
+                                        }
+                                        myReader.close();
+                                    } catch (FileNotFoundException e) {
+                                        System.out.println("Log for account is missing, New log will be created");
+                                    }
+                                }
+                                //Update Business Number
+                                case 7 -> {
+                                    if (Account.getAccountType().equals("Business")) {
+                                        Business account = FindBusinessAccount(Account);
+                                        System.out.println("Current Business Number: "+ account.getBusinessNumber());
+                                        System.out.print("New Business Number: ");
+                                        while (!in.hasNextInt()) {
+                                            System.out.println("Please enter your new business number");
+                                            in.next();
+                                        }
+                                        int NewBusinessNumber = in.nextInt();
+                                        System.out.println("Please confirm your new business number is "+NewBusinessNumber+ " [Y/N]");
+                                        String Confirm = in.nextLine();
+                                        if (Confirm.equalsIgnoreCase("Y")) {
+                                            account.setBusinessNumber(NewBusinessNumber);
+                                            System.out.println("Business number updated");
+                                        } else {
+                                            System.out.println("Business number not changed");
+                                            System.out.println(" ");
+                                        }
+                                    } else if (Account.getAccountType().equals("ISA")) {
+                                        ISA account = FindISAAccount(Account);
+                                        System.out.println("Your Current Annual Deposit is: "+(double)account.getCurrentAnnualDeposit()/100+" pounds / " + (double)ISA.MaxAnnualDeposit/100 + " pounds");
+                                    } else {
+                                        ChoiceCheck = false;
+                                        System.out.println("Please choose either option 1,2,3,4,5 or 6");
+                                    }
+                                }
+                                case 9 -> MenuStay = false;
+                                //Error of incorrect choice
+                                default -> {
                                     ChoiceCheck = false;
                                     System.out.println("Please choose either option 1,2,3,4,5 or 6");
                                 }
                             }
-                            case 9 -> PinCheck = true;
-                            //Error of incorrect choice
-                            default -> {
-                                ChoiceCheck = false;
-                                System.out.println("Please choose either option 1,2,3,4,5 or 6");
-                            }
-                        }
-                    } while (!ChoiceCheck);
+                        } while (!ChoiceCheck);
+                    } while (MenuStay);
                 } else if (attempts == 2){
                     boolean check = true;
                     do {
@@ -443,8 +460,8 @@ public class Main_Program {
                         PinCheck = true;
                     } while (check);
                 } else {
-                    System.out.println("Wrong Pin");
                     attempts ++;
+                    System.out.println("Wrong Pin (Attempts Left: "+(3-attempts)+")");
                 }
             } while (!PinCheck);
         }
