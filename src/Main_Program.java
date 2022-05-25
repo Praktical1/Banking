@@ -257,31 +257,29 @@ public class Main_Program {
     }
     private static Bank_Accounts AutoFindBankAccount(){
         boolean AccountFound = false;
-        Bank_Accounts Account = null;
+        Bank_Accounts Account;
         int attempt = 0;
         do {
-            do {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Please enter the account number:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the account number");
-                    in.next();
-                }
-                int AccountNumber = in.nextInt();
-                System.out.print("Please enter the sort code:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the sort code");
-                    in.next();
-                }
-                int SortCode = in.nextInt();
-                Account = FindBankAccount(AccountNumber,SortCode);
-                if (Account != null) {
-                    AccountFound = true;
-                } else {
-                    attempt++;
-                }
-            } while (!AccountFound);
-        }while (attempt<3);
+            Scanner in = new Scanner(System.in);
+            System.out.print("Please enter the account number:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the account number");
+                in.next();
+            }
+            int AccountNumber = in.nextInt();
+            System.out.print("Please enter the sort code:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the sort code");
+                in.next();
+            }
+            int SortCode = in.nextInt();
+            Account = FindBankAccount(AccountNumber,SortCode);
+            if (Account != null) {
+                AccountFound = true;
+            } else {
+                attempt++;
+            }
+        } while (!AccountFound & attempt<3);
         if (attempt==3) {
             System.out.println("Please confirm the account number and sort code before continuing");
         }
@@ -289,33 +287,31 @@ public class Main_Program {
     }
     public static void ManageAccount(){
         boolean AccountFound = false;
-        Bank_Accounts Account = null;
+        Bank_Accounts Account;
         int AccountNumber;
         int SortCode;
         int attempt = 0;
         do {
-            do {
-                Scanner in = new Scanner(System.in);
-                System.out.print("Please enter the account number:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the account number");
-                    in.next();
-                }
-                AccountNumber = in.nextInt();
-                System.out.print("Please enter the sort code:");
-                while (!in.hasNextInt()) {
-                    System.out.println("Please enter the sort code");
-                    in.next();
-                }
-                SortCode = in.nextInt();
-                Account = FindBankAccount(AccountNumber,SortCode);
-                if (Account != null) {
-                    AccountFound = true;
-                } else {
-                    attempt++;
-                }
-            } while (!AccountFound);
-        }while (attempt<3);
+            Scanner in = new Scanner(System.in);
+            System.out.print("Please enter the account number:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the account number");
+                in.next();
+            }
+            AccountNumber = in.nextInt();
+            System.out.print("Please enter the sort code:");
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter the sort code");
+                in.next();
+            }
+            SortCode = in.nextInt();
+            Account = FindBankAccount(AccountNumber,SortCode);
+            if (Account != null) {
+                AccountFound = true;
+            } else {
+                attempt++;
+            }
+        } while (!AccountFound & attempt<3);
         if (attempt==3) {
             System.out.println("Please confirm the account number and sort code before continuing");
         }
@@ -334,7 +330,6 @@ public class Main_Program {
                     PinCheck = true;
                     boolean MenuStay = true;
                     do {
-
                         System.out.println("| Account Menu |");
                         System.out.println(" ");
                         System.out.println(" [0] View Balance");
