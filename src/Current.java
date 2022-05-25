@@ -1,12 +1,9 @@
-import java.util.concurrent.ThreadPoolExecutor;
-
 public class Current extends Bank_Accounts{
     public Current(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner){
         super(bankNumber, PIN, balance, bank, accountType, owner);
     }
 
     public void Transfer(int Transferred, Bank_Accounts account) {
-        String AccountType = getAccountType();
         if (Transferred > 0) {
             if(getOwner().equals(account.getOwner())) {
                 if (getBalance()<Transferred) {
@@ -34,7 +31,6 @@ public class Current extends Bank_Accounts{
         }
     }
     public void Pay(int Payment, Bank_Accounts account) {
-        String AccountType = getAccountType();
         if (Payment > 0) {
             if(!getOwner().equals(account.getOwner())) {
                 if (getBalance() < Payment) {
@@ -46,14 +42,18 @@ public class Current extends Bank_Accounts{
                             account.setBalance(account.getBalance() + Payment);
                             setBalance(getBalance() - Payment);
                             ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit() + Payment);
-                            Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Payment);
+                            Log.Log(getBankNumber(), getBank().getCurrentSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Payment);
                         } else {
                             System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
                         }
+                    } else if (account.getAccountType().equals("Current")) {
+                        account.setBalance(account.getBalance() + Payment);
+                        setBalance(getBalance() - Payment);
+                        Log.Log(getBankNumber(), getBank().getCurrentSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Payment);
                     } else {
                         account.setBalance(account.getBalance() + Payment);
                         setBalance(getBalance() - Payment);
-                        Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Payment);
+                        Log.Log(getBankNumber(), getBank().getCurrentSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Payment);
                     }
                 }
             } else {
