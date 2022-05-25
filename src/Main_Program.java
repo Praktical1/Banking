@@ -13,7 +13,6 @@ public class Main_Program {
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
-    static ArrayList<Bank_Accounts> Accounts = new ArrayList<>();
     static String Username;
     public static void main(String[] args) throws ParseException {
         Username = Authentication.Login();
@@ -87,7 +86,17 @@ public class Main_Program {
 
     //For finding bank accounts from the account number and sort code
     public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
-        for (Bank_Accounts i : Accounts){
+        for (Bank_Accounts i : ISAAccounts){
+            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
+                return i;
+            }
+        }
+        for (Bank_Accounts i : BusinessAccounts){
+            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
+                return i;
+            }
+        }
+        for (Bank_Accounts i : CurrentAccounts){
             if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
                 return i;
             }

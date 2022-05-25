@@ -47,10 +47,12 @@ public class Business extends Bank_Accounts{
             if (getBalance() >= Value) {
                 movemoney(account, Value);
                 //logs the transaction
-                switch (account.getAccountType()) {
-                    case "Current" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
-                    case "ISA" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
-                    case "Business" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+                if(Value != 0) {
+                    switch (account.getAccountType()) {
+                        case "Current" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
+                        case "ISA" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
+                        case "Business" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+                    }
                 }
             } else {
                 System.out.println("Error: Insufficient Funds");
@@ -66,13 +68,18 @@ public class Business extends Bank_Accounts{
             //If ISA, checks the deposit limit and deposits accordingly
             case "ISA" -> {
                 ISA ISAAccount = Main_Program.FindISAAccount(account);
-                if (ISAAccount.getCurrentAnnualDeposit() + Value < ISA.MaxAnnualDeposit) {
-                    //if ISA limit has not been reached and will not be surpassed
-                    account.setBalance(account.getBalance() + Value);
-                    ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Value);
-                } else {
+                if (ISAAccount != null) {
+                    if (ISAAccount.getCurrentAnnualDeposit() + Value < ISA.MaxAnnualDeposit) {
+                        //if ISA limit has not been reached and will not be surpassed
+                        account.setBalance(account.getBalance() + Value);
+                        ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit() + Value);
+                    } else {
+                        setBalance(getBalance() + Value);
+                        System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
+                    }
+                } else{
                     setBalance(getBalance() + Value);
-                    System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
+                    System.out.println("Error: ISA account not found");
                 }
             }
         }
