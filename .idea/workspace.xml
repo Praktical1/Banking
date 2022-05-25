@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Added confirmation for changing business number and added in view current annual deposit onto manage account.">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Loop added for menu and attempt counter for pin added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +148,8 @@
       <workItem from="1653402046014" duration="3069000" />
       <workItem from="1653468500603" duration="1709000" />
       <workItem from="1653472648620" duration="1506000" />
-      <workItem from="1653474719380" duration="1232000" />
+      <workItem from="1653474719380" duration="1406000" />
+      <workItem from="1653476641909" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -326,7 +326,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653474131143</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Loop added for menu and attempt counter for pin added">
+      <created>1653475980407</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1653475980407</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +368,7 @@
     <MESSAGE value="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding" />
     <MESSAGE value="Added update business number to menu option and exit for account management menu" />
     <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
+    <MESSAGE value="Loop added for menu and attempt counter for pin added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loop added for menu and attempt counter for pin added" />
   </component>
 </project>
