@@ -12,9 +12,9 @@ public class Current extends Bank_Accounts{
                 if (getBalance()<Transferred) {
                     System.out.println("Error: Insufficient Funds");
                 } else {
-                    if (AccountType.equals("ISA")) {
+                    if (account.getAccountType().equals("ISA")) {
                         ISA ISAAccount = Main_Program.FindISAAccount(account);
-                        if (ISAAccount.getCurrentAnnualDeposit() + Transferred < ISA.MaxAnnualDeposit) {
+                        if (ISAAccount.getCurrentAnnualDeposit() + Transferred <= ISA.MaxAnnualDeposit) {
                             account.setBalance(account.getBalance() + Transferred);
                             setBalance(getBalance() - Transferred);
                             ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Transferred);
@@ -40,9 +40,9 @@ public class Current extends Bank_Accounts{
                 if (getBalance() < Payment) {
                     System.out.println("Error: Insufficient Funds");
                 } else {
-                    if (AccountType.equals("ISA")) {
+                    if (account.getAccountType().equals("ISA")) {
                         ISA ISAAccount = Main_Program.FindISAAccount(account);
-                        if (ISAAccount.getCurrentAnnualDeposit() + Payment < ISA.MaxAnnualDeposit) {
+                        if (ISAAccount.getCurrentAnnualDeposit() + Payment <= ISA.MaxAnnualDeposit) {
                             account.setBalance(account.getBalance() + Payment);
                             setBalance(getBalance() - Payment);
                             ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit() + Payment);
