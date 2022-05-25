@@ -83,19 +83,19 @@ public class Main_Program {
         System.out.println("Error, Could not find this Current account");
         return null;
     }
-public static Bank_Accounts[] FindAccount(){
-        Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size()+BusinessAccounts.size()+ISAAccounts.size()];
-    for (int i = 0; i < BusinessAccounts.size(); i++) {
-        Accounts[i] = BusinessAccounts.get(i);
+    public static Bank_Accounts[] FindAccount() {
+        Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size() + BusinessAccounts.size() + ISAAccounts.size()];
+        for (int i = 0; i < BusinessAccounts.size(); i++) {
+            Accounts[i] = BusinessAccounts.get(i);
+        }
+        for (int i = 0; i < CurrentAccounts.size(); i++) {
+            Accounts[i] = CurrentAccounts.get(i);
+        }
+        for (int i = 0; i < ISAAccounts.size(); i++) {
+            Accounts[i] = ISAAccounts.get(i);
+        }
+        return Accounts;
     }
-    for (int i = 0; i < CurrentAccounts.size(); i++) {
-        Accounts[i] = CurrentAccounts.get(i);
-    }
-    for (int i = 0; i < ISAAccounts.size(); i++) {
-        Accounts[i] = ISAAccounts.get(i);
-    }
-    return Accounts;
-}
     //For finding bank accounts from the account number and sort code
     public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
         for (Bank_Accounts i : FindAccount()){
