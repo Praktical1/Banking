@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Loop added for menu and attempt counter for pin added">
-      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -369,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653484760660</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Update log function accurate represent account type">
+      <created>1653485985295</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1653485985295</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +413,7 @@
     <MESSAGE value="Loop added for menu and attempt counter for pin added" />
     <MESSAGE value="attempt counter loop for account search fixed" />
     <MESSAGE value="Current account now checks if any movement of money has a value above 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Current account now checks if any movement of money has a value above 0" />
+    <MESSAGE value="Update log function accurate represent account type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update log function accurate represent account type" />
   </component>
 </project>
