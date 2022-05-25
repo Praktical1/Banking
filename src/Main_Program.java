@@ -277,6 +277,8 @@ public class Main_Program {
                 Account = FindBankAccount(AccountNumber,SortCode);
                 if (Account != null) {
                     AccountFound = true;
+                } else {
+                    attempt++;
                 }
             } while (!AccountFound);
         }while (attempt<3);
@@ -309,6 +311,8 @@ public class Main_Program {
                 Account = FindBankAccount(AccountNumber,SortCode);
                 if (Account != null) {
                     AccountFound = true;
+                } else {
+                    attempt++;
                 }
             } while (!AccountFound);
         }while (attempt<3);
@@ -346,17 +350,11 @@ public class Main_Program {
                     do {
                         switch (Choice) {
                             //View Balance
-                            case 0 -> {
-                                System.out.println(Account.getBalance());
-                            }
+                            case 0 -> System.out.println(Account.getBalance());
                             //Deposit
-                            case 1 -> {
-                                Deposit(Account);
-                            }
+                            case 1 -> Deposit(Account);
                             //Withdraw
-                            case 2 -> {
-                                Withdraw(Account);
-                            }
+                            case 2 -> Withdraw(Account);
                             //Pay
                             case 3 -> {
                                 Bank_Accounts RecipientAccount = AutoFindBankAccount();
