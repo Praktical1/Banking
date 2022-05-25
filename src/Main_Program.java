@@ -286,7 +286,35 @@ public class Main_Program {
         return Account;
     }
     public static void ManageAccount(){
-        Bank_Accounts Account = AutoFindBankAccount();
+        boolean AccountFound = false;
+        Bank_Accounts Account = null;
+        int AccountNumber;
+        int SortCode;
+        int attempt = 0;
+        do {
+            do {
+                Scanner in = new Scanner(System.in);
+                System.out.print("Please enter the account number:");
+                while (!in.hasNextInt()) {
+                    System.out.println("Please enter the account number");
+                    in.next();
+                }
+                AccountNumber = in.nextInt();
+                System.out.print("Please enter the sort code:");
+                while (!in.hasNextInt()) {
+                    System.out.println("Please enter the sort code");
+                    in.next();
+                }
+                SortCode = in.nextInt();
+                Account = FindBankAccount(AccountNumber,SortCode);
+                if (Account != null) {
+                    AccountFound = true;
+                }
+            } while (!AccountFound);
+        }while (attempt<3);
+        if (attempt==3) {
+            System.out.println("Please confirm the account number and sort code before continuing");
+        }
         Scanner in = new Scanner(System.in);
         if (Account != null) {
             boolean PinCheck  = false;
@@ -360,15 +388,6 @@ public class Main_Program {
                             }
                             //View Log
                             case 6 -> {
-                                int AccountNumber = Account.getBankNumber();
-                                int SortCode;
-                                if (Account.getAccountType().equals("ISA")) {
-                                    SortCode = Account.getBank().getISASortCode();
-                                } else if (Account.getAccountType().equals("Current")) {
-                                    SortCode = Account.getBank().getCurrentSortCode();
-                                } else {
-                                    SortCode = Account.getBank().getBusinessSortCode();
-                                }
                                 try {
                                     File LogData = new File("Log"+AccountNumber+SortCode+".txt");
                                     Scanner myReader = new Scanner(LogData);
