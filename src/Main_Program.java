@@ -341,6 +341,10 @@ public class Main_Program {
                     System.out.println(" [4] Transfer");
                     System.out.println(" [5] Change PIN");
                     System.out.println(" [6] View Log");
+                    if (Account.getAccountType().equals("Business")) {
+                        System.out.println(" [7] Update Business Number");
+                    }
+                    System.out.println(" [9] Exit");
                     while (!in.hasNextInt()) {
                         System.out.println("Please enter your pin");
                         in.next();
@@ -397,6 +401,24 @@ public class Main_Program {
                                     System.out.println("Log for account is missing, New log will be created");
                                 }
                             }
+                            //Update Business Number
+                            case 7 -> {
+                                if (Account.getAccountType().equals("Business")) {
+                                    Business account = FindBusinessAccount(Account);
+                                    System.out.println("Current Business Number: "+ account.getBusinessNumber());
+                                    System.out.print("New Business Number:");
+                                    while (!in.hasNextInt()) {
+                                        System.out.println("Please enter your pin");
+                                        in.next();
+                                    }
+                                    int NewBusinessNumber = in.nextInt();
+                                    account.setBusinessNumber(NewBusinessNumber);
+                                } else {
+                                    ChoiceCheck = false;
+                                    System.out.println("Please choose either option 1,2,3,4,5 or 6");
+                                }
+                            }
+                            case 9 -> PinCheck = true;
                             //Error of incorrect choice
                             default -> {
                                 ChoiceCheck = false;

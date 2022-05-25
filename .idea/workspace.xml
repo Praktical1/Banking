@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +33,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="28y9KVfWJPoXIl7SdbLfXsGARNl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -143,7 +147,8 @@
       <workItem from="1653401875881" duration="59000" />
       <workItem from="1653401967739" duration="61000" />
       <workItem from="1653402046014" duration="3069000" />
-      <workItem from="1653468500603" duration="1458000" />
+      <workItem from="1653468500603" duration="1709000" />
+      <workItem from="1653472648620" duration="1381000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -306,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653470382869</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding">
+      <created>1653470715659</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1653470715659</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,6 +350,7 @@
     <MESSAGE value="Completed manage accounts in main_program?" />
     <MESSAGE value="Small fix" />
     <MESSAGE value="Changed the account search to manual for start of account management for purposes of finding logs (which requires both the account number and sort code) since the variables required would not be output by automated function" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed the account search to manual for start of account management for purposes of finding logs (which requires both the account number and sort code) since the variables required would not be output by automated function" />
+    <MESSAGE value="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding" />
   </component>
 </project>
