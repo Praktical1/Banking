@@ -14,54 +14,97 @@ public class ISA extends Bank_Accounts {
     }
 
 
-
     public static void setMaxAnnualDeposit(int maxAnnualDeposit) {
         MaxAnnualDeposit = maxAnnualDeposit;
     }
 
-    public void setCurrentAnnualDeposit(int amountAddedIntoAccount){
+    public void setCurrentAnnualDeposit(int amountAddedIntoAccount) {
         this.CurrentAnnualDeposit = amountAddedIntoAccount;
     }
+
     public int getCurrentAnnualDeposit() {
         return CurrentAnnualDeposit;
     }
 
     //The following methods need to be looked at and revised
-    public void transfer(int transferAmount, Bank_Accounts recipientAccount){
-        setBalance(getBalance() - transferAmount);
-        transferAmount = VerifyPayment(transferAmount);
-        if(transferAmount != 0 & (getBalance() - (int)(1+transferAmount/0.75))>=0){
-            setBalance(getBalance() - (int)(1+transferAmount/0.75));
-        }
-        else {
-            System.out.println("Insufficient funds");
+    public void transfer(int transferAmount, Bank_Accounts recipientAccount) {
+
+        if (getOwner().equals(recipientAccount.getOwner())) {
+            transferAmount = VerifyPayment(transferAmount);
+            if (transferAmount != 0 & (getBalance() - (int) (1 + transferAmount / 0.75)) >= 0) {
+                if (recipientAccount.getAccountType().equals("ISA")) {
+                    ISA Recipient = Main_Program.FindISAAccount(recipientAccount);
+                    if (Recipient.getCurrentAnnualDeposit() + transferAmount <= MaxAnnualDeposit) {
+                        setBalance(getBalance() - (int) (1 + transferAmount / 0.75));
+                        recipientAccount.setBalance(recipientAccount.getBalance() + transferAmount);
+                        Recipient.setCurrentAnnualDeposit(Recipient.getCurrentAnnualDeposit() + transferAmount);
+                    } else {
+                        System.out.println("Max annual deposit reached");
+                    }
+                } else {
+                    setBalance(getBalance() - (int) (1 + transferAmount / 0.75));
+                    recipientAccount.setBalance(recipientAccount.getBalance() + transferAmount);
+                }
+            } else {
+                System.out.println("Insufficient funds");
+            }
+        } else {
+            System.out.println("Account owner needs to be the same!");
         }
     }
 
-    public void withdraw(int withDrawAmount){
+    public void withdraw(int withDrawAmount) {
         withDrawAmount = VerifyPayment(withDrawAmount);
-        if(withDrawAmount != 0 & (getBalance() - (int)(1+withDrawAmount/0.75))>=0){
-            setBalance(getBalance() - (int)(1+withDrawAmount/0.75));
-        }
-        else {
+        if (withDrawAmount != 0 & (getBalance() - (int) (1 + withDrawAmount / 0.75)) >= 0) {
+            setBalance(getBalance() - (int) (1 + withDrawAmount / 0.75));
+        } else {
             System.out.println("Insufficient funds");
         }
 
     }
 
-    public void pay(int paymentAmount, Bank_Accounts recipientAccount){
-        paymentAmount = VerifyPayment(paymentAmount);
-        if(paymentAmount != 0 & (getBalance() - paymentAmount>=0)){
-            setBalance(getBalance() - paymentAmount);
-        }
-        else{
+    public void pay(int paymentAmount, Bank_Accounts recipientAccount) {
+        if (!getOwner().equals(recipientAccount.getOwner())) {
+            paymentAmount = VerifyPayment(paymentAmount);
+            if (paymentAmount != 0 & (getBalance() - (int) (1 + paymentAmount / 0.75)) >= 0) {
+                if (recipientAccount.getAccountType().equals("ISA")) {
+                    ISA Recipient = Main_Program.FindISAAccount(recipientAccount);
+                    if (Recipient.getCurrentAnnualDeposit() + paymentAmount <= MaxAnnualDeposit) {
+                        setBalance(getBalance() - (int) (1 + paymentAmount / 0.75));
+                        recipientAccount.setBalance(recipientAccount.getBalance() + paymentAmount);
+                        Recipient.setCurrentAnnualDeposit(Recipient.getCurrentAnnualDeposit() + paymentAmount);
+                    } else {
+                        System.out.println("Max annual deposit reached");
+                    }
+                } else {
+                    setBalance(getBalance() - (int) (1 + paymentAmount / 0.75));
+                    recipientAccount.setBalance(recipientAccount.getBalance() + paymentAmount);
+                }
+                if (recipientAccount.getAccountType().equals("Current")) {
+                    Log.Log(getBankNumber(), getBank().getISASortCode(), recipientAccount.getBankNumber(), recipientAccount.getBank().getCurrentSortCode(), paymentAmount);
+                } else if (recipientAccount.getAccountType().equals("Business")) {
+                    Log.Log(getBankNumber(), getBank().getISASortCode(), recipientAccount.getBankNumber(), recipientAccount.getBank().getBusinessSortCode(), paymentAmount);
+                } else {
+                    Log.Log(getBankNumber(), getBank().getISASortCode(), recipientAccount.getBankNumber(), recipientAccount.getBank().getISASortCode(), paymentAmount);
+                }
+
+            }
+
+        } else {
             System.out.println("Insufficient funds");
         }
     }
+
+
 
     public void deposit(int depositAmount){
-        setBalance(getBalance() + (int)(depositAmount*1.25));
-
+        if(getCurrentAnnualDeposit() + depositAmount <= MaxAnnualDeposit) {
+            setCurrentAnnualDeposit(getCurrentAnnualDeposit() + depositAmount);
+            setBalance(getBalance() + (int) (depositAmount * 1.25));
+        }
+        else{
+            System.out.println("Max annual deposit reached");
+        }
     }
 
     public void addInterest(int interestAmount){

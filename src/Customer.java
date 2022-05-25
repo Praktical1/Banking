@@ -126,7 +126,7 @@ public class Customer {
             do {
                 accountnum = rng.nextInt(100000000);
             } while (accountnum < 10000000);
-            for(Bank_Accounts i:Main_Program.Accounts){
+            for(Bank_Accounts i:Main_Program.FindAccount()){
                 if(accountnum == i.getBankNumber()){
                     validaccount = false;
                 }
@@ -168,7 +168,7 @@ public class Customer {
         switch(response){
             case "y" -> {
                 int totbal = 0;
-                for(Bank_Accounts i :Main_Program.Accounts) {
+                for(Bank_Accounts i :Main_Program.FindAccount()) {
                     if(i.getOwner().equals(this)) {
                         switch(i.getAccountType()) {
                             case "Current", "Business" -> totbal += i.getBalance();

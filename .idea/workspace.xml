@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Loop added for menu and attempt counter for pin added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/Banking1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/abrah/IdeaProjects/Banking&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -64,50 +65,52 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.Business_Tests">
-    <configuration name="Business_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Business_Tests.TransferNotSame">
+    <configuration name="Business_Tests.DepositNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Business_Tests.TransferToISAOverLimit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="METHOD_NAME" value="TransferToISAOverLimit" />
+      <option name="METHOD_NAME" value="DepositNegative" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Current_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Business_Tests.TransferMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Current_Tests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Current_Tests.PayToISA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Current_Tests" />
-      <option name="METHOD_NAME" value="PayToISA" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferMoney" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Current_Tests.TransferToISA" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Business_Tests.TransferNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Current_Tests" />
-      <option name="METHOD_NAME" value="TransferToISA" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferNotSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferNotSame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferTooMuch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferTooMuch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -115,11 +118,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Business_Tests" />
-        <item itemvalue="JUnit.Business_Tests.TransferToISAOverLimit" />
-        <item itemvalue="JUnit.Current_Tests" />
-        <item itemvalue="JUnit.Current_Tests.PayToISA" />
-        <item itemvalue="JUnit.Current_Tests.TransferToISA" />
+        <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
+        <item itemvalue="JUnit.Business_Tests.TransferNegative" />
+        <item itemvalue="JUnit.Business_Tests.TransferTooMuch" />
+        <item itemvalue="JUnit.Business_Tests.TransferMoney" />
+        <item itemvalue="JUnit.Business_Tests.DepositNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -148,8 +151,7 @@
       <workItem from="1653468500603" duration="1709000" />
       <workItem from="1653472648620" duration="1506000" />
       <workItem from="1653474719380" duration="1406000" />
-      <workItem from="1653476641909" duration="2363000" />
-      <workItem from="1653481492433" duration="1885000" />
+      <workItem from="1653476641909" duration="728000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -333,49 +335,7 @@
       <option name="project" value="LOCAL" />
       <updated>1653475980407</updated>
     </task>
-    <task id="LOCAL-00027" summary="Loop added for menu and attempt counter for pin added">
-      <created>1653477379487</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1653477379487</updated>
-    </task>
-    <task id="LOCAL-00028" summary="attempt counter loop for account search fixed">
-      <created>1653482196152</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1653482196152</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Current account now checks if any movement of money has a value above 0">
-      <created>1653483073013</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1653483073013</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Current account now checks if any movement of money has a value above 0">
-      <created>1653483207239</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1653483207239</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Current account now checks if any movement of money has a value above 0">
-      <created>1653484760660</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1653484760660</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Update log function accurate represent account type">
-      <created>1653485985295</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1653485985295</updated>
-    </task>
-    <option name="localTasksCounter" value="33" />
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -411,9 +371,6 @@
     <MESSAGE value="Added update business number to menu option and exit for account management menu" />
     <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
     <MESSAGE value="Loop added for menu and attempt counter for pin added" />
-    <MESSAGE value="attempt counter loop for account search fixed" />
-    <MESSAGE value="Current account now checks if any movement of money has a value above 0" />
-    <MESSAGE value="Update log function accurate represent account type" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update log function accurate represent account type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Loop added for menu and attempt counter for pin added" />
   </component>
 </project>
