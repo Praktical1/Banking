@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Added confirmation for changing business number and added in view current annual deposit onto manage account.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
@@ -148,7 +148,8 @@
       <workItem from="1653401967739" duration="61000" />
       <workItem from="1653402046014" duration="3069000" />
       <workItem from="1653468500603" duration="1709000" />
-      <workItem from="1653472648620" duration="1381000" />
+      <workItem from="1653472648620" duration="1506000" />
+      <workItem from="1653474719380" duration="1232000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -318,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653470715659</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Added update business number to menu option and exit for account management menu">
+      <created>1653474131143</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1653474131143</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,6 +359,8 @@
     <MESSAGE value="Small fix" />
     <MESSAGE value="Changed the account search to manual for start of account management for purposes of finding logs (which requires both the account number and sort code) since the variables required would not be output by automated function" />
     <MESSAGE value="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimised certain parts of the script to attempt to resolve a few of many errors of my script (even tho quite a few of them are unfounded), also fixed attempt counter for account finding" />
+    <MESSAGE value="Added update business number to menu option and exit for account management menu" />
+    <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
   </component>
 </project>
