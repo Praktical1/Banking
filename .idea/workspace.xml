@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
-    </list>
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -151,7 +148,7 @@
       <workItem from="1653472648620" duration="1506000" />
       <workItem from="1653474719380" duration="1406000" />
       <workItem from="1653476641909" duration="2363000" />
-      <workItem from="1653481492433" duration="1534000" />
+      <workItem from="1653481492433" duration="1885000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -349,7 +346,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653482196152</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Current account now checks if any movement of money has a value above 0">
+      <created>1653483073013</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1653483073013</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Current account now checks if any movement of money has a value above 0">
+      <created>1653483207239</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1653483207239</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,6 +397,7 @@
     <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
     <MESSAGE value="Loop added for menu and attempt counter for pin added" />
     <MESSAGE value="attempt counter loop for account search fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempt counter loop for account search fixed" />
+    <MESSAGE value="Current account now checks if any movement of money has a value above 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Current account now checks if any movement of money has a value above 0" />
   </component>
 </project>
