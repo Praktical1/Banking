@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="changed variable names for easier transition into account types">
-      <change afterPath="$PROJECT_DIR$/Tests/StorageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Bank_Accounts_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Bank_Accounts_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Business_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Business_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Current_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Current_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/StorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/StorageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,40 +75,40 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main_Program">
-    <configuration name="Main_Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main_Program" />
+  <component name="RunManager" selected="JUnit.Business_Tests">
+    <configuration name="Bank_Accounts_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Bank_Accounts_Tests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Business_Tests.TransferNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Business_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="METHOD_NAME" value="TransferNegative" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.PayMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="PayMoney" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Business_Tests.TransferNotSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="METHOD_NAME" value="TransferNotSame" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Current_Tests.WithdrawMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Current_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Current_Tests" />
-      <option name="METHOD_NAME" value="WithdrawMoney" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -112,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_Program" />
+        <item itemvalue="JUnit.Business_Tests" />
+        <item itemvalue="JUnit.Business_Tests.PayMoney" />
+        <item itemvalue="JUnit.Current_Tests" />
+        <item itemvalue="JUnit.Bank_Accounts_Tests" />
         <item itemvalue="JUnit.StorageTest" />
-        <item itemvalue="JUnit.Current_Tests.WithdrawMoney" />
-        <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
-        <item itemvalue="JUnit.Business_Tests.TransferNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -149,6 +161,7 @@
       <workItem from="1653509693315" duration="643000" />
       <workItem from="1653555467406" duration="5643000" />
       <workItem from="1653562067210" duration="5633000" />
+      <workItem from="1653584355513" duration="5911000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>

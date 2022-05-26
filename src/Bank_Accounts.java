@@ -2,25 +2,21 @@ public abstract class Bank_Accounts {
     private final int BankNumber;
     private String PIN;
     private int Balance;
-    private Bank bank;
+    private int BankIndex;
     private String AccountType;
-    private Customer Owner;
+    private int Index;
 
-    public Bank_Accounts(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner) {
+    public Bank_Accounts(int bankNumber, String PIN, int balance, int bankindex, String accountType, int index) {
         BankNumber = bankNumber;
         this.PIN = PIN;
-        this.bank = bank;
+        BankIndex = bankindex;
         Balance = balance;
         AccountType = accountType;
-        Owner = owner;
+        Index = index;
     }
 
-    public Customer getOwner() {
-        return Owner;
-    }
-
-    public void setOwner(Customer owner) {
-        Owner = owner;
+    public int getOwner() {
+        return Index;
     }
 
     public String getAccountType() {
@@ -51,12 +47,12 @@ public abstract class Bank_Accounts {
         this.PIN = PIN;
     }
 
-    public Bank getBank() {
-        return bank;
+    public int getBank() {
+        return BankIndex;
     }
 
-    public void setBank(Bank bank) {
-        this.bank = bank;
+    public void setBank(int bank) {
+        BankIndex = bank;
     }
     public Bank_Accounts getAccount(){
         return this;

@@ -42,35 +42,16 @@ public class Storage {
         index = 0;
         //Writes data on each account type with ID numbers instead of Banks and Customers in format (AccountNumber,PIN,Balance,BankID,AccountType,CustomerID(,OtherInfo)
         for (Current i:Main_Program.CurrentAccounts){
-            int ID[] = getID(i);
-            CurrentWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(ID[0])+","+i.getAccountType()+","+String.valueOf(ID[1]));
+            CurrentWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(1)+","+i.getAccountType()+","+String.valueOf(1));
         }
         CurrentWriter.close();
         for (Business i:Main_Program.BusinessAccounts){
-            int ID[] = getID(i);
-            BusinessWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(ID[0])+","+i.getAccountType()+","+String.valueOf(ID[1])+","+i.getBusinessNumber());
+            BusinessWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(1)+","+i.getAccountType()+","+String.valueOf(1)+","+i.getBusinessNumber());
         }
         BusinessWriter.close();
         for (ISA i:Main_Program.ISAAccounts){
-            int ID[] = getID(i);
-            ISAWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(ID[0])+","+i.getAccountType()+","+String.valueOf(ID[1])+","+i.getCurrentAnnualDeposit());
+            ISAWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(1)+","+i.getAccountType()+","+String.valueOf(1)+","+i.getCurrentAnnualDeposit());
         }
         ISAWriter.close();
-    }
-    //gets IDs for Bank and Customer for each Account
-    private static int[] getID(Bank_Accounts Account){
-        int CustomerID = -1;
-        int BankID = -1;
-        for (int j=0;j<Main_Program.Users.size();j++){
-            if (Account.getOwner().equals(Main_Program.Users.get(j))){
-                CustomerID = j;
-            }
-        }
-        for (int j=0;j<Main_Program.Banks.size();j++){
-            if (Account.getBank().equals(Main_Program.Banks.get(j))){
-                BankID = j;
-            }
-        }
-        return new int[]{BankID,CustomerID};
     }
 }

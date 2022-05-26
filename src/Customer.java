@@ -9,18 +9,24 @@ public class Customer {
     int PhoneNumber;
     int MobNumber;
     Address[] address;
+    int Index;
 
-    public Customer(String name, int age, Date DOB, int phoneNumber, int mobNumber, Address[] address) {
+    public Customer(int index, String name, int age, Date DOB, int phoneNumber, int mobNumber, Address[] address) {
         Name = name;
         Age = age;
         this.DOB = DOB;
         PhoneNumber = phoneNumber;
         MobNumber = mobNumber;
         this.address = address;
+        Index = index;
     }
 
     public String getName() {
         return Name;
+    }
+
+    public int getIndex(){
+        return Index;
     }
 
     public void setName(String name) {
@@ -106,12 +112,12 @@ public class Customer {
                     case "Business"->{
                         System.out.println("Enter registered business number");
                         int businessnum = in.nextInt();
-                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank, accountType, this,businessnum));
+                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, getIndex(), accountType, Index,businessnum));
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
-                    case "ISA"-> Main_Program.ISAAccounts.add(new ISA(newBankNumber(),newPIN(),0,bank,accountType,this,0));
+                    case "ISA"-> Main_Program.ISAAccounts.add(new ISA(newBankNumber(), newPIN(),0, getIndex(), accountType, Index,0));
 
-                    case "Current"-> Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, this));
+                    case "Current"-> Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, getIndex(), accountType, Index));
 
                 }
             }
@@ -169,7 +175,7 @@ public class Customer {
             case "y" -> {
                 int totbal = 0;
                 for(Bank_Accounts i :Main_Program.FindAccount()) {
-                    if(i.getOwner().equals(this)) {
+                    if(i.getOwner()==Index) {
                         switch(i.getAccountType()) {
                             case "Current", "Business" -> totbal += i.getBalance();
                             case "ISA" -> totbal += i.getBalance()*0.75;
