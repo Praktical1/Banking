@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="changed variable names for easier transition into account types">
+      <change afterPath="$PROJECT_DIR$/Tests/StorageTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,16 +91,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Business_Tests.TransferTooMuch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="METHOD_NAME" value="TransferTooMuch" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Current_Tests.WithdrawMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
@@ -112,13 +101,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StorageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StorageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main_Program" />
+        <item itemvalue="JUnit.StorageTest" />
         <item itemvalue="JUnit.Current_Tests.WithdrawMoney" />
         <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
         <item itemvalue="JUnit.Business_Tests.TransferNegative" />
-        <item itemvalue="JUnit.Business_Tests.TransferTooMuch" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +148,7 @@
       <workItem from="1653476641909" duration="728000" />
       <workItem from="1653509693315" duration="643000" />
       <workItem from="1653555467406" duration="5643000" />
-      <workItem from="1653562067210" duration="9397000" />
+      <workItem from="1653562067210" duration="5633000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -369,21 +367,7 @@
       <option name="project" value="LOCAL" />
       <updated>1653561525148</updated>
     </task>
-    <task id="LOCAL-00032" summary="Read for account types completed (also prepped for index system on banks and customer)">
-      <created>1653578858711</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1653578858711</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Read for account types completed (also prepped for index system on banks and customer)">
-      <created>1653582099035</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1653582099035</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +407,6 @@
     <MESSAGE value="Read completed for arrays Bank and users, just account types left" />
     <MESSAGE value="changed dividers between addresses to represent information better" />
     <MESSAGE value="changed variable names for easier transition into account types" />
-    <MESSAGE value="Read for account types completed (also prepped for index system on banks and customer)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Read for account types completed (also prepped for index system on banks and customer)" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed variable names for easier transition into account types" />
   </component>
 </project>
