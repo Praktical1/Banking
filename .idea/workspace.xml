@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
-    </list>
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +149,7 @@
       <workItem from="1653474719380" duration="1406000" />
       <workItem from="1653476641909" duration="728000" />
       <workItem from="1653509693315" duration="643000" />
-      <workItem from="1653555467406" duration="4489000" />
+      <workItem from="1653555467406" duration="5050000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -344,7 +340,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653494067121</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Read completed for arrays Bank and users, just account types left">
+      <created>1653560517947</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1653560517947</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Read completed for arrays Bank and users, just account types left">
+      <created>1653560569779</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1653560569779</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,6 +391,7 @@
     <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
     <MESSAGE value="Loop added for menu and attempt counter for pin added" />
     <MESSAGE value="Attempt at Storage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Attempt at Storage" />
+    <MESSAGE value="Read completed for arrays Bank and users, just account types left" />
+    <option name="LAST_COMMIT_MESSAGE" value="Read completed for arrays Bank and users, just account types left" />
   </component>
 </project>
