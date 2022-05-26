@@ -1,6 +1,12 @@
 public class Address {
     private String House;
     private String Road;
+
+    @Override
+    public String toString() {
+        return House+","+Road+","+Town+","+County+","+PostCode;
+    }
+
     private String Town;
     private String County;
     private String PostCode;
