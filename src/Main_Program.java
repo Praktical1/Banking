@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,10 +12,156 @@ import java.time.LocalDate;
 import java.io.File;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
+    public static void PopulateBanks(){
+        try {
+            File f = new File("Banks.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String bank = myReader.nextLine();
+                String[] bankparts = bank.split("/");
+                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3],Integer.valueOf(bankparts[4])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Banks database missing, creating new empty database");
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("Banks.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+        }
+    }
     static ArrayList<Customer> Users = new ArrayList<>();
+    static SimpleDateFormat formatter=new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
+    public static void PopulateUsers(){
+        try {
+            File f = new File("Customers.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String user = myReader.nextLine();
+                String[] userparts = user.split("/");
+                userparts[3]=userparts[3].replace(" BST","");
+                String[] addresses = userparts[6].split(";");
+                String[] addressparts1 = addresses[0].split("_");
+                String[] addressparts2 = addresses[1].split("_");
+                String[] addressparts3 = addresses[2].split("_");
+                Users.add(new Customer(userparts[0],userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),Integer.valueOf(userparts[4]),Integer.valueOf(userparts[5]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Customers database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("Customers.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
+    public static void PopulateBusinessAccounts(){
+        try {
+            File f = new File("BusinessAccounts.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String businessaccount = myReader.nextLine();
+                String[] businessparts = businessaccount.split("/");
+                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),Integer.valueOf(businessparts[1]),businessparts[2],Integer.valueOf(businessparts[3]),Integer.valueOf(businessparts[4]),businessparts[5],Integer.valueOf(businessparts[6]),Integer.valueOf(businessparts[7])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Business Accounts database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("BusinessAccounts.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
+    public static void PopulateISAAccounts(){
+        try {
+            File f = new File("ISAAccounts.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String isaaccount = myReader.nextLine();
+                String[] isaparts = isaaccount.split("/");
+                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),Integer.valueOf(isaparts[1]),isaparts[2],Integer.valueOf(isaparts[3]),Integer.valueOf(isaparts[4]),isaparts[5],Integer.valueOf(isaparts[6]),Integer.valueOf(isaparts[7])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("ISA Accounts database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("ISAAccounts.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
+    public static void PopulateCurrentAccounts(){
+        try {
+            File f = new File("CurrentAccounts.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String currentaccount = myReader.nextLine();
+                String[] currentparts = currentaccount.split("/");
+                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),Integer.valueOf(currentparts[1]),currentparts[2],Integer.valueOf(currentparts[3]),Integer.valueOf(currentparts[4]),currentparts[5],Integer.valueOf(currentparts[6])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Current Accounts database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("CurrentAccounts.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static String Username;
 
     try{
@@ -92,20 +240,22 @@ public class Main_Program {
         System.out.println("Error, Could not find this Current account");
         return null;
     }
-
+    public static Bank_Accounts[] FindAccount() {
+        Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size() + BusinessAccounts.size() + ISAAccounts.size()];
+        for (int i = 0; i < BusinessAccounts.size(); i++) {
+            Accounts[i] = BusinessAccounts.get(i);
+        }
+        for (int i = 0; i < CurrentAccounts.size(); i++) {
+            Accounts[i] = CurrentAccounts.get(i);
+        }
+        for (int i = 0; i < ISAAccounts.size(); i++) {
+            Accounts[i] = ISAAccounts.get(i);
+        }
+        return Accounts;
+    }
     //For finding bank accounts from the account number and sort code
     public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
-        for (Bank_Accounts i : ISAAccounts){
-            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
-                return i;
-            }
-        }
-        for (Bank_Accounts i : BusinessAccounts){
-            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
-                return i;
-            }
-        }
-        for (Bank_Accounts i : CurrentAccounts){
+        for (Bank_Accounts i : FindAccount()){
             if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
                 return i;
             }
@@ -279,6 +429,15 @@ public class Main_Program {
     }
     public static void CreateBank(){
         System.out.println("Please input sort code for Current Accounts");
+        Scanner in = new Scanner(System.in);
+        int current = in.nextInt();
+        System.out.println("Please input sort code for Business Accounts");
+        int business = in.nextInt();
+        System.out.println("Please input sort code for ISA Accounts");
+        int ISA = in.nextInt();
+        System.out.println("Input the name of the bank");
+        String Name = in.nextLine();
+        Banks.add(new Bank(current,ISA,business,Name));
     }
     private static Bank_Accounts AutoFindBankAccount(){
         boolean AccountFound = false;
@@ -490,13 +649,13 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to deposit in pence?");
+            System.out.println("How much would you like to deposit \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int Depositvalue = in.nextInt();
-            System.out.println("Are you sure you want to deposit " + ((double) Depositvalue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to deposit £" + ((double) Depositvalue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
@@ -538,13 +697,13 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to withdraw in pence?");
+            System.out.println("How much would you like to withdraw \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int Withdrawvalue = in.nextInt();
-            System.out.println("Are you sure you want to withdraw " + ((double) Withdrawvalue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to withdraw £" + ((double) Withdrawvalue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
@@ -586,13 +745,13 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" in pence?");
+            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int PayValue = in.nextInt();
-            System.out.println("Are you sure you want to pay "+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to pay £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
@@ -634,13 +793,13 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to transfer to "+ RecipientAccount.getOwner() +" in pence?");
+            System.out.println("How much would you like to transfer to "+ RecipientAccount.getOwner() +" \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int PayValue = in.nextInt();
-            System.out.println("Are you sure you want to transfer "+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to transfer £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
