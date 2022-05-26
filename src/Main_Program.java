@@ -8,8 +8,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.io.File;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
     public static void PopulateBanks(){
@@ -163,7 +165,29 @@ public class Main_Program {
         }
     }
     static String Username;
-    public static void main(String[] args) throws ParseException {
+
+    Date LastAccessed;
+
+    try{
+       File AnnualCheck = new File("LastAccessed.txt");
+       Scanner myObj = new Scanner("AnnualCheck");
+       String AnnualCheckStr = myObj.nextLine();
+       AnnualCheckStr = AnnualCheckStr.replace(" BST","");
+        try {
+            LastAccessed = formatter.parse(AnnualCheckStr);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+    }catch (FileNotFoundException e) {
+        System.out.println("");
+    }
+
+
+
+
+        public static void main(String[] args) throws ParseException {
+
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
         while(!Exit){

@@ -110,4 +110,5 @@ public class ISA extends Bank_Accounts {
     public void addInterest(int interestAmount){
         this.InterestRate += interestAmount;
     }
+
 }
