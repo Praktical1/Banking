@@ -46,7 +46,7 @@ public class Main_Program {
                 String user = myReader.nextLine();
                 String[] parts = user.split("/");
                 parts[2]=parts[2].replace(" BST","");
-                String[] addresses = parts[5].split("-");
+                String[] addresses = parts[5].split(";");
                 String[] addressparts1 = addresses[0].split("_");
                 String[] addressparts2 = addresses[1].split("_");
                 String[] addressparts3 = addresses[2].split("_");
