@@ -165,29 +165,33 @@ public class Main_Program {
         }
     }
     static String Username;
-
-    Date LastAccessed;
-
-    try{
-       File AnnualCheck = new File("LastAccessed.txt");
-       Scanner myObj = new Scanner("AnnualCheck");
-       String AnnualCheckStr = myObj.nextLine();
-       AnnualCheckStr = AnnualCheckStr.replace(" BST","");
+    private static final SimpleDateFormat Year = new SimpleDateFormat("yyyy");
+    private static void AnnualTick(){
+        String LastAccessedYear;
         try {
-            LastAccessed = formatter.parse(AnnualCheckStr);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
+            File LogData = new File("LastAccessed.txt");
+            Scanner myReader = new Scanner(LogData);
+            LastAccessedYear = myReader.nextLine());
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Log for account is missing, New log will be created");
         }
-
-    }catch (FileNotFoundException e) {
-        System.out.println("");
+        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
+        int currentyear = Integer.valueOf(Year.format(CurrentTime));
+        int difference = currentyear - Integer.valueOf(LastAccessedYear);
+        //Call for interest add function in ISA
+        //Call for business annual charge  function
+        try {
+            FileWriter myWriter = new FileWriter("LastAccessed.txt");
+            myWriter.write(Integer.toString(currentyear));
+            myWriter.close();
+            System.out.println("Successfully Written File");
+        } catch (IOException g) {
+            System.out.println("Error occurred with writing");
+            g.printStackTrace();
+        }
     }
-
-
-
-
-        public static void main(String[] args) throws ParseException {
-
+    public static void main(String[] args) throws ParseException {
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
         while(!Exit){

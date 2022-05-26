@@ -64,7 +64,6 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-
   <component name="RunManager" selected="Application.Main_Program">
     <configuration name="Main_Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main_Program" />
@@ -151,7 +150,7 @@
       <workItem from="1653476641909" duration="728000" />
       <workItem from="1653509693315" duration="643000" />
       <workItem from="1653555467406" duration="5643000" />
-      <workItem from="1653562067210" duration="8781000" />
+      <workItem from="1653562067210" duration="9397000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -377,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653578858711</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Read for account types completed (also prepped for index system on banks and customer)">
+      <created>1653582099035</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1653582099035</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
