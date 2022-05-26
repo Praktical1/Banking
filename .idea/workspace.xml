@@ -63,7 +63,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.StorageTest">
+  <component name="RunManager" selected="Application.Main_Program">
     <configuration name="Main_Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main_Program" />
       <module name="Banking" />
@@ -112,8 +112,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StorageTest" />
         <item itemvalue="Application.Main_Program" />
+        <item itemvalue="JUnit.StorageTest" />
         <item itemvalue="JUnit.Current_Tests.WithdrawMoney" />
         <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
         <item itemvalue="JUnit.Business_Tests.TransferNegative" />
