@@ -1,15 +1,78 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
+    public static void PopulateBanks(){
+        try {
+            File f = new File("Banks.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String bank = myReader.nextLine();
+                String[] bankparts = bank.split("/");
+                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3]));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Banks database missing, creating new empty database");
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("Banks.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+        }
+    }
     static ArrayList<Customer> Users = new ArrayList<>();
+    static SimpleDateFormat formatter=new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
+    public static void PopulateUsers(){
+        try {
+            File f = new File("Customers.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String user = myReader.nextLine();
+                String[] userparts = user.split("/");
+                userparts[2]=userparts[2].replace(" BST","");
+                String[] addresses = userparts[5].split(";");
+                String[] addressparts1 = addresses[0].split("_");
+                String[] addressparts2 = addresses[1].split("_");
+                String[] addressparts3 = addresses[2].split("_");
+                Users.add(new Customer(userparts[0],Integer.valueOf(userparts[1]),formatter.parse(userparts[2]),Integer.valueOf(userparts[3]),Integer.valueOf(userparts[4]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Banks database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("Customers.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
