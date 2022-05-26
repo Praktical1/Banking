@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="changed variable names for easier transition into account types">
-      <change afterPath="$PROJECT_DIR$/Tests/StorageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +150,7 @@
       <workItem from="1653509693315" duration="643000" />
       <workItem from="1653555467406" duration="5643000" />
       <workItem from="1653562067210" duration="5633000" />
+      <workItem from="1653585800241" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -367,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653561525148</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Some changes">
+      <created>1653583034117</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1653583034117</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,6 +416,7 @@
     <MESSAGE value="Read completed for arrays Bank and users, just account types left" />
     <MESSAGE value="changed dividers between addresses to represent information better" />
     <MESSAGE value="changed variable names for easier transition into account types" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed variable names for easier transition into account types" />
+    <MESSAGE value="Some changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some changes" />
   </component>
 </project>

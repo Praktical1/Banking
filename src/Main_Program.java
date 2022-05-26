@@ -20,8 +20,8 @@ public class Main_Program {
             Scanner myReader = new Scanner(f);
             while (myReader.hasNextLine()) {
                 String bank = myReader.nextLine();
-                String[] bankparts = bank.split("/");
-                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3],Integer.valueOf(bankparts[4])));
+                String[] bankparts = bank.split(",");
+                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3]));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
