@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Loop added for menu and attempt counter for pin added">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Added transfer, payment and deposit function.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +152,7 @@
       <workItem from="1653472648620" duration="1506000" />
       <workItem from="1653474719380" duration="1406000" />
       <workItem from="1653476641909" duration="728000" />
+      <workItem from="1653576084246" duration="3324000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -334,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653475980407</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added transfer, payment and deposit function.">
+      <created>1653490964375</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1653490964375</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,7 +363,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
-    <MESSAGE value="Changed double to int" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="Fixed FindISAAccount" />
     <MESSAGE value="Fixed Customer creating new ISA account" />
@@ -370,6 +378,8 @@
     <MESSAGE value="Added update business number to menu option and exit for account management menu" />
     <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
     <MESSAGE value="Loop added for menu and attempt counter for pin added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Loop added for menu and attempt counter for pin added" />
+    <MESSAGE value="Changed double to int" />
+    <MESSAGE value="Added transfer, payment and deposit function." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added transfer, payment and deposit function." />
   </component>
 </project>

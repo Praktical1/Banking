@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.io.File;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
     static ArrayList<Customer> Users = new ArrayList<>();
@@ -14,7 +15,15 @@ public class Main_Program {
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
     static String Username;
+
+    try{
+       File AnnualCheck = new File("LastAccessed.txt");
+       Scanner myObj = new Scanner("AnnualCheck");
+       String
+
+    }
     public static void main(String[] args) throws ParseException {
+
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
         while(!Exit){
