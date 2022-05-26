@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="changed variable names for easier transition into account types">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +64,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
+
   <component name="RunManager" selected="Application.Main_Program">
     <configuration name="Main_Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main_Program" />
@@ -150,7 +150,8 @@
       <workItem from="1653474719380" duration="1406000" />
       <workItem from="1653476641909" duration="728000" />
       <workItem from="1653509693315" duration="643000" />
-      <workItem from="1653555467406" duration="5515000" />
+      <workItem from="1653555467406" duration="5643000" />
+      <workItem from="1653562067210" duration="5633000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -362,12 +363,12 @@
       <option name="project" value="LOCAL" />
       <updated>1653561210786</updated>
     </task>
-    <task id="LOCAL-00031" summary="made CreateBank method">
-      <created>1653575668449</created>
+    <task id="LOCAL-00031" summary="changed variable names for easier transition into account types">
+      <created>1653561525148</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1653575668449</updated>
+      <updated>1653561525148</updated>
     </task>
     <option name="localTasksCounter" value="32" />
     <servers />
@@ -408,7 +409,7 @@
     <MESSAGE value="Attempt at Storage" />
     <MESSAGE value="Read completed for arrays Bank and users, just account types left" />
     <MESSAGE value="changed dividers between addresses to represent information better" />
-    <MESSAGE value="made CreateBank method" />
-    <option name="LAST_COMMIT_MESSAGE" value="made CreateBank method" />
+    <MESSAGE value="changed variable names for easier transition into account types" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed variable names for easier transition into account types" />
   </component>
 </project>
