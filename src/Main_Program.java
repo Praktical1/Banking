@@ -2,13 +2,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.io.File;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
     public static void PopulateBanks(){
@@ -79,7 +82,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String businessaccount = myReader.nextLine();
                 String[] businessparts = businessaccount.split("/");
-                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),Integer.valueOf(businessparts[1]),businessparts[2],Integer.valueOf(businessparts[3]),Integer.valueOf(businessparts[4]),businessparts[5],Integer.valueOf(businessparts[6]),Integer.valueOf(businessparts[7])));
+                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),businessparts[1],Integer.valueOf(businessparts[2]),Integer.valueOf(businessparts[3]),businessparts[4],Integer.valueOf(businessparts[5]),Integer.valueOf(businessparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -109,7 +112,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String isaaccount = myReader.nextLine();
                 String[] isaparts = isaaccount.split("/");
-                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),Integer.valueOf(isaparts[1]),isaparts[2],Integer.valueOf(isaparts[3]),Integer.valueOf(isaparts[4]),isaparts[5],Integer.valueOf(isaparts[6]),Integer.valueOf(isaparts[7])));
+                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),isaparts[1],Integer.valueOf(isaparts[2]),Integer.valueOf(isaparts[3]),isaparts[4],Integer.valueOf(isaparts[5]),Integer.valueOf(isaparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -139,7 +142,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String currentaccount = myReader.nextLine();
                 String[] currentparts = currentaccount.split("/");
-                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),Integer.valueOf(currentparts[1]),currentparts[2],Integer.valueOf(currentparts[3]),Integer.valueOf(currentparts[4]),currentparts[5],Integer.valueOf(currentparts[6])));
+                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),currentparts[1],Integer.valueOf(currentparts[2]),Integer.valueOf(currentparts[3]),currentparts[4],Integer.valueOf(currentparts[5])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -162,6 +165,32 @@ public class Main_Program {
         }
     }
     static String Username;
+    private static final SimpleDateFormat Year = new SimpleDateFormat("yyyy");
+    private static void AnnualTick(){
+        String LastAccessedYear;
+        try {
+            File LogData = new File("LastAccessed.txt");
+            Scanner myReader = new Scanner(LogData);
+            LastAccessedYear = myReader.nextLine());
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Log for account is missing, New log will be created");
+        }
+        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
+        int currentyear = Integer.valueOf(Year.format(CurrentTime));
+        int difference = currentyear - Integer.valueOf(LastAccessedYear);
+        //Call for interest add function in ISA
+        //Call for business annual charge  function
+        try {
+            FileWriter myWriter = new FileWriter("LastAccessed.txt");
+            myWriter.write(Integer.toString(currentyear));
+            myWriter.close();
+            System.out.println("Successfully Written File");
+        } catch (IOException g) {
+            System.out.println("Error occurred with writing");
+            g.printStackTrace();
+        }
+    }
     public static void main(String[] args) throws ParseException {
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
