@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage {
-    public static ArrayList Populate(String type, ArrayList list) {
+    /*public static ArrayList Populate(String type, ArrayList list) {
         switch (type) {
             case "ISA" -> {
                 try {
@@ -96,5 +96,5 @@ public class Storage {
     }
     public static ArrayList Arraycreator(String type) {
 
-    }
+    }*/
 }
