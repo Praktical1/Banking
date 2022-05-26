@@ -19,7 +19,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String bank = myReader.nextLine();
                 String[] bankparts = bank.split("/");
-                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3]));
+                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3],Integer.valueOf(bankparts[4])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -45,16 +45,16 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String user = myReader.nextLine();
                 String[] userparts = user.split("/");
-                userparts[2]=userparts[2].replace(" BST","");
-                String[] addresses = userparts[5].split(";");
+                userparts[3]=userparts[3].replace(" BST","");
+                String[] addresses = userparts[6].split(";");
                 String[] addressparts1 = addresses[0].split("_");
                 String[] addressparts2 = addresses[1].split("_");
                 String[] addressparts3 = addresses[2].split("_");
-                Users.add(new Customer(userparts[0],Integer.valueOf(userparts[1]),formatter.parse(userparts[2]),Integer.valueOf(userparts[3]),Integer.valueOf(userparts[4]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+                Users.add(new Customer(userparts[0],userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),Integer.valueOf(userparts[4]),Integer.valueOf(userparts[5]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
-            System.out.println("Banks database missing, creating new empty database");
+            System.out.println("Customers database missing, creating new empty database");
             //Variables holding sample?
 
             //Creates new database with default admin login included
@@ -72,10 +72,96 @@ public class Main_Program {
             throw new RuntimeException(e);
         }
     }
-
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
+    public static void PopulateBusinessAccounts(){
+        try {
+            File f = new File("BusinessAccounts.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String businessaccount = myReader.nextLine();
+                String[] businessparts = businessaccount.split("/");
+                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),Integer.valueOf(businessparts[1]),businessparts[2],Integer.valueOf(businessparts[3]),Integer.valueOf(businessparts[4]),businessparts[5],Integer.valueOf(businessparts[6]),Integer.valueOf(businessparts[7])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Business Accounts database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("BusinessAccounts.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
+    public static void PopulateISAAccounts(){
+        try {
+            File f = new File("ISAAccounts.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String isaaccount = myReader.nextLine();
+                String[] isaparts = isaaccount.split("/");
+                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),Integer.valueOf(isaparts[1]),isaparts[2],Integer.valueOf(isaparts[3]),Integer.valueOf(isaparts[4]),isaparts[5],Integer.valueOf(isaparts[6]),Integer.valueOf(isaparts[7])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("ISA Accounts database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("ISAAccounts.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
+    public static void PopulateCurrentAccounts(){
+        try {
+            File f = new File("CurrentAccounts.txt");
+            Scanner myReader = new Scanner(f);
+            while (myReader.hasNextLine()) {
+                String currentaccount = myReader.nextLine();
+                String[] currentparts = currentaccount.split("/");
+                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),Integer.valueOf(currentparts[1]),currentparts[2],Integer.valueOf(currentparts[3]),Integer.valueOf(currentparts[4]),currentparts[5],Integer.valueOf(currentparts[6])));
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+            System.out.println("Current Accounts database missing, creating new empty database");
+            //Variables holding sample?
+
+            //Creates new database with default admin login included
+            try {
+                FileWriter myWriter = new FileWriter("CurrentAccounts.txt");
+                myWriter.close();
+                System.out.println("Successfully Written File");
+            } catch (IOException g) {
+                System.out.println("Error occurred with writing");
+                g.printStackTrace();
+            }
+            //Adds samples?
+
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
     static String Username;
     public static void main(String[] args) throws ParseException {
         Username = Authentication.Login();
