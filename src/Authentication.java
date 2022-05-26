@@ -177,9 +177,7 @@ public class Authentication {
                         }
 
                     } else if (MenuChoice.equals("3")) {
-                        System.out.println("Please input Bank name, branch in the following format \"Bank/Branch\"");
-                        System.out.println("Please input sort code for Current Accounts");
-                        //Meets condition required to exit the loop for admin menu
+                        Main_Program.CreateBank();
                     } else if (MenuChoice.equals("4")) {
                         AdminLoggedIn = false;
                         //Catches an input that does not meet requirements of the menu options

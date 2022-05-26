@@ -8,7 +8,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
 public class Main_Program {
@@ -233,19 +232,19 @@ public class Main_Program {
         System.out.println("Error, Could not find this Current account");
         return null;
     }
-public static Bank_Accounts[] FindAccount(){
-        Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size()+BusinessAccounts.size()+ISAAccounts.size()];
-    for (int i = 0; i < BusinessAccounts.size(); i++) {
-        Accounts[i] = BusinessAccounts.get(i);
+    public static Bank_Accounts[] FindAccount() {
+        Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size() + BusinessAccounts.size() + ISAAccounts.size()];
+        for (int i = 0; i < BusinessAccounts.size(); i++) {
+            Accounts[i] = BusinessAccounts.get(i);
+        }
+        for (int i = 0; i < CurrentAccounts.size(); i++) {
+            Accounts[i] = CurrentAccounts.get(i);
+        }
+        for (int i = 0; i < ISAAccounts.size(); i++) {
+            Accounts[i] = ISAAccounts.get(i);
+        }
+        return Accounts;
     }
-    for (int i = 0; i < CurrentAccounts.size(); i++) {
-        Accounts[i] = CurrentAccounts.get(i);
-    }
-    for (int i = 0; i < ISAAccounts.size(); i++) {
-        Accounts[i] = ISAAccounts.get(i);
-    }
-    return Accounts;
-}
     //For finding bank accounts from the account number and sort code
     public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
         for (Bank_Accounts i : FindAccount()){
@@ -422,6 +421,15 @@ public static Bank_Accounts[] FindAccount(){
     }
     public static void CreateBank(){
         System.out.println("Please input sort code for Current Accounts");
+        Scanner in = new Scanner(System.in);
+        int current = in.nextInt();
+        System.out.println("Please input sort code for Business Accounts");
+        int business = in.nextInt();
+        System.out.println("Please input sort code for ISA Accounts");
+        int ISA = in.nextInt();
+        System.out.println("Input the name of the bank");
+        String Name = in.nextLine();
+        Banks.add(new Bank(current,ISA,business,Name));
     }
     private static Bank_Accounts AutoFindBankAccount(){
         boolean AccountFound = false;
@@ -633,13 +641,13 @@ public static Bank_Accounts[] FindAccount(){
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to deposit in pence?");
+            System.out.println("How much would you like to deposit \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int Depositvalue = in.nextInt();
-            System.out.println("Are you sure you want to deposit " + ((double) Depositvalue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to deposit £" + ((double) Depositvalue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
@@ -681,13 +689,13 @@ public static Bank_Accounts[] FindAccount(){
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to withdraw in pence?");
+            System.out.println("How much would you like to withdraw \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int Withdrawvalue = in.nextInt();
-            System.out.println("Are you sure you want to withdraw " + ((double) Withdrawvalue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to withdraw £" + ((double) Withdrawvalue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
@@ -729,13 +737,13 @@ public static Bank_Accounts[] FindAccount(){
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" in pence?");
+            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int PayValue = in.nextInt();
-            System.out.println("Are you sure you want to pay "+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to pay £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {
@@ -777,13 +785,13 @@ public static Bank_Accounts[] FindAccount(){
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to transfer to "+ RecipientAccount.getOwner() +" in pence?");
+            System.out.println("How much would you like to transfer to "+ RecipientAccount.getOwner() +" \bin pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
             }
             int PayValue = in.nextInt();
-            System.out.println("Are you sure you want to transfer "+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + " pound(s)?   [Y/N]");
+            System.out.println("Are you sure you want to transfer £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
             String confirm = in.nextLine();
             boolean check2 = true;
             do {

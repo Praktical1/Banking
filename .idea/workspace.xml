@@ -64,13 +64,11 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="JUnit.Current_Tests.WithdrawMoney">
-    <configuration name="Business_Tests.TransferMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+
+  <component name="RunManager" selected="Application.Main_Program">
+    <configuration name="Main_Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main_Program" />
       <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="METHOD_NAME" value="TransferMoney" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,11 +115,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main_Program" />
         <item itemvalue="JUnit.Current_Tests.WithdrawMoney" />
         <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
         <item itemvalue="JUnit.Business_Tests.TransferNegative" />
         <item itemvalue="JUnit.Business_Tests.TransferTooMuch" />
-        <item itemvalue="JUnit.Business_Tests.TransferMoney" />
       </list>
     </recent_temporary>
   </component>
