@@ -18,8 +18,8 @@ public class Main_Program {
             Scanner myReader = new Scanner(f);
             while (myReader.hasNextLine()) {
                 String bank = myReader.nextLine();
-                String[] parts = bank.split("/");
-                Banks.add(new Bank(Integer.valueOf(parts[0]),Integer.valueOf(parts[1]),Integer.valueOf(parts[2]),parts[3]));
+                String[] bankparts = bank.split("/");
+                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3]));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -44,13 +44,13 @@ public class Main_Program {
             Scanner myReader = new Scanner(f);
             while (myReader.hasNextLine()) {
                 String user = myReader.nextLine();
-                String[] parts = user.split("/");
-                parts[2]=parts[2].replace(" BST","");
-                String[] addresses = parts[5].split(";");
+                String[] userparts = user.split("/");
+                userparts[2]=userparts[2].replace(" BST","");
+                String[] addresses = userparts[5].split(";");
                 String[] addressparts1 = addresses[0].split("_");
                 String[] addressparts2 = addresses[1].split("_");
                 String[] addressparts3 = addresses[2].split("_");
-                Users.add(new Customer(parts[0],Integer.valueOf(parts[1]),formatter.parse(parts[2]),Integer.valueOf(parts[3]),Integer.valueOf(parts[4]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+                Users.add(new Customer(userparts[0],Integer.valueOf(userparts[1]),formatter.parse(userparts[2]),Integer.valueOf(userparts[3]),Integer.valueOf(userparts[4]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
