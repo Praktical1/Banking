@@ -82,7 +82,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String businessaccount = myReader.nextLine();
                 String[] businessparts = businessaccount.split("/");
-                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),Integer.valueOf(businessparts[1]),businessparts[2],Integer.valueOf(businessparts[3]),Integer.valueOf(businessparts[4]),businessparts[5],Integer.valueOf(businessparts[6]),Integer.valueOf(businessparts[7])));
+                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),businessparts[1],Integer.valueOf(businessparts[2]),Integer.valueOf(businessparts[3]),businessparts[4],Integer.valueOf(businessparts[5]),Integer.valueOf(businessparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -112,7 +112,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String isaaccount = myReader.nextLine();
                 String[] isaparts = isaaccount.split("/");
-                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),Integer.valueOf(isaparts[1]),isaparts[2],Integer.valueOf(isaparts[3]),Integer.valueOf(isaparts[4]),isaparts[5],Integer.valueOf(isaparts[6]),Integer.valueOf(isaparts[7])));
+                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),isaparts[1],Integer.valueOf(isaparts[2]),Integer.valueOf(isaparts[3]),isaparts[4],Integer.valueOf(isaparts[5]),Integer.valueOf(isaparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -142,7 +142,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String currentaccount = myReader.nextLine();
                 String[] currentparts = currentaccount.split("/");
-                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),Integer.valueOf(currentparts[1]),currentparts[2],Integer.valueOf(currentparts[3]),Integer.valueOf(currentparts[4]),currentparts[5],Integer.valueOf(currentparts[6])));
+                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),currentparts[1],Integer.valueOf(currentparts[2]),Integer.valueOf(currentparts[3]),currentparts[4],Integer.valueOf(currentparts[5])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
