@@ -808,7 +808,8 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" in pence?");
+            String name = LookupCustomer(RecipientAccount.getOwner()).getName();
+            System.out.println("How much would you like to pay to "+ name +" in pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
@@ -817,20 +818,19 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                String name = LookupCustomer(RecipientAccount.getOwner()).getName();
                 System.out.println("Are you sure you want to pay "+ name + ((double) PayValue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
                     if (RecipientAccount.getAccountType().equals("ISA")) {
-                        ISA account = FindISAAccount(Account);
+                        ISA account = FindISAAccount(RecipientAccount);
                         account.pay(PayValue,RecipientAccount);
                     } else if (RecipientAccount.getAccountType().equals("Current")) {
-                        Current account = FindCurrentAccount(Account);
+                        Current account = FindCurrentAccount(RecipientAccount);
                         account.Pay(PayValue,RecipientAccount);
                     } else {
-                        Business account = FindBusinessAccount(Account);
+                        Business account = FindBusinessAccount(RecipientAccount);
                         account.Pay(PayValue,RecipientAccount);
                     }
                 } else if (confirm.equalsIgnoreCase("N")) {
@@ -858,8 +858,7 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            String name = LookupCustomer(RecipientAccount.getOwner()).getName();
-            System.out.println("How much would you like to transfer to "+ name +" in pence?");
+            System.out.println("How much would you like to transfer to "+ RecipientAccount.getBankNumber() +" in pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
@@ -868,19 +867,19 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to transfer "+ RecipientAccount.getOwner() + ((double)PayValue) / 100 + " pounds?   [Y/N]");
+                System.out.println("Are you sure you want to transfer "+ RecipientAccount.getBankNumber() +" "+ ((double)PayValue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
                     if (RecipientAccount.getAccountType().equals("ISA")) {
-                        ISA account = FindISAAccount(Account);
+                        ISA account = FindISAAccount(RecipientAccount);
                         account.transfer(PayValue,RecipientAccount);
                     } else if (RecipientAccount.getAccountType().equals("Current")) {
-                        Current account = FindCurrentAccount(Account);
+                        Current account = FindCurrentAccount(RecipientAccount);
                         account.Transfer(PayValue,RecipientAccount);
                     } else {
-                        Business account = FindBusinessAccount(Account);
+                        Business account = FindBusinessAccount(RecipientAccount);
                         account.Transfer(PayValue,RecipientAccount);
                     }
                 } else if (confirm.equalsIgnoreCase("N")) {
