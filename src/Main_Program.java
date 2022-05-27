@@ -531,6 +531,7 @@ public class Main_Program {
                             System.out.println(" [7] View Current Annual Deposit");
                         }
                         System.out.println(" [9] Exit to Customer Operations");
+                        in = new Scanner(System.in);
                         while (!in.hasNextInt()) {
                             System.out.println("Please enter a menu option");
                             in.next();
