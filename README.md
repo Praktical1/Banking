@@ -8,7 +8,7 @@ Admin:
 
 Features:
 -
-Generates a txt when data is stored
+- Generates a txt when data is stored
 - Annually (Done by the calendar year):
   - Business charge of £50
   - Scaling interest
