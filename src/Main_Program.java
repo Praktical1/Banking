@@ -13,6 +13,7 @@ public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
     public static int CustomerIndex;
     public static int BankIndex;
+
     public static void PopulateBanks(){
         try {
             File f = new File("Banks.txt");
