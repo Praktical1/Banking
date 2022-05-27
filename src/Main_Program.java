@@ -823,14 +823,14 @@ public class Main_Program {
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
-                    if (RecipientAccount.getAccountType().equals("ISA")) {
-                        ISA account = FindISAAccount(RecipientAccount);
+                    if (Account.getAccountType().equals("ISA")) {
+                        ISA account = FindISAAccount(Account);
                         account.pay(PayValue,RecipientAccount);
-                    } else if (RecipientAccount.getAccountType().equals("Current")) {
-                        Current account = FindCurrentAccount(RecipientAccount);
+                    } else if (Account.getAccountType().equals("Current")) {
+                        Current account = FindCurrentAccount(Account);
                         account.Pay(PayValue,RecipientAccount);
                     } else {
-                        Business account = FindBusinessAccount(RecipientAccount);
+                        Business account = FindBusinessAccount(Account);
                         account.Pay(PayValue,RecipientAccount);
                     }
                 } else if (confirm.equalsIgnoreCase("N")) {
@@ -872,14 +872,14 @@ public class Main_Program {
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
-                    if (RecipientAccount.getAccountType().equals("ISA")) {
-                        ISA account = FindISAAccount(RecipientAccount);
+                    if (Account.getAccountType().equals("ISA")) {
+                        ISA account = FindISAAccount(Account);
                         account.transfer(PayValue,RecipientAccount);
-                    } else if (RecipientAccount.getAccountType().equals("Current")) {
-                        Current account = FindCurrentAccount(RecipientAccount);
+                    } else if (Account.getAccountType().equals("Current")) {
+                        Current account = FindCurrentAccount(Account);
                         account.Transfer(PayValue,RecipientAccount);
                     } else {
-                        Business account = FindBusinessAccount(RecipientAccount);
+                        Business account = FindBusinessAccount(Account);
                         account.Transfer(PayValue,RecipientAccount);
                     }
                 } else if (confirm.equalsIgnoreCase("N")) {
