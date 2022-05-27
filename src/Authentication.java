@@ -183,6 +183,7 @@ public class Authentication {
                     } else {
                         System.out.println("Invalid input, please choose either \"1\", \"2\" or \"3\"");                //Informs user that input doesn't match requirements
                     }
+                    Storage.SaveData("Banks");
                     //Saving updated staff login information
                     try {
                         FileWriter myWriter = new FileWriter("StaffLogins.txt");

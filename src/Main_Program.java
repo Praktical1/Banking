@@ -224,8 +224,8 @@ public class Main_Program {
                 case "3" -> Exit = true;
                 default -> System.out.println("Please choose either option 1, 2 or 3");
             }
+            Storage.SaveData("Customers");
         }
-        Storage.SaveData();
     }
 
     public static Bank FindBank(String BankName){
@@ -411,12 +411,16 @@ public class Main_Program {
                                 5:    Exit to Main Menu""");
                     String choice = in.nextLine();
                     switch (choice) {
-                        case "1" -> i.CreateBankAccount();
+                        case "1" -> {
+                            i.CreateBankAccount();
+                            Storage.SaveData("Accounts");
+                        }
                         case "2" -> ManageAccount(i.getIndex());
                         case "3" -> ChangeCustomerDetails(i);
                         case "4" -> {
                             i.removeCustomer();
                             Users.remove(i);
+                            Storage.SaveData("Customers");
                         }
                         case "5" -> MenuStay = false;
                         default -> System.out.println("Error: Invalid choice");
@@ -482,6 +486,7 @@ public class Main_Program {
                     validChoice = false;
                 }
             }
+            Storage.SaveData("Customers");
         }while(!validChoice);
     }
     public static void CreateBank(){
@@ -681,6 +686,7 @@ public class Main_Program {
                                     System.out.println("Please choose either option 1,2,3,4,5 or 6");
                                 }
                             }
+                            Storage.SaveData("Accounts");
                         } while (!ChoiceCheck);
                     } while (MenuStay);
                 } else if (attempts == 2){
@@ -818,7 +824,7 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to pay "+ name + ((double) PayValue) / 100 + " pounds?   [Y/N]");
+                System.out.println("Are you sure you want to pay "+ name +" " + ((double) PayValue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
