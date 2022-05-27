@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Fixed stuff again" />
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bank_Accounts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bank_Accounts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -465,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653657068037</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fixed Ghost user bug">
+      <created>1653658285892</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1653658285892</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -483,7 +495,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed FindISAAccount" />
     <MESSAGE value="Fixed Customer creating new ISA account" />
     <MESSAGE value="Created method to search for bank accounts with the account number and sort code" />
     <MESSAGE value="Added remove customer function" />
@@ -508,7 +519,8 @@
     <MESSAGE value="Fixed stuff" />
     <MESSAGE value="Fixed stuff again" />
     <MESSAGE value="Deleted writing of file at start and writing file messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted writing of file at start and writing file messages" />
+    <MESSAGE value="Fixed Ghost user bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Ghost user bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

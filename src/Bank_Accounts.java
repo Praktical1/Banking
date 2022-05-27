@@ -3,8 +3,8 @@ public abstract class Bank_Accounts {
     private String PIN;
     private int Balance;
     private int BankIndex;
-    private String AccountType;
-    private int OwnerIndex;
+    private final String AccountType;
+    private final int OwnerIndex;
 
     public Bank_Accounts(int bankNumber, String PIN, int balance, int bankindex, String accountType, int customerindex) {
         BankNumber = bankNumber;
@@ -21,10 +21,6 @@ public abstract class Bank_Accounts {
 
     public String getAccountType() {
         return AccountType;
-    }
-
-    public void setAccountType(String accountType) {
-        AccountType = accountType;
     }
 
     public int getBalance() {
