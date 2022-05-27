@@ -1,8 +1,9 @@
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.Scanner;
 public class Customer {
     String Name;
-    int Age;
     String DOB;
     String PhoneNumber;
     String MobNumber;
@@ -28,14 +29,6 @@ public class Customer {
 
     public void setName(String name) {
         Name = name;
-    }
-
-    public int getAge() {
-        return Age;
-    }
-
-    public void setAge(int age) {
-        Age = age;
     }
 
     public String getDOB() {
@@ -73,7 +66,7 @@ public class Customer {
     //CreateBankAccount: gives the user a choice of new bank account
     public void CreateBankAccount (){
         //checks if the account creator is over 16
-        if(Age >= 16){
+        if(Age>=16){
             Scanner in = new Scanner(System.in);
             System.out.print("""
                     What type of bank account would you like to open?
