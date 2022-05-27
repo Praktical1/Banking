@@ -1,5 +1,4 @@
 # Banking by Prakhash, Roy and Yasum
-Generates an txt when data is stored
 
 Admin:
 -
@@ -9,6 +8,7 @@ Admin:
 
 Features:
 -
+Generates a txt when data is stored
 - Annually (Done by the calendar year):
   - Business charge of £50
   - Scaling interest
