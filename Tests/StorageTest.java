@@ -34,7 +34,9 @@ public class StorageTest {
     }
     @Test
     void SaveData() throws IOException {
-        Storage.SaveData();
+        Storage.SaveData("Customers");
+        Storage.SaveData("Accounts");
+        Storage.SaveData("Banks");
         File Bank = new File("Banks.txt");
         File Current = new File("Current.txt");
         File Business = new File("Business.txt");

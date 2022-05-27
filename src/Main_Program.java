@@ -225,7 +225,6 @@ public class Main_Program {
                 default -> System.out.println("Please choose either option 1, 2 or 3");
             }
         }
-        Storage.SaveData();
     }
 
     public static Bank FindBank(String BankName){
