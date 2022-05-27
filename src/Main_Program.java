@@ -120,9 +120,17 @@ public class Main_Program {
         }
         int currentyear = Integer.parseInt(Year.format(CurrentTime));
         int difference = currentyear - Integer.parseInt(LastAccessedYear);
-        //Call for interest add function in ISA
-        //Call for business annual charge  function
+        //Call for interest add function in ISA;
         //Reset current annual deposit of all ISA accounts to zero
+        for (ISA i : ISAAccounts) {
+            i.addInterest(i.getInterestRate());
+            i.setCurrentAnnualDeposit(0);
+
+        }
+        //Call for business annual charge  function
+        for(Business i: BusinessAccounts){
+            i.Upkeep();
+        }
 
         try {
             FileWriter myWriter = new FileWriter("LastAccessed.txt");
