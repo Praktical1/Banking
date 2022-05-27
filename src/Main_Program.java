@@ -132,9 +132,9 @@ public class Main_Program {
         }
     }
     public static void main(String[] args) throws IOException {
+        PopulateBanks();
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
-        PopulateBanks();
         PopulateUsers();
         PopulateBusinessAccounts();
         PopulateCurrentAccounts();

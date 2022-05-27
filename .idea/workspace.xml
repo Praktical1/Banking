@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Fixed stuff again">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Authentication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Authentication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -462,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653654278344</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Deleted writing of file at start and writing file messages">
+      <created>1653657068037</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1653657068037</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,7 +485,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="Fixed FindISAAccount" />
     <MESSAGE value="Fixed Customer creating new ISA account" />
     <MESSAGE value="Created method to search for bank accounts with the account number and sort code" />
@@ -505,7 +509,8 @@
     <MESSAGE value="Checked age to create bank account" />
     <MESSAGE value="Fixed stuff" />
     <MESSAGE value="Fixed stuff again" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed stuff again" />
+    <MESSAGE value="Deleted writing of file at start and writing file messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Deleted writing of file at start and writing file messages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
