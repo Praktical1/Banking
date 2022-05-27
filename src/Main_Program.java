@@ -50,16 +50,14 @@ public class Main_Program {
                 String user = myReader.nextLine();
                 String[] userparts = user.split("/");
                 userparts[3]=userparts[3].replace(" BST","");
+                userparts[3]=userparts[3].replace(" GMT","");
                 String[] addresses = userparts[6].split(";");
                 Address[] home = new Address[addresses.length];
                 for (int i = 0;i<addresses.length;i++) {
                     String[] temp = addresses[i].split("_");
                     home[i] = new Address(temp[0],temp[1],temp[2],temp[3],temp[4]);
                 }
-                String[] addressparts1 = addresses[0].split("_");
-                String[] addressparts2 = addresses[1].split("_");
-                String[] addressparts3 = addresses[2].split("_");
-                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),userparts[4],userparts[5], new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),userparts[4],userparts[5], home));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -397,42 +395,40 @@ public class Main_Program {
         System.out.println("Enter your house name/number");
         String hname = in.nextLine();
         boolean validUser = false;
-        do {
-            for (Customer i : Users) {
-                if (i.getName().equals(name) & i.getAddress()[0].getPostCode().equals(postcode) & i.getAddress()[0].getHouse().equals(hname)) {
-                    validUser = true;
-                    boolean MenuStay = true;
-                    do {
-                        System.out.println("""
+        for (Customer i : Users) {
+            if (i.getName().equalsIgnoreCase(name) & i.getAddress()[0].getPostCode().equalsIgnoreCase(postcode) & i.getAddress()[0].getHouse().equalsIgnoreCase(hname)) {
+                validUser = true;
+                boolean MenuStay = true;
+                do {
+                    System.out.println("""
                                 Choose a customer operation:
                                 1:    Create bank account
                                 2:    Manage bank accounts
                                 3:    Change customer details
                                 4:    Remove customer
                                 5:    Exit to Main Menu""");
-                        String choice = in.nextLine();
-                        switch (choice) {
-                            case "1" -> i.CreateBankAccount();
-                            case "2" -> ManageAccount(i.getIndex());
-                            case "3" -> ChangeCustomerDetails(i);
-                            case "4" -> {
-                                i.removeCustomer();
-                                Users.remove(i);
-                            }
-                            case "5" -> {
-                                MenuStay = false;
-                            }
-                            default -> {
-                                System.out.println("Error: Invalid choice");
-                            }
+                    String choice = in.nextLine();
+                    switch (choice) {
+                        case "1" -> i.CreateBankAccount();
+                        case "2" -> ManageAccount(i.getIndex());
+                        case "3" -> ChangeCustomerDetails(i);
+                        case "4" -> {
+                            i.removeCustomer();
+                            Users.remove(i);
                         }
-                    } while (MenuStay);
-                }
+                        case "5" -> {
+                            MenuStay = false;
+                        }
+                        default -> {
+                            System.out.println("Error: Invalid choice");
+                        }
+                    }
+                } while (MenuStay);
             }
-            if(!validUser){
-                System.out.println("Error, No user found");
-            }
-        }while(!validUser);
+        }
+        if(!validUser){
+            System.out.println("Error, No user found");
+        }
     }
 
     //Allows the details of a customer to be changed
