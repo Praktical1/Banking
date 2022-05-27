@@ -148,13 +148,13 @@ public class Main_Program {
     }
     public static void main(String[] args) throws IOException {
         PopulateBanks();
-        Username = Authentication.Login();
-        boolean Exit = Username.equals("");
         PopulateUsers();
         PopulateBusinessAccounts();
         PopulateCurrentAccounts();
         PopulateISAAccounts();
         AnnualTick();
+        Username = Authentication.Login();
+        boolean Exit = Username.equals("");
         while(!Exit){
             System.out.println("\n\nHello " + Username + """
                                     
