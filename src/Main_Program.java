@@ -712,10 +712,11 @@ public class Main_Program {
                 in.next();
             }
             int Depositvalue = in.nextInt();
-            System.out.println("Are you sure you want to deposit £" + ((double) Depositvalue) / 100 + "?   [Y/N]");
-            String confirm = in.nextLine();
             boolean check2 = true;
             do {
+                in = new Scanner(System.in);
+                System.out.println("Are you sure you want to deposit £" + ((double) Depositvalue) / 100 + "?   [Y/N]");
+                String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
@@ -760,10 +761,11 @@ public class Main_Program {
                 in.next();
             }
             int Withdrawvalue = in.nextInt();
-            System.out.println("Are you sure you want to withdraw £" + ((double) Withdrawvalue) / 100 + "?   [Y/N]");
-            String confirm = in.nextLine();
             boolean check2 = true;
             do {
+                in = new Scanner(System.in);
+                System.out.println("Are you sure you want to withdraw £" + ((double) Withdrawvalue) / 100 + "?   [Y/N]");
+                String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
@@ -808,10 +810,11 @@ public class Main_Program {
                 in.next();
             }
             int PayValue = in.nextInt();
-            System.out.println("Are you sure you want to pay £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
-            String confirm = in.nextLine();
             boolean check2 = true;
             do {
+                in = new Scanner(System.in);
+                System.out.println("Are you sure you want to pay £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
+                String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
@@ -856,10 +859,11 @@ public class Main_Program {
                 in.next();
             }
             int PayValue = in.nextInt();
-            System.out.println("Are you sure you want to transfer £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
-            String confirm = in.nextLine();
             boolean check2 = true;
             do {
+                in = new Scanner(System.in);
+                System.out.println("Are you sure you want to transfer £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
+                String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
                     check2 = false;
