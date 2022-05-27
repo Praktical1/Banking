@@ -21,36 +21,36 @@ public class Storage {
         Writer BusinessWriter = new FileWriter(Bu);
         Writer ISAWriter = new FileWriter(I);
         //writes Banks with format (CurrentSortCode,BusinessSortCode,ISASortCode,Name,Index
-        int index = 0;
+        BankWriter.write(Integer.toString(Main_Program.BankIndex)+"\n");
         for (Bank i : Main_Program.Banks){
-            BankWriter.write(i.getCurrentSortCode()+","+i.getBusinessSortCode()+","+i.getISASortCode()+","+i.getName()+","+index+"\n");
-            index += 1;
+            BankWriter.write(i.getCurrentSortCode()+"/"+i.getBusinessSortCode()+"/"+i.getISASortCode()+"/"+i.getName()+"/"+i.getIndex()+"\n");
         }
         BankWriter.close();
-        index = 0;
         //writes Customers with format (Index,Name,Age,DOB,Phone,Mobile,Address1,Address2,Address3)
+        CustomerWriter.write(Integer.toString(Main_Program.CustomerIndex)+"\n");
         for (Customer i : Main_Program.Users){
-            int Addresses = i.getAddress().length;
+            int AddressLength = (i.getAddress()).length;
             String AddressString = "";
-            for(int j = 0;j<Addresses;j++) {
-                AddressString += ","+i.getAddress()[j].toString();
+            for(int j = 0;j<AddressLength;j++) {
+                if (j>0){
+                    AddressString += ";";
+                }
+                AddressString += (i.getAddress())[j].getHouse() + "_" + (i.getAddress())[j].getRoad() + "_" + (i.getAddress())[j].getTown() + "_" + (i.getAddress())[j].getCounty() + "_" + (i.getAddress())[j].getPostCode();
             }
-            CustomerWriter.write(index+","+i.getName()+","+i.getAge()+","+i.getDOB()+","+i.getPhoneNumber()+","+i.getMobNumber()+AddressString+"\n");
-            index += 1;
+            CustomerWriter.write(i.getIndex()+"/"+i.getName()+"/"+i.getAge()+"/"+i.getDOB()+"/"+i.getPhoneNumber()+"/"+i.getMobNumber()+"/"+AddressString+"\n");
         }
         CustomerWriter.close();
-        index = 0;
         //Writes data on each account type with ID numbers instead of Banks and Customers in format (AccountNumber,PIN,Balance,BankID,AccountType,CustomerID(,OtherInfo)
         for (Current i:Main_Program.CurrentAccounts){
-            CurrentWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(1)+","+i.getAccountType()+","+String.valueOf(1));
+            CurrentWriter.write(i.getBankNumber()+"/"+i.getPIN()+"/"+i.getBalance()+"/"+i.getBank()+"/"+i.getAccountType()+"/"+i.getOwner()+"\n");
         }
         CurrentWriter.close();
         for (Business i:Main_Program.BusinessAccounts){
-            BusinessWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(1)+","+i.getAccountType()+","+String.valueOf(1)+","+i.getBusinessNumber());
+            BusinessWriter.write(i.getBankNumber()+"/"+i.getPIN()+"/"+i.getBalance()+"/"+i.getBank()+"/"+i.getAccountType()+"/"+i.getOwner()+"/"+i.getBusinessNumber()+"\n");
         }
         BusinessWriter.close();
         for (ISA i:Main_Program.ISAAccounts){
-            ISAWriter.write(i.getBankNumber()+","+i.getPIN()+","+i.getBalance()+","+String.valueOf(1)+","+i.getAccountType()+","+String.valueOf(1)+","+i.getCurrentAnnualDeposit());
+            ISAWriter.write(i.getBankNumber()+"/"+i.getPIN()+"/"+i.getBalance()+"/"+i.getBank()+"/"+i.getAccountType()+"/"+i.getOwner()+"/"+i.getCurrentAnnualDeposit()+"\n");
         }
         ISAWriter.close();
     }

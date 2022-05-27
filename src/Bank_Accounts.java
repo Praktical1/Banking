@@ -4,19 +4,19 @@ public abstract class Bank_Accounts {
     private int Balance;
     private int BankIndex;
     private String AccountType;
-    private int Index;
+    private int OwnerIndex;
 
-    public Bank_Accounts(int bankNumber, String PIN, int balance, int bankindex, String accountType, int index) {
+    public Bank_Accounts(int bankNumber, String PIN, int balance, int bankindex, String accountType, int customerindex) {
         BankNumber = bankNumber;
         this.PIN = PIN;
         BankIndex = bankindex;
         Balance = balance;
         AccountType = accountType;
-        Index = index;
+        OwnerIndex = customerindex;
     }
 
     public int getOwner() {
-        return Index;
+        return OwnerIndex;
     }
 
     public String getAccountType() {

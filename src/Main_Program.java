@@ -8,23 +8,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
-import java.io.File;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
-    private static int CustomerIndex;
-    private static int BankIndex;
+    public static int CustomerIndex;
+    public static int BankIndex;
     public static void PopulateBanks(){
         try {
             File f = new File("Banks.txt");
             Scanner myReader = new Scanner(f);
-            BankIndex = Integer.valueOf(myReader.nextLine());
+            BankIndex = Integer.parseInt(myReader.nextLine());
             while (myReader.hasNextLine()) {
                 String bank = myReader.nextLine();
                 String[] bankparts = bank.split("/");
-                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3],Integer.valueOf(bankparts[4])));
+                Banks.add(new Bank(Integer.parseInt(bankparts[0]),Integer.parseInt(bankparts[1]),Integer.parseInt(bankparts[2]),bankparts[3],Integer.parseInt(bankparts[4])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -53,10 +51,15 @@ public class Main_Program {
                 String[] userparts = user.split("/");
                 userparts[3]=userparts[3].replace(" BST","");
                 String[] addresses = userparts[6].split(";");
+                Address[] home = new Address[addresses.length];
+                for (int i = 0;i<addresses.length;i++) {
+                    String[] temp = addresses[i].split("_");
+                    home[i] = new Address(temp[0],temp[1],temp[2],temp[3],temp[4]);
+                }
                 String[] addressparts1 = addresses[0].split("_");
                 String[] addressparts2 = addresses[1].split("_");
                 String[] addressparts3 = addresses[2].split("_");
-                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),Integer.valueOf(userparts[4]),Integer.valueOf(userparts[5]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),userparts[4],userparts[5], new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -197,9 +200,14 @@ public class Main_Program {
             g.printStackTrace();
         }
     }
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, IOException {
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
+        PopulateBanks();
+        PopulateUsers();
+        PopulateBusinessAccounts();
+        PopulateCurrentAccounts();
+        PopulateISAAccounts();
         while(!Exit){
             System.out.println("\n\nHello " + Username + """
                                     
@@ -221,6 +229,7 @@ public class Main_Program {
                 case 3 -> Exit = true;
             }
         }
+        Storage.SaveData();
     }
 
     public static Bank FindBank(String BankName){
@@ -297,31 +306,37 @@ public class Main_Program {
         System.out.println("Error: Could not find bank account with these numbers");
         return null;
     }
-    public static void CreateCustomer() throws ParseException {
+    public static void CreateCustomer() {
         //Staff enters details of a new customer
         Scanner in = new Scanner(System.in);
         System.out.println("\nPlease enter the new customer's details:\nFull Name:");
 
         String name = in.nextLine();
-        System.out.println("\nDate of Birth (dd mm yyyy):");
+        boolean datecheck = false;
+        Calendar DOB;
+        do{
+            System.out.println("\nDate of Birth (dd mm yyyy):");
+            String DOBString = in.nextLine();
+            DateFormat formatter = new SimpleDateFormat("dd MM yyyy");
+            //Date and time is a nightmare. Calendar type is different from Date type yet both represent a date
+            //also, most features of Date are being depreciated so Calendar is used here
+            DOB = Calendar.getInstance();
+            try {
+                DOB.setTime(formatter.parse(DOBString));
+                datecheck=true;
+            } catch (ParseException e) {
+                System.out.println("Please enter Date of Birth in format \"dd mm yyyy\"");
 
-        String DOBString = in.nextLine();
-        DateFormat formatter = new SimpleDateFormat("dd MM yyyy");
-        //Date and time is a nightmare. Calendar type is different from Date type yet both represent a date
-        //also, most features of Date are being depreciated so Calendar is used here
-        Calendar DOB = Calendar.getInstance();
-        DOB.setTime(formatter.parse(DOBString));
+            }
+        } while (!datecheck);
 
+
+        in = new Scanner(System.in);
         System.out.println("\nPhone Number:");
-        int Phone = in.nextInt();
+        String Phone = in.nextLine();
         //Optional mobile number requires a string to feed into an integer so leaving it blank is possible
         System.out.println("\nMobile Number (Optional: Leave blank if none):");
-        String Mob = in.nextLine();
-        int Mobile = 0;
-        if(!Mob.equals("")) {
-            Scanner mobs = new Scanner(Mob);
-            Mobile = mobs.nextInt();
-        }
+        String Mobile = in.nextLine();
 
         System.out.println("""
                 Address:
@@ -332,24 +347,34 @@ public class Main_Program {
         //gets all 3 addresses from the last 3 years, counting tenancy to the nearest month
         int months = 0;
         int index = 0;
-        Address[] home = new Address[3];
+        ArrayList<Address> temphome = new ArrayList<>();
 
         do{
-            index += 1;
-            System.out.println("For Address #"+index+"\n  House Name/Number:");
-            home[index].setHouse(in.nextLine());
+            in = new Scanner(System.in);
+            System.out.println("For Address #"+(index+1)+"\n  House Name/Number:");
+            String House = in.nextLine();
             System.out.println("  Road:");
-            home[index].setRoad(in.nextLine());
+            String Road = in.nextLine();
             System.out.println("  Town/Village/City:");
-            home[index].setTown(in.nextLine());
+            String Town = in.nextLine();
             System.out.println("  County/Province:");
-            home[index].setCounty(in.nextLine());
-            System.out.println("  PostCode/ZipCode:");
-            home[index].setPostCode(in.nextLine());
+            String County = in.nextLine();
+            System.out.println("  PostCode/ZipCode(no gaps):");
+            String Postcode = in.nextLine();
+            temphome.add(new Address(House,Road,Town,County,Postcode));
             System.out.println("How many months has the customer lived at this address? (to the closest month rounded up)");
-            months += in.nextInt();
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter number of months in numerical form, rounded up to nearest month");
+                in.next();
+            }
+            int addmonths = in.nextInt();
+            months=months+addmonths;
+            index += 1;
         }while(months<36&index<3);
-
+        Address[] home = new Address[temphome.size()];
+        for (int i = 0;i<temphome.size();i++) {
+            home[i] = temphome.get(i);
+        }
         //Checks if the current year's birthday has happened
         Calendar Birthday = DOB;
         Birthday.set(Calendar.YEAR,LocalDate.now().getYear());
@@ -360,6 +385,7 @@ public class Main_Program {
         //Creates a new customer with all the info (getting an age based upon current time is a nightmare)
         Users.add(new Customer(CustomerIndex,name,LocalDate.now().getYear()-DOB.get(Calendar.YEAR) + addyear, DOB.getTime(),Phone,Mobile,home));
         CustomerIndex++;
+        System.out.println("Customer "+name+" Enrolled");
     }
 
     public static void ManageCustomer(){
@@ -375,29 +401,32 @@ public class Main_Program {
             for (Customer i : Users) {
                 if (i.getName().equals(name) & i.getAddress()[0].getPostCode().equals(postcode) & i.getAddress()[0].getHouse().equals(hname)) {
                     validUser = true;
-                    boolean validChoice = true;
+                    boolean MenuStay = true;
                     do {
                         System.out.println("""
                                 Choose a customer operation:
                                 1:    Create bank account
                                 2:    Manage bank accounts
                                 3:    Change customer details
-                                4:    Remove customer""");
+                                4:    Remove customer
+                                5:    Exit to Main Menu""");
                         String choice = in.nextLine();
                         switch (choice) {
                             case "1" -> i.CreateBankAccount();
-                            case "2" -> ManageAccount();
+                            case "2" -> ManageAccount(i.getIndex());
                             case "3" -> ChangeCustomerDetails(i);
                             case "4" -> {
                                 i.removeCustomer();
                                 Users.remove(i);
                             }
+                            case "5" -> {
+                                MenuStay = false;
+                            }
                             default -> {
                                 System.out.println("Error: Invalid choice");
-                                validChoice = false;
                             }
                         }
-                    } while (!validChoice);
+                    } while (MenuStay);
                 }
             }
             if(!validUser){
@@ -417,29 +446,29 @@ public class Main_Program {
                     3:    Change mobile number
                     4:    Add new address""");
             Scanner in = new Scanner(System.in);
-            int Choice = in.nextInt();
+            String Choice = in.nextLine();
             switch (Choice) {
 
                 //changes the name
-                case 1 -> {
+                case "1" -> {
                     System.out.println("Change name to:");
                     User.setName(in.nextLine());
                 }
 
                 //changes the phone number
-                case 2 -> {
+                case "2" -> {
                     System.out.println("Change phone number to:");
-                    User.setPhoneNumber(in.nextInt());
+                    User.setPhoneNumber(in.nextLine());
                 }
 
                 //changes or adds a mobile number
-                case 3 -> {
+                case "3" -> {
                     System.out.println("Change mobile number to:");
-                    User.setMobNumber(in.nextInt());
+                    User.setMobNumber(in.nextLine());
                 }
 
                 //adds a new address (and removes oldest address if there are 3 addresses already)
-                case 4 -> {
+                case "4" -> {
                     Address address = new Address("","","","","");
                     System.out.println("Enter new address:\n   House name/number:");
                     address.setHouse(in.nextLine());
@@ -504,7 +533,7 @@ public class Main_Program {
         }
         return Account;
     }
-    public static void ManageAccount(){
+    public static void ManageAccount(int customerindex){
         boolean AccountFound = false;
         Bank_Accounts Account;
         int AccountNumber;
@@ -525,6 +554,9 @@ public class Main_Program {
             }
             SortCode = in.nextInt();
             Account = FindBankAccount(AccountNumber,SortCode);
+            if (Account.getOwner()!=customerindex) {
+                Account = null;
+            }
             if (Account != null) {
                 AccountFound = true;
             } else {
@@ -563,7 +595,7 @@ public class Main_Program {
                         } else if (Account.getAccountType().equals("ISA")) {
                             System.out.println(" [7] View Current Annual Deposit");
                         }
-                        System.out.println(" [9] Exit");
+                        System.out.println(" [9] Exit to Customer Operations");
                         while (!in.hasNextInt()) {
                             System.out.println("Please enter a menu option");
                             in.next();
