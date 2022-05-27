@@ -9,7 +9,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
-import java.time.LocalDate;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
     public static int CustomerIndex;
@@ -51,13 +50,13 @@ public class Main_Program {
                 String[] userparts = user.split("/");
                 userparts[3]=userparts[3].replace(" BST","");
                 userparts[3]=userparts[3].replace(" GMT","");
-                String[] addresses = userparts[6].split(";");
+                String[] addresses = userparts[5].split(";");
                 Address[] home = new Address[addresses.length];
                 for (int i = 0;i<addresses.length;i++) {
                     String[] temp = addresses[i].split("_");
                     home[i] = new Address(temp[0],temp[1],temp[2],temp[3],temp[4]);
                 }
-                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),userparts[4],userparts[5], home));
+                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],userparts[2],userparts[3],userparts[4], home));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -75,8 +74,6 @@ public class Main_Program {
             }
             //Adds samples?
 
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         }
     }
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
@@ -198,7 +195,7 @@ public class Main_Program {
             g.printStackTrace();
         }
     }
-    public static void main(String[] args) throws ParseException, IOException {
+    public static void main(String[] args) throws IOException {
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
         PopulateBanks();
@@ -311,14 +308,14 @@ public class Main_Program {
 
         String name = in.nextLine();
         boolean datecheck = false;
-        Calendar DOB;
+        String DOBString;
         do{
             System.out.println("\nDate of Birth (dd mm yyyy):");
-            String DOBString = in.nextLine();
+            DOBString = in.nextLine();
             DateFormat formatter = new SimpleDateFormat("dd MM yyyy");
             //Date and time is a nightmare. Calendar type is different from Date type yet both represent a date
             //also, most features of Date are being depreciated so Calendar is used here
-            DOB = Calendar.getInstance();
+            Calendar DOB = Calendar.getInstance();
             try {
                 DOB.setTime(formatter.parse(DOBString));
                 datecheck=true;
@@ -373,15 +370,15 @@ public class Main_Program {
         for (int i = 0;i<temphome.size();i++) {
             home[i] = temphome.get(i);
         }
-        //Checks if the current year's birthday has happened
-        Calendar Birthday = DOB;
+        //Checks if the current year's birthday has happened - needs to be removed currently
+        /*Calendar Birthday = DOB;
         Birthday.set(Calendar.YEAR,LocalDate.now().getYear());
         int addyear = 0;
         if(Birthday.getTimeInMillis() > System.currentTimeMillis()){
             addyear = -1;
-        }
+        }*/
         //Creates a new customer with all the info (getting an age based upon current time is a nightmare)
-        Users.add(new Customer(CustomerIndex,name,LocalDate.now().getYear()-DOB.get(Calendar.YEAR) + addyear, DOB.getTime(),Phone,Mobile,home));
+        Users.add(new Customer(CustomerIndex,name, DOBString,Phone,Mobile,home));
         CustomerIndex++;
         System.out.println("Customer "+name+" Enrolled");
     }

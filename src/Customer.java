@@ -5,16 +5,15 @@ import java.util.Scanner;
 public class Customer {
     String Name;
     int Age;
-    Date DOB;
+    String DOB;
     String PhoneNumber;
     String MobNumber;
     Address[] address;
     int Index;
 
-    public Customer(int customerindex, String name, int age, Date DOB, String phoneNumber, String mobNumber, Address[] address) {
+    public Customer(int customerindex, String name, String DOB, String phoneNumber, String mobNumber, Address[] address) {
         Index = customerindex;
         Name = name;
-        Age = age;
         this.DOB = DOB;
         PhoneNumber = phoneNumber;
         MobNumber = mobNumber;
@@ -41,11 +40,11 @@ public class Customer {
         Age = age;
     }
 
-    public Date getDOB() {
+    public String getDOB() {
         return DOB;
     }
 
-    public void setDOB(Date DOB) {
+    public void setDOB(String DOB) {
         this.DOB = DOB;
     }
 

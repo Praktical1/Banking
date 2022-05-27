@@ -8,9 +8,9 @@ import java.util.Date;
 public class Business_Tests {
     Address Address1 = new Address("1","this road", "this town","this county","OV343RE");
     DateFormat Format = new SimpleDateFormat("dd MM yyyy");
-    Date dob = Format.parse("20 10 2001");
-    Customer User1 = new Customer(1,"Alex",19,dob,"0","0", new Address[]{Address1});
-    Customer User2 = new Customer(2,"James",27,Format.parse("20 10 1993"),"0","0", new Address[]{Address1});
+    String dob = "20 10 2001";
+    Customer User1 = new Customer(1,"Alex",dob,"0","0", new Address[]{Address1});
+    Customer User2 = new Customer(2,"James","20 10 1993","0","0", new Address[]{Address1});
     Bank Bank1 = new Bank(0,1,2,"newbank",1);
     Business Account1 = new Business(12345678,"1234",1000,Bank1.getIndex(),"Business",User1.getIndex(),0);
     Business Account2 = new Business(87654321,"1234",1000,Bank1.getIndex(),"Business",User2.getIndex(),0);
