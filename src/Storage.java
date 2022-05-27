@@ -37,7 +37,7 @@ public class Storage {
                 }
                 AddressString += (i.getAddress())[j].toString();
             }
-            CustomerWriter.write(i.getIndex()+"/"+i.getName()+"/"+"/"+i.getDOB()+"/"+i.getPhoneNumber()+"/"+i.getMobNumber()+"/"+AddressString+"\n");
+            CustomerWriter.write(i.getIndex()+"/"+i.getName()+"/"+i.getDOB()+"/"+i.getPhoneNumber()+"/"+i.getMobNumber()+"/"+AddressString+"\n");
         }
         CustomerWriter.close();
         //Writes data on each account type with ID numbers instead of Banks and Customers in format (AccountNumber,PIN,Balance,BankID,AccountType,CustomerID(,OtherInfo)
