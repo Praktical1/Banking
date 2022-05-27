@@ -3,12 +3,14 @@ public class Bank {
     private int CurrentSortCode;
     private int ISASortCode;
     private int BusinessSortCode;
+    private int Index;
 
-    public Bank(int currentSortCode, int ISASortCode, int businessSortCode, String name) {
+    public Bank(int currentSortCode, int ISASortCode, int businessSortCode, String name, int index) {
         CurrentSortCode = currentSortCode;
         this.ISASortCode = ISASortCode;
         BusinessSortCode = businessSortCode;
         Name = name;
+        Index = index;
     }
     public int getCurrentSortCode() {
         return CurrentSortCode;
@@ -37,6 +39,8 @@ public class Bank {
     public String getName() {
         return Name;
     }
+
+    public int getIndex() { return Index; }
 
     public void setName(String name) {
         Name = name;

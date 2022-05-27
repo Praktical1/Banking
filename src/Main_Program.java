@@ -8,20 +8,20 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
-import java.time.LocalDate;
-import java.io.File;
 public class Main_Program {
     static ArrayList<Bank> Banks = new ArrayList<>();
+    public static int CustomerIndex;
+    public static int BankIndex;
     public static void PopulateBanks(){
         try {
             File f = new File("Banks.txt");
             Scanner myReader = new Scanner(f);
+            BankIndex = Integer.parseInt(myReader.nextLine());
             while (myReader.hasNextLine()) {
                 String bank = myReader.nextLine();
-                String[] bankparts = bank.split(",");
-                Banks.add(new Bank(Integer.valueOf(bankparts[0]),Integer.valueOf(bankparts[1]),Integer.valueOf(bankparts[2]),bankparts[3]));
+                String[] bankparts = bank.split("/");
+                Banks.add(new Bank(Integer.parseInt(bankparts[0]),Integer.parseInt(bankparts[1]),Integer.parseInt(bankparts[2]),bankparts[3],Integer.parseInt(bankparts[4])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -44,15 +44,19 @@ public class Main_Program {
         try {
             File f = new File("Customers.txt");
             Scanner myReader = new Scanner(f);
+            CustomerIndex = Integer.parseInt(myReader.nextLine());
             while (myReader.hasNextLine()) {
                 String user = myReader.nextLine();
                 String[] userparts = user.split("/");
                 userparts[3]=userparts[3].replace(" BST","");
-                String[] addresses = userparts[6].split(";");
-                String[] addressparts1 = addresses[0].split("_");
-                String[] addressparts2 = addresses[1].split("_");
-                String[] addressparts3 = addresses[2].split("_");
-                Users.add(new Customer(userparts[0],userparts[1],Integer.valueOf(userparts[2]),formatter.parse(userparts[3]),Integer.valueOf(userparts[4]),Integer.valueOf(userparts[5]), new Address[]{new Address(addressparts1[0], addressparts1[1], addressparts1[2], addressparts1[3], addressparts1[4]), new Address(addressparts2[0], addressparts2[1], addressparts2[2], addressparts2[3], addressparts2[4]), new Address(addressparts3[0],addressparts3[1],addressparts3[2],addressparts3[3],addressparts3[4])}));
+                userparts[3]=userparts[3].replace(" GMT","");
+                String[] addresses = userparts[5].split(";");
+                Address[] home = new Address[addresses.length];
+                for (int i = 0;i<addresses.length;i++) {
+                    String[] temp = addresses[i].split("_");
+                    home[i] = new Address(temp[0],temp[1],temp[2],temp[3],temp[4]);
+                }
+                Users.add(new Customer(Integer.parseInt(userparts[0]),userparts[1],userparts[2],userparts[3],userparts[4], home));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -70,8 +74,6 @@ public class Main_Program {
             }
             //Adds samples?
 
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         }
     }
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
@@ -82,7 +84,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String businessaccount = myReader.nextLine();
                 String[] businessparts = businessaccount.split("/");
-                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),businessparts[1],Integer.valueOf(businessparts[2]),Integer.valueOf(businessparts[3]),businessparts[4],Integer.valueOf(businessparts[5]),Integer.valueOf(businessparts[6])));
+                BusinessAccounts.add(new Business(Integer.parseInt(businessparts[0]),businessparts[1],Integer.parseInt(businessparts[2]),Integer.parseInt(businessparts[3]),businessparts[4],Integer.parseInt(businessparts[5]),Integer.parseInt(businessparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -100,8 +102,6 @@ public class Main_Program {
             }
             //Adds samples?
 
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         }
     }
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
@@ -112,7 +112,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String isaaccount = myReader.nextLine();
                 String[] isaparts = isaaccount.split("/");
-                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),isaparts[1],Integer.valueOf(isaparts[2]),Integer.valueOf(isaparts[3]),isaparts[4],Integer.valueOf(isaparts[5]),Integer.valueOf(isaparts[6])));
+                ISAAccounts.add(new ISA(Integer.parseInt(isaparts[0]),isaparts[1],Integer.parseInt(isaparts[2]),Integer.parseInt(isaparts[3]),isaparts[4],Integer.parseInt(isaparts[5]),Integer.parseInt(isaparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -130,11 +130,17 @@ public class Main_Program {
             }
             //Adds samples?
 
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         }
     }
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
+    public static Customer LookupCustomer(int index) {
+        for(Customer i:Users){
+            if(index==i.getIndex()){
+                return i;
+            }
+        }
+        return null;
+    }
     public static void PopulateCurrentAccounts(){
         try {
             File f = new File("CurrentAccounts.txt");
@@ -142,7 +148,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String currentaccount = myReader.nextLine();
                 String[] currentparts = currentaccount.split("/");
-                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),currentparts[1],Integer.valueOf(currentparts[2]),Integer.valueOf(currentparts[3]),currentparts[4],Integer.valueOf(currentparts[5])));
+                CurrentAccounts.add(new Current(Integer.parseInt(currentparts[0]),currentparts[1],Integer.parseInt(currentparts[2]),Integer.parseInt(currentparts[3]),currentparts[4],Integer.parseInt(currentparts[5])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -160,25 +166,23 @@ public class Main_Program {
             }
             //Adds samples?
 
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
         }
     }
     static String Username;
     private static final SimpleDateFormat Year = new SimpleDateFormat("yyyy");
     private static void AnnualTick(){
-        String LastAccessedYear;
+        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
+        String LastAccessedYear = Year.format(CurrentTime);
         try {
             File LogData = new File("LastAccessed.txt");
             Scanner myReader = new Scanner(LogData);
-            LastAccessedYear = myReader.nextLine());
+            LastAccessedYear = myReader.nextLine();
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Log for account is missing, New log will be created");
+            System.out.println("Last accessed file is missing, Using current year as default");
         }
-        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
-        int currentyear = Integer.valueOf(Year.format(CurrentTime));
-        int difference = currentyear - Integer.valueOf(LastAccessedYear);
+        int currentyear = Integer.parseInt(Year.format(CurrentTime));
+        int difference = currentyear - Integer.parseInt(LastAccessedYear);
         //Call for interest add function in ISA
         //Call for business annual charge  function
         try {
@@ -191,9 +195,15 @@ public class Main_Program {
             g.printStackTrace();
         }
     }
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws IOException {
         Username = Authentication.Login();
         boolean Exit = Username.equals("");
+        PopulateBanks();
+        PopulateUsers();
+        PopulateBusinessAccounts();
+        PopulateCurrentAccounts();
+        PopulateISAAccounts();
+        AnnualTick();
         while(!Exit){
             System.out.println("\n\nHello " + Username + """
                                     
@@ -207,14 +217,15 @@ public class Main_Program {
                     3: Exit
                     """);
             Scanner in = new Scanner(System.in);
-            int answer;
-            answer = in.nextInt();
+            String answer =  in.nextLine();
             switch (answer) {
-                case 1 -> CreateCustomer();
-                case 2 -> ManageCustomer();
-                case 3 -> Exit = true;
+                case "1" -> CreateCustomer();
+                case "2" -> ManageCustomer();
+                case "3" -> Exit = true;
+                default -> System.out.println("Please choose either option 1, 2 or 3");
             }
         }
+        Storage.SaveData();
     }
 
     public static Bank FindBank(String BankName){
@@ -223,15 +234,23 @@ public class Main_Program {
                 return i;
             }
         }
-        return new Bank(0,0,0,"");
+        return new Bank(0,0,0,"",0);
+    }
+    public static Bank FindBank(int index){
+        for(Bank i:Banks){
+            if(index==i.getIndex()){
+                return i;
+            }
+        }
+        return new Bank(0,0,0,"",0);
     }
 
     //For future use: FindBusinessAccount will find the business account object related to a bank account object
 
     public static Business FindBusinessAccount(Bank_Accounts account){
-        for (int i = 0; i < BusinessAccounts.size(); i++) {
-            if (BusinessAccounts.get(i).getAccount().equals(account)){
-                return BusinessAccounts.get(i);
+        for (Business businessAccount : BusinessAccounts) {
+            if (businessAccount.getAccount().equals(account)) {
+                return businessAccount;
             }
         }
         System.out.println("Error, Could not find this Business account");
@@ -252,9 +271,9 @@ public class Main_Program {
     //For future use: FindCurrentAccount will find the current account object related to a bank account object
 
     public static Current FindCurrentAccount(Bank_Accounts account){
-        for (int i = 0; i < CurrentAccounts.size(); i++) {
-            if (CurrentAccounts.get(i).getAccount().equals(account)){
-                return CurrentAccounts.get(i);
+        for (Current currentAccount : CurrentAccounts) {
+            if (currentAccount.getAccount().equals(account)) {
+                return currentAccount;
             }
         }
         System.out.println("Error, Could not find this Current account");
@@ -276,38 +295,44 @@ public class Main_Program {
     //For finding bank accounts from the account number and sort code
     public static Bank_Accounts FindBankAccount(int AccountNum, int SortCode){
         for (Bank_Accounts i : FindAccount()){
-            if(i.getBankNumber() == AccountNum & ((i.getBank().getCurrentSortCode() == SortCode) || (i.getBank().getISASortCode() == SortCode) || (i.getBank().getBusinessSortCode() == SortCode))){
+            if(i.getBankNumber() == AccountNum & ((FindBank(i.getBank()).getCurrentSortCode() == SortCode) || (FindBank(i.getBank()).getISASortCode() == SortCode) || (FindBank(i.getBank()).getBusinessSortCode() == SortCode))){
                 return i;
             }
         }
         System.out.println("Error: Could not find bank account with these numbers");
         return null;
     }
-    public static void CreateCustomer() throws ParseException {
+    public static void CreateCustomer() {
         //Staff enters details of a new customer
         Scanner in = new Scanner(System.in);
         System.out.println("\nPlease enter the new customer's details:\nFull Name:");
 
         String name = in.nextLine();
-        System.out.println("\nDate of Birth (dd mm yyyy):");
+        boolean datecheck = false;
+        String DOBString;
+        do{
+            System.out.println("\nDate of Birth (dd mm yyyy):");
+            DOBString = in.nextLine();
+            DateFormat formatter = new SimpleDateFormat("dd MM yyyy");
+            //Date and time is a nightmare. Calendar type is different from Date type yet both represent a date
+            //also, most features of Date are being depreciated so Calendar is used here
+            Calendar DOB = Calendar.getInstance();
+            try {
+                DOB.setTime(formatter.parse(DOBString));
+                datecheck=true;
+            } catch (ParseException e) {
+                System.out.println("Please enter Date of Birth in format \"dd mm yyyy\"");
 
-        String DOBString = in.nextLine();
-        DateFormat formatter = new SimpleDateFormat("dd MM yyyy");
-        //Date and time is a nightmare. Calendar type is different from Date type yet both represent a date
-        //also, most features of Date are being depreciated so Calendar is used here
-        Calendar DOB = Calendar.getInstance();
-        DOB.setTime(formatter.parse(DOBString));
+            }
+        } while (!datecheck);
 
+
+        in = new Scanner(System.in);
         System.out.println("\nPhone Number:");
-        int Phone = in.nextInt();
+        String Phone = in.nextLine();
         //Optional mobile number requires a string to feed into an integer so leaving it blank is possible
         System.out.println("\nMobile Number (Optional: Leave blank if none):");
-        String Mob = in.nextLine();
-        int Mobile = 0;
-        if(!Mob.equals("")) {
-            Scanner mobs = new Scanner(Mob);
-            Mobile = mobs.nextInt();
-        }
+        String Mobile = in.nextLine();
 
         System.out.println("""
                 Address:
@@ -318,34 +343,45 @@ public class Main_Program {
         //gets all 3 addresses from the last 3 years, counting tenancy to the nearest month
         int months = 0;
         int index = 0;
-        Address[] home = new Address[3];
+        ArrayList<Address> temphome = new ArrayList<>();
 
         do{
-            index += 1;
-            System.out.println("For Address #"+index+"\n  House Name/Number:");
-            home[index].setHouse(in.nextLine());
+            in = new Scanner(System.in);
+            System.out.println("For Address #"+(index+1)+"\n  House Name/Number:");
+            String House = in.nextLine();
             System.out.println("  Road:");
-            home[index].setRoad(in.nextLine());
+            String Road = in.nextLine();
             System.out.println("  Town/Village/City:");
-            home[index].setTown(in.nextLine());
+            String Town = in.nextLine();
             System.out.println("  County/Province:");
-            home[index].setCounty(in.nextLine());
-            System.out.println("  PostCode/ZipCode:");
-            home[index].setPostCode(in.nextLine());
+            String County = in.nextLine();
+            System.out.println("  PostCode/ZipCode(no gaps):");
+            String Postcode = in.nextLine();
+            temphome.add(new Address(House,Road,Town,County,Postcode));
             System.out.println("How many months has the customer lived at this address? (to the closest month rounded up)");
-            months += in.nextInt();
+            while (!in.hasNextInt()) {
+                System.out.println("Please enter number of months in numerical form, rounded up to nearest month");
+                in.next();
+            }
+            int addmonths = in.nextInt();
+            months=months+addmonths;
+            index += 1;
         }while(months<36&index<3);
-
-        //Checks if the current year's birthday has happened
-        Calendar Birthday = DOB;
+        Address[] home = new Address[temphome.size()];
+        for (int i = 0;i<temphome.size();i++) {
+            home[i] = temphome.get(i);
+        }
+        //Checks if the current year's birthday has happened - needs to be removed currently
+        /*Calendar Birthday = DOB;
         Birthday.set(Calendar.YEAR,LocalDate.now().getYear());
         int addyear = 0;
         if(Birthday.getTimeInMillis() > System.currentTimeMillis()){
             addyear = -1;
-        }
-
+        }*/
         //Creates a new customer with all the info (getting an age based upon current time is a nightmare)
-        Users.add(new Customer(name,LocalDate.now().getYear()-DOB.get(Calendar.YEAR) + addyear, DOB.getTime(),Phone,Mobile,home));
+        Users.add(new Customer(CustomerIndex,name, DOBString,Phone,Mobile,home));
+        CustomerIndex++;
+        System.out.println("Customer "+name+" Enrolled");
     }
 
     public static void ManageCustomer(){
@@ -357,39 +393,36 @@ public class Main_Program {
         System.out.println("Enter your house name/number");
         String hname = in.nextLine();
         boolean validUser = false;
-        do {
-            for (Customer i : Users) {
-                if (i.getName().equals(name) & i.getAddress()[0].getPostCode().equals(postcode) & i.getAddress()[0].getHouse().equals(hname)) {
-                    validUser = true;
-                    boolean validChoice = true;
-                    do {
-                        System.out.println("""
+        for (Customer i : Users) {
+            if (i.getName().equalsIgnoreCase(name) & i.getAddress()[0].getPostCode().equalsIgnoreCase(postcode) & i.getAddress()[0].getHouse().equalsIgnoreCase(hname)) {
+                validUser = true;
+                boolean MenuStay = true;
+                do {
+                    System.out.println("""
                                 Choose a customer operation:
                                 1:    Create bank account
                                 2:    Manage bank accounts
                                 3:    Change customer details
-                                4:    Remove customer""");
-                        String choice = in.nextLine();
-                        switch (choice) {
-                            case "1" -> i.CreateBankAccount();
-                            case "2" -> ManageAccount();
-                            case "3" -> ChangeCustomerDetails(i);
-                            case "4" -> {
-                                i.removeCustomer();
-                                Users.remove(i);
-                            }
-                            default -> {
-                                System.out.println("Error: Invalid choice");
-                                validChoice = false;
-                            }
+                                4:    Remove customer
+                                5:    Exit to Main Menu""");
+                    String choice = in.nextLine();
+                    switch (choice) {
+                        case "1" -> i.CreateBankAccount();
+                        case "2" -> ManageAccount(i.getIndex());
+                        case "3" -> ChangeCustomerDetails(i);
+                        case "4" -> {
+                            i.removeCustomer();
+                            Users.remove(i);
                         }
-                    } while (!validChoice);
-                }
+                        case "5" -> MenuStay = false;
+                        default -> System.out.println("Error: Invalid choice");
+                    }
+                } while (MenuStay);
             }
-            if(!validUser){
-                System.out.println("Error, No user found");
-            }
-        }while(!validUser);
+        }
+        if(!validUser){
+            System.out.println("Error, No user found");
+        }
     }
 
     //Allows the details of a customer to be changed
@@ -403,29 +436,29 @@ public class Main_Program {
                     3:    Change mobile number
                     4:    Add new address""");
             Scanner in = new Scanner(System.in);
-            int Choice = in.nextInt();
+            String Choice = in.nextLine();
             switch (Choice) {
 
                 //changes the name
-                case 1 -> {
+                case "1" -> {
                     System.out.println("Change name to:");
                     User.setName(in.nextLine());
                 }
 
                 //changes the phone number
-                case 2 -> {
+                case "2" -> {
                     System.out.println("Change phone number to:");
-                    User.setPhoneNumber(in.nextInt());
+                    User.setPhoneNumber(in.nextLine());
                 }
 
                 //changes or adds a mobile number
-                case 3 -> {
+                case "3" -> {
                     System.out.println("Change mobile number to:");
-                    User.setMobNumber(in.nextInt());
+                    User.setMobNumber(in.nextLine());
                 }
 
                 //adds a new address (and removes oldest address if there are 3 addresses already)
-                case 4 -> {
+                case "4" -> {
                     Address address = new Address("","","","","");
                     System.out.println("Enter new address:\n   House name/number:");
                     address.setHouse(in.nextLine());
@@ -457,7 +490,8 @@ public class Main_Program {
         int ISA = in.nextInt();
         System.out.println("Input the name of the bank");
         String Name = in.nextLine();
-        Banks.add(new Bank(current,ISA,business,Name));
+        Banks.add(new Bank(current,ISA,business,Name,BankIndex));
+        BankIndex++;
     }
     private static Bank_Accounts AutoFindBankAccount(){
         boolean AccountFound = false;
@@ -489,7 +523,7 @@ public class Main_Program {
         }
         return Account;
     }
-    public static void ManageAccount(){
+    public static void ManageAccount(int customerindex){
         boolean AccountFound = false;
         Bank_Accounts Account;
         int AccountNumber;
@@ -510,6 +544,9 @@ public class Main_Program {
             }
             SortCode = in.nextInt();
             Account = FindBankAccount(AccountNumber,SortCode);
+            if (Account.getOwner()!=customerindex) {
+                Account = null;
+            }
             if (Account != null) {
                 AccountFound = true;
             } else {
@@ -548,7 +585,7 @@ public class Main_Program {
                         } else if (Account.getAccountType().equals("ISA")) {
                             System.out.println(" [7] View Current Annual Deposit");
                         }
-                        System.out.println(" [9] Exit");
+                        System.out.println(" [9] Exit to Customer Operations");
                         while (!in.hasNextInt()) {
                             System.out.println("Please enter a menu option");
                             in.next();
@@ -584,7 +621,7 @@ public class Main_Program {
                                         System.out.println("Would you like to change pin (Y/N)?");
                                         String Choicepin = in.nextLine();
                                         if (Choicepin.equalsIgnoreCase("Y")) {
-                                            Customer customer = Account.getOwner();
+                                            Customer customer = LookupCustomer(Account.getOwner());
                                             Account.setPIN(customer.newPIN());
                                             check = false;
                                         } else if (Choicepin.equalsIgnoreCase("N")) {
@@ -648,7 +685,7 @@ public class Main_Program {
                         System.out.println("Would you like to change pin (Y/N)?");
                         String Choice = in.nextLine();
                         if (Choice.equalsIgnoreCase("Y")) {
-                            Customer customer = Account.getOwner();
+                            Customer customer = LookupCustomer(Account.getOwner());
                             Account.setPIN(customer.newPIN());
                             check = false;
 

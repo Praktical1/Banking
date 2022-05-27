@@ -1,8 +1,8 @@
 public class Business extends Bank_Accounts{
     private int BusinessNumber;
 
-    public Business(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner, int businessNumber) {
-        super(bankNumber, PIN, balance, bank, accountType, owner);
+    public Business(int bankNumber, String PIN, int balance, int bankindex, String accountType, int index, int businessNumber) {
+        super(bankNumber, PIN, balance, bankindex, accountType, index);
         BusinessNumber = businessNumber;
     }
 
@@ -32,7 +32,7 @@ public class Business extends Bank_Accounts{
     public void Transfer(int Value, Bank_Accounts account){
         Value = account.VerifyPayment(Value);
         if(getBalance() >= Value) {
-            if (getOwner().equals(account.getOwner())) {
+            if (getOwner()==account.getOwner()) {
                 movemoney(account, Value);
             } else {
                 System.out.println("Error: Cannot Transfer externally, Please use the Pay function to send money to someone else");
@@ -43,15 +43,15 @@ public class Business extends Bank_Accounts{
     }
     public void Pay(int Value, Bank_Accounts account){
         Value = account.VerifyPayment(Value);
-        if(!getOwner().equals(account.getOwner())) {
+        if(getOwner()!=account.getOwner()) {
             if (getBalance() >= Value) {
                 movemoney(account, Value);
                 //logs the transaction
                 if(Value != 0) {
                     switch (account.getAccountType()) {
-                        case "Current" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Value);
-                        case "ISA" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Value);
-                        case "Business" -> Log.Log(getBankNumber(), getBank().getBusinessSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Value);
+                        case "Current" -> Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getBusinessSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getCurrentSortCode(), Value);
+                        case "ISA" -> Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getBusinessSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getISASortCode(), Value);
+                        case "Business" -> Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getBusinessSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getBusinessSortCode(), Value);
                     }
                 }
             } else {

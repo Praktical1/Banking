@@ -8,14 +8,14 @@ import java.util.Date;
 public class Business_Tests {
     Address Address1 = new Address("1","this road", "this town","this county","OV343RE");
     DateFormat Format = new SimpleDateFormat("dd MM yyyy");
-    Date dob = Format.parse("20 10 2001");
-    Customer User1 = new Customer("Alex",19,dob,0,0, new Address[]{Address1});
-    Customer User2 = new Customer("James",27,Format.parse("20 10 1993"),0,0, new Address[]{Address1});
-    Bank Bank1 = new Bank(0,1,2,"newbank");
-    Business Account1 = new Business(12345678,"1234",1000,Bank1,"Business",User1,0);
-    Business Account2 = new Business(87654321,"1234",1000,Bank1,"Business",User2,0);
-    Current Account3 = new Current(11223344,"4231",1000,Bank1,"Current",User1);
-    ISA Account4 = new ISA(44332211,"4231",1000,Bank1,"ISA",User2,0);
+    String dob = "20 10 2001";
+    Customer User1 = new Customer(1,"Alex",dob,"0","0", new Address[]{Address1});
+    Customer User2 = new Customer(2,"James","20 10 1993","0","0", new Address[]{Address1});
+    Bank Bank1 = new Bank(0,1,2,"newbank",1);
+    Business Account1 = new Business(12345678,"1234",1000,Bank1.getIndex(),"Business",User1.getIndex(),0);
+    Business Account2 = new Business(87654321,"1234",1000,Bank1.getIndex(),"Business",User2.getIndex(),0);
+    Current Account3 = new Current(11223344,"4231",1000,Bank1.getIndex(),"Current",User1.getIndex());
+    ISA Account4 = new ISA(44332211,"4231",1000,Bank1.getIndex(),"ISA",User2.getIndex(),0);
 
     public Business_Tests() throws ParseException {
     }

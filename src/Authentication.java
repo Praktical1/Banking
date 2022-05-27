@@ -28,9 +28,8 @@ public class Authentication {
             //Creates new database with default admin login included
             try {
                 FileWriter myWriter = new FileWriter("StaffLogins.txt");
-                myWriter.write(DefaultAdminUsername);
-                myWriter.write(System.getProperty( "line.separator" ));
-                myWriter.write(DefaultAdminPassword);
+                myWriter.write(DefaultAdminUsername+"\n");
+                myWriter.write(DefaultAdminPassword+"\n");
                 myWriter.close();
                 System.out.println("Successfully Written File");
             } catch (IOException g) {
