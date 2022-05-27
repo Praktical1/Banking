@@ -281,14 +281,18 @@ public class Main_Program {
     }
     public static Bank_Accounts[] FindAccount() {
         Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size() + BusinessAccounts.size() + ISAAccounts.size()];
+        int index = 0;
         for (int i = 0; i < BusinessAccounts.size(); i++) {
             Accounts[i] = BusinessAccounts.get(i);
+            index ++;
         }
         for (int i = 0; i < CurrentAccounts.size(); i++) {
-            Accounts[i] = CurrentAccounts.get(i);
+            Accounts[index] = CurrentAccounts.get(i);
+            index ++;
         }
         for (int i = 0; i < ISAAccounts.size(); i++) {
-            Accounts[i] = ISAAccounts.get(i);
+            Accounts[index] = ISAAccounts.get(i);
+            index++;
         }
         return Accounts;
     }

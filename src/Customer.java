@@ -91,7 +91,8 @@ public class Customer {
                     What type of bank account would you like to open?
                     A: Current account: a versatile account for everyday use
                     B: ISA account: a savings account for keeping your investments on par with interest
-                    C: Business account: a premium bank account for your business needs""");
+                    C: Business account: a premium bank account for your business needs
+                    """);
             String Choice = in.nextLine();
             //determines the type of bank account created
             switch(Choice){
@@ -121,12 +122,19 @@ public class Customer {
                     case "Business"->{
                         System.out.println("Enter registered business number");
                         int businessnum = in.nextInt();
+                        System.out.println("Your new Sort Code: "+ bank.getBusinessSortCode()+"\n");
                         Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index,businessnum));
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
-                    case "ISA"-> Main_Program.ISAAccounts.add(new ISA(newBankNumber(), newPIN(),0, bank.getIndex(), accountType, Index,0));
+                    case "ISA"-> {
+                        System.out.println("Your new Sort Code: "+ bank.getISASortCode()+"\n");
+                        Main_Program.ISAAccounts.add(new ISA(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index, 0));
+                    }
 
-                    case "Current"-> Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index));
+                    case "Current"-> {
+                        System.out.println("Your new Sort Code: "+ bank.getCurrentSortCode()+"\n");
+                        Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index));
+                    }
 
                 }
             }
@@ -147,6 +155,7 @@ public class Customer {
                 }
             }
         }while(!validaccount);
+        System.out.println("Your new Account Number is: "+ accountnum+"\n");
         return accountnum;
     }
     //newPIN: generates a new randomised PIN number
@@ -168,7 +177,7 @@ public class Customer {
                                *****IMPORTANT*****
                                REMEMBER YOUR PIN
                 if you forget your PIN, we cannot recover it
-                         Your PIN is:        """ +strpin);
+                              Your PIN is:""" +" "+strpin);
         Scanner in = new Scanner(System.in);
         in.nextLine();
         return strpin;

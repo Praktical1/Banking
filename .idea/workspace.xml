@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -408,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653644201744</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Checked age to create bank account">
+      <created>1653650128242</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1653650128242</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -426,7 +432,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
     <MESSAGE value="Worked on ISA changes" />
     <MESSAGE value="Changed double to int" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
@@ -451,6 +456,17 @@
     <MESSAGE value="...so many errors spotted that needs work, a couple of exceptions resolved, Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...)" />
     <MESSAGE value="Resolved an issue relating to a bit of old code I seemingly left in the read for populateusers in regards to the address[] variable.&#10;Resolved a loop issue with identifying customer&#10;&#10;Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...) - probably age variable will be removed" />
     <MESSAGE value="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account" />
+    <MESSAGE value="Checked age to create bank account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Checked age to create bank account" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
