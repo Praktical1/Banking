@@ -866,7 +866,7 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to transfer "+ RecipientAccount.getBankNumber() +" "+ ((double)PayValue) / 100 + " pounds?   [Y/N]");
+                System.out.println("Are you sure you want to transfer "+ ((double)PayValue) / 100 + " pounds to " + RecipientAccount.getBankNumber() + "?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
