@@ -3,7 +3,7 @@ public class Bank {
     private int CurrentSortCode;
     private int ISASortCode;
     private int BusinessSortCode;
-    private int Index;
+    private final int Index;
 
     public Bank(int currentSortCode, int ISASortCode, int businessSortCode, String name, int index) {
         CurrentSortCode = currentSortCode;

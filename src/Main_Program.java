@@ -321,13 +321,6 @@ public class Main_Program {
         for (int i = 0;i<temphome.size();i++) {
             home[i] = temphome.get(i);
         }
-        //Checks if the current year's birthday has happened - needs to be removed currently
-        /*Calendar Birthday = DOB;
-        Birthday.set(Calendar.YEAR,LocalDate.now().getYear());
-        int addyear = 0;
-        if(Birthday.getTimeInMillis() > System.currentTimeMillis()){
-            addyear = -1;
-        }*/
         //Creates a new customer with all the info (getting an age based upon current time is a nightmare)
         Users.add(new Customer(CustomerIndex,name, DOBString,Phone,Mobile,home));
         CustomerIndex++;
@@ -367,6 +360,7 @@ public class Main_Program {
                             i.removeCustomer();
                             Users.remove(i);
                             Storage.SaveData("Customers");
+                            MenuStay = false;
                         }
                         case "5" -> MenuStay = false;
                         default -> System.out.println("Error: Invalid choice");
