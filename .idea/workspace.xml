@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Bank_Accounts_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Bank_Accounts_Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Business_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Business_Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Current_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Current_Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/StorageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/StorageTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
@@ -154,7 +150,7 @@
       <workItem from="1653555467406" duration="5643000" />
       <workItem from="1653562067210" duration="5633000" />
       <workItem from="1653584355513" duration="19754000" />
-      <workItem from="1653634171969" duration="5113000" />
+      <workItem from="1653634171969" duration="7285000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -394,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653641079099</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account">
+      <created>1653642421390</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653642421390</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,6 +439,7 @@
     <MESSAGE value="changed variable names for easier transition into account types" />
     <MESSAGE value="...so many errors spotted that needs work, a couple of exceptions resolved, Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...)" />
     <MESSAGE value="Resolved an issue relating to a bit of old code I seemingly left in the read for populateusers in regards to the address[] variable.&#10;Resolved a loop issue with identifying customer&#10;&#10;Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...) - probably age variable will be removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolved an issue relating to a bit of old code I seemingly left in the read for populateusers in regards to the address[] variable.&#10;Resolved a loop issue with identifying customer&#10;&#10;Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...) - probably age variable will be removed" />
+    <MESSAGE value="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account" />
   </component>
 </project>

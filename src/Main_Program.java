@@ -44,7 +44,7 @@ public class Main_Program {
         try {
             File f = new File("Customers.txt");
             Scanner myReader = new Scanner(f);
-            CustomerIndex = Integer.valueOf(myReader.nextLine());
+            CustomerIndex = Integer.parseInt(myReader.nextLine());
             while (myReader.hasNextLine()) {
                 String user = myReader.nextLine();
                 String[] userparts = user.split("/");
@@ -56,7 +56,7 @@ public class Main_Program {
                     String[] temp = addresses[i].split("_");
                     home[i] = new Address(temp[0],temp[1],temp[2],temp[3],temp[4]);
                 }
-                Users.add(new Customer(Integer.valueOf(userparts[0]),userparts[1],userparts[2],userparts[3],userparts[4], home));
+                Users.add(new Customer(Integer.parseInt(userparts[0]),userparts[1],userparts[2],userparts[3],userparts[4], home));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -84,7 +84,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String businessaccount = myReader.nextLine();
                 String[] businessparts = businessaccount.split("/");
-                BusinessAccounts.add(new Business(Integer.valueOf(businessparts[0]),businessparts[1],Integer.valueOf(businessparts[2]),Integer.valueOf(businessparts[3]),businessparts[4],Integer.valueOf(businessparts[5]),Integer.valueOf(businessparts[6])));
+                BusinessAccounts.add(new Business(Integer.parseInt(businessparts[0]),businessparts[1],Integer.parseInt(businessparts[2]),Integer.parseInt(businessparts[3]),businessparts[4],Integer.parseInt(businessparts[5]),Integer.parseInt(businessparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -112,7 +112,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String isaaccount = myReader.nextLine();
                 String[] isaparts = isaaccount.split("/");
-                ISAAccounts.add(new ISA(Integer.valueOf(isaparts[0]),isaparts[1],Integer.valueOf(isaparts[2]),Integer.valueOf(isaparts[3]),isaparts[4],Integer.valueOf(isaparts[5]),Integer.valueOf(isaparts[6])));
+                ISAAccounts.add(new ISA(Integer.parseInt(isaparts[0]),isaparts[1],Integer.parseInt(isaparts[2]),Integer.parseInt(isaparts[3]),isaparts[4],Integer.parseInt(isaparts[5]),Integer.parseInt(isaparts[6])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -148,7 +148,7 @@ public class Main_Program {
             while (myReader.hasNextLine()) {
                 String currentaccount = myReader.nextLine();
                 String[] currentparts = currentaccount.split("/");
-                CurrentAccounts.add(new Current(Integer.valueOf(currentparts[0]),currentparts[1],Integer.valueOf(currentparts[2]),Integer.valueOf(currentparts[3]),currentparts[4],Integer.valueOf(currentparts[5])));
+                CurrentAccounts.add(new Current(Integer.parseInt(currentparts[0]),currentparts[1],Integer.parseInt(currentparts[2]),Integer.parseInt(currentparts[3]),currentparts[4],Integer.parseInt(currentparts[5])));
             }
             myReader.close();
         } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
@@ -171,18 +171,18 @@ public class Main_Program {
     static String Username;
     private static final SimpleDateFormat Year = new SimpleDateFormat("yyyy");
     private static void AnnualTick(){
-        String LastAccessedYear = null;
+        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
+        String LastAccessedYear = Year.format(CurrentTime);
         try {
             File LogData = new File("LastAccessed.txt");
             Scanner myReader = new Scanner(LogData);
             LastAccessedYear = myReader.nextLine();
             myReader.close();
         } catch (FileNotFoundException e) {
-            System.out.println("Log for account is missing, New log will be created");
+            System.out.println("Last accessed file is missing, Using current year as default");
         }
-        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
-        int currentyear = Integer.valueOf(Year.format(CurrentTime));
-        int difference = currentyear - Integer.valueOf(LastAccessedYear);
+        int currentyear = Integer.parseInt(Year.format(CurrentTime));
+        int difference = currentyear - Integer.parseInt(LastAccessedYear);
         //Call for interest add function in ISA
         //Call for business annual charge  function
         try {
@@ -203,6 +203,7 @@ public class Main_Program {
         PopulateBusinessAccounts();
         PopulateCurrentAccounts();
         PopulateISAAccounts();
+        AnnualTick();
         while(!Exit){
             System.out.println("\n\nHello " + Username + """
                                     
@@ -247,9 +248,9 @@ public class Main_Program {
     //For future use: FindBusinessAccount will find the business account object related to a bank account object
 
     public static Business FindBusinessAccount(Bank_Accounts account){
-        for (int i = 0; i < BusinessAccounts.size(); i++) {
-            if (BusinessAccounts.get(i).getAccount().equals(account)){
-                return BusinessAccounts.get(i);
+        for (Business businessAccount : BusinessAccounts) {
+            if (businessAccount.getAccount().equals(account)) {
+                return businessAccount;
             }
         }
         System.out.println("Error, Could not find this Business account");
@@ -270,9 +271,9 @@ public class Main_Program {
     //For future use: FindCurrentAccount will find the current account object related to a bank account object
 
     public static Current FindCurrentAccount(Bank_Accounts account){
-        for (int i = 0; i < CurrentAccounts.size(); i++) {
-            if (CurrentAccounts.get(i).getAccount().equals(account)){
-                return CurrentAccounts.get(i);
+        for (Current currentAccount : CurrentAccounts) {
+            if (currentAccount.getAccount().equals(account)) {
+                return currentAccount;
             }
         }
         System.out.println("Error, Could not find this Current account");
@@ -413,12 +414,8 @@ public class Main_Program {
                             i.removeCustomer();
                             Users.remove(i);
                         }
-                        case "5" -> {
-                            MenuStay = false;
-                        }
-                        default -> {
-                            System.out.println("Error: Invalid choice");
-                        }
+                        case "5" -> MenuStay = false;
+                        default -> System.out.println("Error: Invalid choice");
                     }
                 } while (MenuStay);
             }
