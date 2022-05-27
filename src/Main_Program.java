@@ -565,7 +565,7 @@ public class Main_Program {
             boolean PinCheck  = false;
             int attempts = 0;
             do {
-                System.out.print("Please enter PIN");
+                System.out.print("Please enter PIN:");
                 while (!in.hasNextInt()) {
                     System.out.println("Please enter your pin");
                     in.next();
@@ -719,7 +719,7 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to deposit £" + ((double) Depositvalue) / 100 + "?   [Y/N]");
+                System.out.println("Are you sure you want to deposit " + ((double) Depositvalue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
@@ -759,7 +759,7 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to withdraw \bin pence?");
+            System.out.println("How much would you like to withdraw in pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
@@ -768,7 +768,7 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to withdraw £" + ((double) Withdrawvalue) / 100 + "?   [Y/N]");
+                System.out.println("Are you sure you want to withdraw " + ((double) Withdrawvalue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
@@ -808,7 +808,7 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" \bin pence?");
+            System.out.println("How much would you like to pay to "+ RecipientAccount.getOwner() +" in pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
@@ -817,7 +817,8 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to pay £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
+                String name = LookupCustomer(RecipientAccount.getOwner()).getName();
+                System.out.println("Are you sure you want to pay "+ name + ((double) PayValue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
@@ -857,7 +858,8 @@ public class Main_Program {
         boolean check = true;
         do {
             Scanner in = new Scanner(System.in);
-            System.out.println("How much would you like to transfer to "+ RecipientAccount.getOwner() +" \bin pence?");
+            String name = LookupCustomer(RecipientAccount.getOwner()).getName();
+            System.out.println("How much would you like to transfer to "+ name +" in pence?");
             while (!in.hasNextInt()) {
                 System.out.println("Please enter only integers");
                 in.next();
@@ -866,7 +868,7 @@ public class Main_Program {
             boolean check2 = true;
             do {
                 in = new Scanner(System.in);
-                System.out.println("Are you sure you want to transfer £"+ RecipientAccount.getOwner() + ((double) PayValue) / 100 + "?   [Y/N]");
+                System.out.println("Are you sure you want to transfer "+ RecipientAccount.getOwner() + ((double)PayValue) / 100 + " pounds?   [Y/N]");
                 String confirm = in.nextLine();
                 if (confirm.equalsIgnoreCase("Y")) {
                     check = false;
