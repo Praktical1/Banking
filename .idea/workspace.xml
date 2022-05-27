@@ -23,6 +23,32 @@
     <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/DoNotPull" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -419,7 +445,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653653519121</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Fixed stuff">
+      <created>1653654135191</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1653654135191</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Fixed stuff again">
+      <created>1653654278344</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1653654278344</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,8 +477,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Worked on ISA changes" />
-    <MESSAGE value="Changed double to int" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
     <MESSAGE value="Fixed FindISAAccount" />
     <MESSAGE value="Fixed Customer creating new ISA account" />
@@ -462,7 +500,9 @@
     <MESSAGE value="Resolved an issue relating to a bit of old code I seemingly left in the read for populateusers in regards to the address[] variable.&#10;Resolved a loop issue with identifying customer&#10;&#10;Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...) - probably age variable will be removed" />
     <MESSAGE value="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account" />
     <MESSAGE value="Checked age to create bank account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Checked age to create bank account" />
+    <MESSAGE value="Fixed stuff" />
+    <MESSAGE value="Fixed stuff again" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed stuff again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
