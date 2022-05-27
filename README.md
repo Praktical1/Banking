@@ -4,7 +4,7 @@ Admin:
 -
 - Username: admin
 - Password: Password123 (Case-sensitive for this)
-- Only functionality is to create banks and staff accounts
+- Only functionality is to create banks and staff accounts (Both will be needed)
 
 Features:
 -
