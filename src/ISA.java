@@ -112,7 +112,7 @@ public class ISA extends Bank_Accounts {
     }
 
     public void addInterest(int interestRate){
-        setBalance((int)(getBalance()*((double)interestRate/100)));
+        setBalance((int)(getBalance()+getBalance()*((double)interestRate/100)));
     }
 
 }
