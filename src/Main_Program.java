@@ -135,8 +135,6 @@ public class Main_Program {
             }
         }
 
-
-
         try {
             FileWriter myWriter = new FileWriter("LastAccessed.txt");
             myWriter.write(Integer.toString(currentyear));
