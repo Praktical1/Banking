@@ -9,7 +9,7 @@ public class Authentication {
     //change to Char[] if necessary
     private static String Username;
     private static String Password;
-    public static String Login() {
+    public static String Login() throws IOException {
         ArrayList<String> StaffLogins = new ArrayList<>();
         //Loads database
         try {
@@ -28,9 +28,8 @@ public class Authentication {
             //Creates new database with default admin login included
             try {
                 FileWriter myWriter = new FileWriter("StaffLogins.txt");
-                myWriter.write(DefaultAdminUsername);
-                myWriter.write(System.getProperty( "line.separator" ));
-                myWriter.write(DefaultAdminPassword);
+                myWriter.write(DefaultAdminUsername+"\n");
+                myWriter.write(DefaultAdminPassword+"\n");
                 myWriter.close();
                 System.out.println("Successfully Written File");
             } catch (IOException g) {
@@ -184,6 +183,7 @@ public class Authentication {
                     } else {
                         System.out.println("Invalid input, please choose either \"1\", \"2\" or \"3\"");                //Informs user that input doesn't match requirements
                     }
+                    Storage.SaveData("Banks");
                     //Saving updated staff login information
                     try {
                         FileWriter myWriter = new FileWriter("StaffLogins.txt");

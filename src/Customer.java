@@ -1,18 +1,18 @@
-
-import java.util.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.Scanner;
 public class Customer {
     String Name;
-    int Age;
-    Date DOB;
-    int PhoneNumber;
-    int MobNumber;
+    String DOB;
+    String PhoneNumber;
+    String MobNumber;
     Address[] address;
+    int Index;
 
-    public Customer(String name, int age, Date DOB, int phoneNumber, int mobNumber, Address[] address) {
+    public Customer(int customerindex, String name, String DOB, String phoneNumber, String mobNumber, Address[] address) {
+        Index = customerindex;
         Name = name;
-        Age = age;
         this.DOB = DOB;
         PhoneNumber = phoneNumber;
         MobNumber = mobNumber;
@@ -23,39 +23,31 @@ public class Customer {
         return Name;
     }
 
+    public int getIndex(){
+        return Index;
+    }
+
     public void setName(String name) {
         Name = name;
     }
 
-    public int getAge() {
-        return Age;
-    }
-
-    public void setAge(int age) {
-        Age = age;
-    }
-
-    public Date getDOB() {
+    public String getDOB() {
         return DOB;
     }
 
-    public void setDOB(Date DOB) {
-        this.DOB = DOB;
-    }
-
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         PhoneNumber = phoneNumber;
     }
 
-    public int getMobNumber() {
+    public String getMobNumber() {
         return MobNumber;
     }
 
-    public void setMobNumber(int mobNumber) {
+    public void setMobNumber(String mobNumber) {
         MobNumber = mobNumber;
     }
 
@@ -70,13 +62,37 @@ public class Customer {
     //CreateBankAccount: gives the user a choice of new bank account
     public void CreateBankAccount (){
         //checks if the account creator is over 16
+        SimpleDateFormat Format = new SimpleDateFormat("dd MM yyyy");
+        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
+        String Now = Format.format(CurrentTime);
+        Scanner Read = new Scanner(Now).useDelimiter(" ");
+        String Day = Read.next();
+        String Month = Read.next();
+        String Year = Read.next();
+        Scanner ReadDob = new Scanner(DOB).useDelimiter(" ");
+        String DOBDay = ReadDob.next();
+        String DOBMonth = ReadDob.next();
+        String DOBYear = ReadDob.next();
+        //Checks the edge case of a 16 year old whose birthday has just passed
+        int Age = Integer.parseInt(Year) - Integer.parseInt(DOBYear);
+        if (Age == 15){
+            int MonthDifference = Integer.parseInt(Month) - Integer.parseInt(DOBMonth);
+            if (MonthDifference >0){
+                Age += 1;
+            } else if (MonthDifference ==0) {
+                if(Integer.parseInt(Day)-Integer.parseInt(DOBDay)<=0){
+                    Age+=1;
+                }
+            }
+        }
         if(Age >= 16){
             Scanner in = new Scanner(System.in);
             System.out.print("""
                     What type of bank account would you like to open?
                     A: Current account: a versatile account for everyday use
                     B: ISA account: a savings account for keeping your investments on par with interest
-                    C: Business account: a premium bank account for your business needs""");
+                    C: Business account: a premium bank account for your business needs
+                    """);
             String Choice = in.nextLine();
             //determines the type of bank account created
             switch(Choice){
@@ -106,12 +122,19 @@ public class Customer {
                     case "Business"->{
                         System.out.println("Enter registered business number");
                         int businessnum = in.nextInt();
-                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank, accountType, this,businessnum));
+                        System.out.println("Your new Sort Code: "+ bank.getBusinessSortCode()+"\n");
+                        Main_Program.BusinessAccounts.add(new Business(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index,businessnum));
                         System.out.println("Your Chequebook will be sent to your current address");
                     }
-                    case "ISA"-> Main_Program.ISAAccounts.add(new ISA(newBankNumber(),newPIN(),0,bank,accountType,this,0));
+                    case "ISA"-> {
+                        System.out.println("Your new Sort Code: "+ bank.getISASortCode()+"\n");
+                        Main_Program.ISAAccounts.add(new ISA(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index, 0));
+                    }
 
-                    case "Current"-> Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank, accountType, this));
+                    case "Current"-> {
+                        System.out.println("Your new Sort Code: "+ bank.getCurrentSortCode()+"\n");
+                        Main_Program.CurrentAccounts.add(new Current(newBankNumber(), newPIN(), 0, bank.getIndex(), accountType, Index));
+                    }
 
                 }
             }
@@ -132,6 +155,7 @@ public class Customer {
                 }
             }
         }while(!validaccount);
+        System.out.println("Your new Account Number is: "+ accountnum+"\n");
         return accountnum;
     }
     //newPIN: generates a new randomised PIN number
@@ -153,7 +177,7 @@ public class Customer {
                                *****IMPORTANT*****
                                REMEMBER YOUR PIN
                 if you forget your PIN, we cannot recover it
-                         Your PIN is:        """ +strpin);
+                              Your PIN is:""" +" "+strpin);
         Scanner in = new Scanner(System.in);
         in.nextLine();
         return strpin;
@@ -169,7 +193,7 @@ public class Customer {
             case "y" -> {
                 int totbal = 0;
                 for(Bank_Accounts i :Main_Program.FindAccount()) {
-                    if(i.getOwner().equals(this)) {
+                    if(i.getOwner()==Index) {
                         switch(i.getAccountType()) {
                             case "Current", "Business" -> totbal += i.getBalance();
                             case "ISA" -> totbal += i.getBalance()*0.75;

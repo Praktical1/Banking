@@ -1,11 +1,11 @@
 public class Current extends Bank_Accounts{
-    public Current(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner){
-        super(bankNumber, PIN, balance, bank, accountType, owner);
+    public Current(int bankNumber, String PIN, int balance, int bankindex, String accountType, int index){
+        super(bankNumber, PIN, balance, bankindex, accountType, index);
     }
 
     public void Transfer(int Transferred, Bank_Accounts account) {
         if (Transferred > 0) {
-            if(getOwner().equals(account.getOwner())) {
+            if(getOwner()==account.getOwner()) {
                 if (getBalance()<Transferred) {
                     System.out.println("Error: Insufficient Funds");
                 } else {
@@ -32,7 +32,7 @@ public class Current extends Bank_Accounts{
     }
     public void Pay(int Payment, Bank_Accounts account) {
         if (Payment > 0) {
-            if(!getOwner().equals(account.getOwner())) {
+            if(getOwner()!=account.getOwner()) {
                 if (getBalance() < Payment) {
                     System.out.println("Error: Insufficient Funds");
                 } else {
@@ -42,18 +42,18 @@ public class Current extends Bank_Accounts{
                             account.setBalance(account.getBalance() + Payment);
                             setBalance(getBalance() - Payment);
                             ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit() + Payment);
-                            Log.Log(getBankNumber(), getBank().getCurrentSortCode(), account.getBankNumber(), account.getBank().getISASortCode(), Payment);
+                            Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getCurrentSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getISASortCode(), Payment);
                         } else {
                             System.out.println("Error: ISA deposit limit will be surpassed by this transaction");
                         }
                     } else if (account.getAccountType().equals("Current")) {
                         account.setBalance(account.getBalance() + Payment);
                         setBalance(getBalance() - Payment);
-                        Log.Log(getBankNumber(), getBank().getCurrentSortCode(), account.getBankNumber(), account.getBank().getCurrentSortCode(), Payment);
+                        Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getCurrentSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getCurrentSortCode(), Payment);
                     } else {
                         account.setBalance(account.getBalance() + Payment);
                         setBalance(getBalance() - Payment);
-                        Log.Log(getBankNumber(), getBank().getCurrentSortCode(), account.getBankNumber(), account.getBank().getBusinessSortCode(), Payment);
+                        Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getCurrentSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getBusinessSortCode(), Payment);
                     }
                 }
             } else {

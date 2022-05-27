@@ -3,8 +3,8 @@ public class ISA extends Bank_Accounts {
     private int InterestRate = 2;
     public int CurrentAnnualDeposit;
 
-    public ISA(int bankNumber, String PIN, int balance, Bank bank, String accountType, Customer owner, int currentAnnualDeposit) {
-        super(bankNumber, PIN, balance, bank, accountType, owner);
+    public ISA(int bankNumber, String PIN, int balance, int bankindex, String accountType, int index, int currentAnnualDeposit) {
+        super(bankNumber, PIN, balance, bankindex, accountType, index);
         CurrentAnnualDeposit = currentAnnualDeposit;
 
     }
@@ -29,7 +29,7 @@ public class ISA extends Bank_Accounts {
     //The following methods need to be looked at and revised
     public void transfer(int transferAmount, Bank_Accounts recipientAccount) {
 
-        if (getOwner().equals(recipientAccount.getOwner())) {
+        if (getOwner()==recipientAccount.getOwner()) {
             transferAmount = VerifyPayment(transferAmount);
             if (transferAmount != 0 & (getBalance() - (int) (1 + transferAmount / 0.75)) >= 0) {
                 if (recipientAccount.getAccountType().equals("ISA")) {
@@ -64,7 +64,7 @@ public class ISA extends Bank_Accounts {
     }
 
     public void pay(int paymentAmount, Bank_Accounts recipientAccount) {
-        if (!getOwner().equals(recipientAccount.getOwner())) {
+        if (getOwner()!=recipientAccount.getOwner()) {
             paymentAmount = VerifyPayment(paymentAmount);
             if (paymentAmount != 0 & (getBalance() - (int) (1 + paymentAmount / 0.75)) >= 0) {
                 if (recipientAccount.getAccountType().equals("ISA")) {
@@ -81,11 +81,11 @@ public class ISA extends Bank_Accounts {
                     recipientAccount.setBalance(recipientAccount.getBalance() + paymentAmount);
                 }
                 if (recipientAccount.getAccountType().equals("Current")) {
-                    Log.Log(getBankNumber(), getBank().getISASortCode(), recipientAccount.getBankNumber(), recipientAccount.getBank().getCurrentSortCode(), paymentAmount);
+                    Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getISASortCode(), recipientAccount.getBankNumber(), Main_Program.FindBank(recipientAccount.getBank()).getCurrentSortCode(), paymentAmount);
                 } else if (recipientAccount.getAccountType().equals("Business")) {
-                    Log.Log(getBankNumber(), getBank().getISASortCode(), recipientAccount.getBankNumber(), recipientAccount.getBank().getBusinessSortCode(), paymentAmount);
+                    Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getISASortCode(), recipientAccount.getBankNumber(), Main_Program.FindBank(recipientAccount.getBank()).getBusinessSortCode(), paymentAmount);
                 } else {
-                    Log.Log(getBankNumber(), getBank().getISASortCode(), recipientAccount.getBankNumber(), recipientAccount.getBank().getISASortCode(), paymentAmount);
+                    Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getISASortCode(), recipientAccount.getBankNumber(), Main_Program.FindBank(recipientAccount.getBank()).getISASortCode(), paymentAmount);
                 }
 
             }
