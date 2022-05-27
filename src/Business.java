@@ -85,7 +85,7 @@ public class Business extends Bank_Accounts{
         }
     }
     public void Upkeep(){
-        setBalance(getBalance()-50);
+        setBalance(getBalance()-5000);
     }
 }
 
