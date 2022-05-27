@@ -35,7 +35,7 @@ public class Storage {
                 if (j>0){
                     AddressString += ";";
                 }
-                AddressString += (i.getAddress())[j].getHouse() + "_" + (i.getAddress())[j].getRoad() + "_" + (i.getAddress())[j].getTown() + "_" + (i.getAddress())[j].getCounty() + "_" + (i.getAddress())[j].getPostCode();
+                AddressString += (i.getAddress())[j].toString();
             }
             CustomerWriter.write(i.getIndex()+"/"+i.getName()+"/"+"/"+i.getDOB()+"/"+i.getPhoneNumber()+"/"+i.getMobNumber()+"/"+AddressString+"\n");
         }

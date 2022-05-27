@@ -489,7 +489,7 @@ public class Main_Program {
         System.out.println("Please input sort code for ISA Accounts");
         int ISA = in.nextInt();
         System.out.println("Input the name of the bank");
-        String Name = in.nextLine();
+        String Name = in.next();
         Banks.add(new Bank(current,ISA,business,Name,BankIndex));
         BankIndex++;
     }

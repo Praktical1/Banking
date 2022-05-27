@@ -19,7 +19,6 @@ public class Current_Tests {
 
     public Current_Tests() throws ParseException {
     }
-
     @Test
     void WithdrawMoney(){
         var value = 100;
