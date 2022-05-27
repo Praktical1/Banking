@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -357,6 +358,7 @@ public class Main_Program {
                             i.removeCustomer();
                             Users.remove(i);
                             Storage.SaveData("Customers");
+                            MenuStay = false;
                         }
                         case "5" -> MenuStay = false;
                         default -> System.out.println("Error: Invalid choice");
