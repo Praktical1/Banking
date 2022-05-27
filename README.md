@@ -1,18 +1,32 @@
 # Banking by Prakhash, Roy and Yasum
 Generates an txt when data is stored
 
-Features:
-- Annually (Done by the calendar year):
-  - Scaling interest - 
-    1%   for        £0  <= Bal < £20000
-    2%   for    £20000  <= Bal < £50000
-    4%   for    £50000  <= Bal < £200000
-    5%   for   £200000  <= Bal
-  - Business charge of £50
+Admin:
+-
+- Username: admin
+- Password: Password123 (Case-sensitive for this)
+- Only functionality is to create banks and staff accounts
 
-- Account types:
+Features:
+-
+- Annually (Done by the calendar year):
+  - Business charge of £50
+  - Scaling interest
+<table>
+  <tr><td>Interest Rate</td><td colspan="3">Range</td></tr>
+  <tr><td>1%   </td><td>        £0  </td><td><= Bal <</td><td> £20000</td></tr>
+  <tr><td>2%   </td><td>    £20000  </td><td><= Bal <</td><td> £50000</td></tr>
+  <tr><td>4%   </td><td>    £50000  </td><td><= Bal <</td><td> £200000</td></tr>
+  <tr><td>5%   </td><td>   £200000  </td><td><= Bal</td><td></td></tr>
+</table>
+
+Account types:
+-
   - Business Account
     - Business charge
   - ISA Account
-    - 
+    - Government bonus of 25%
+    - Taking money out will result in a 25% withdrawl charge (follows rules from https://www.gov.uk/lifetime-isa)
+    - Scaling interest
   - Current Account
+    - Absolutely nothing special
