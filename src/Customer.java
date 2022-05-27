@@ -1,8 +1,9 @@
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.Scanner;
 public class Customer {
     String Name;
-    int Age;
     String DOB;
     String PhoneNumber;
     String MobNumber;
@@ -30,20 +31,8 @@ public class Customer {
         Name = name;
     }
 
-    public int getAge() {
-        return Age;
-    }
-
-    public void setAge(int age) {
-        Age = age;
-    }
-
     public String getDOB() {
         return DOB;
-    }
-
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
     }
 
     public String getPhoneNumber() {
@@ -73,6 +62,29 @@ public class Customer {
     //CreateBankAccount: gives the user a choice of new bank account
     public void CreateBankAccount (){
         //checks if the account creator is over 16
+        SimpleDateFormat Format = new SimpleDateFormat("dd MM yyyy");
+        Timestamp CurrentTime = new Timestamp(System.currentTimeMillis());
+        String Now = Format.format(CurrentTime);
+        Scanner Read = new Scanner(Now).useDelimiter(" ");
+        String Day = Read.next();
+        String Month = Read.next();
+        String Year = Read.next();
+        Scanner ReadDob = new Scanner(DOB).useDelimiter(" ");
+        String DOBDay = ReadDob.next();
+        String DOBMonth = ReadDob.next();
+        String DOBYear = ReadDob.next();
+        //Checks the edge case of a 16 year old whose birthday has just passed
+        int Age = Integer.parseInt(Year) - Integer.parseInt(DOBYear);
+        if (Age == 15){
+            int MonthDifference = Integer.parseInt(Month) - Integer.parseInt(DOBMonth);
+            if (MonthDifference >0){
+                Age += 1;
+            } else if (MonthDifference ==0) {
+                if(Integer.parseInt(Day)-Integer.parseInt(DOBDay)<=0){
+                    Age+=1;
+                }
+            }
+        }
         if(Age >= 16){
             Scanner in = new Scanner(System.in);
             System.out.print("""
