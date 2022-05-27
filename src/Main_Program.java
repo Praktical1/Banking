@@ -146,13 +146,13 @@ public class Main_Program {
     }
     public static void main(String[] args) throws IOException {
         PopulateBanks();
-        Username = Authentication.Login();
-        boolean Exit = Username.equals("");
         PopulateUsers();
         PopulateBusinessAccounts();
         PopulateCurrentAccounts();
         PopulateISAAccounts();
         AnnualTick();
+        Username = Authentication.Login();
+        boolean Exit = Username.equals("");
         while(!Exit){
             System.out.println("\n\nHello " + Username + """
                                     
@@ -548,7 +548,7 @@ public class Main_Program {
                         do {
                             switch (Choice) {
                                 //View Balance
-                                case 0 -> System.out.println(Account.getBalance());
+                                case 0 -> System.out.println((double)Account.getBalance()/100 + " pounds");
                                 //Deposit
                                 case 1 -> Deposit(Account);
                                 //Withdraw
