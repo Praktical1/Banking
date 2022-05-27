@@ -171,7 +171,7 @@ public class Main_Program {
         try {
             File LogData = new File("LastAccessed.txt");
             Scanner myReader = new Scanner(LogData);
-            LastAccessedYear = myReader.nextLine());
+            LastAccessedYear = myReader.nextLine();
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("Log for account is missing, New log will be created");
@@ -181,6 +181,8 @@ public class Main_Program {
         int difference = currentyear - Integer.valueOf(LastAccessedYear);
         //Call for interest add function in ISA
         //Call for business annual charge  function
+        //Reset current annual deposit of all ISA accounts to zero
+
         try {
             FileWriter myWriter = new FileWriter("LastAccessed.txt");
             myWriter.write(Integer.toString(currentyear));
