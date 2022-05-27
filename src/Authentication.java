@@ -9,7 +9,7 @@ public class Authentication {
     //change to Char[] if necessary
     private static String Username;
     private static String Password;
-    public static String Login() {
+    public static String Login() throws IOException {
         ArrayList<String> StaffLogins = new ArrayList<>();
         //Loads database
         try {

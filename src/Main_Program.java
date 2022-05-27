@@ -29,7 +29,6 @@ public class Main_Program {
         }
     }
     static ArrayList<Customer> Users = new ArrayList<>();
-    static SimpleDateFormat formatter=new SimpleDateFormat("EEE MMM dd HH:mm:ss yyyy");
     public static void PopulateUsers(){
         try {
             File f = new File("Customers.txt");
@@ -219,16 +218,16 @@ public class Main_Program {
     public static Bank_Accounts[] FindAccount() {
         Bank_Accounts[] Accounts = new Bank_Accounts[CurrentAccounts.size() + BusinessAccounts.size() + ISAAccounts.size()];
         int index = 0;
-        for (int i = 0; i < BusinessAccounts.size(); i++) {
-            Accounts[i] = BusinessAccounts.get(i);
-            index ++;
+        for (Business businessAccount : BusinessAccounts) {
+            Accounts[index] = businessAccount;
+            index++;
         }
-        for (int i = 0; i < CurrentAccounts.size(); i++) {
-            Accounts[index] = CurrentAccounts.get(i);
-            index ++;
+        for (Current currentAccount : CurrentAccounts) {
+            Accounts[index] = currentAccount;
+            index++;
         }
-        for (int i = 0; i < ISAAccounts.size(); i++) {
-            Accounts[index] = ISAAccounts.get(i);
+        for (ISA isaAccount : ISAAccounts) {
+            Accounts[index] = isaAccount;
             index++;
         }
         return Accounts;
@@ -325,7 +324,7 @@ public class Main_Program {
         System.out.println("Customer "+name+" Enrolled");
     }
 
-    public static void ManageCustomer(){
+    public static void ManageCustomer() throws IOException {
         System.out.println("Enter the Customer's name:");
         Scanner in = new Scanner(System.in);
         String name = in.nextLine();
@@ -371,7 +370,7 @@ public class Main_Program {
     }
 
     //Allows the details of a customer to be changed
-    public static void ChangeCustomerDetails(Customer User){
+    public static void ChangeCustomerDetails(Customer User) throws IOException {
         boolean validChoice = true;
         do {
             System.out.println("""
@@ -469,7 +468,7 @@ public class Main_Program {
         }
         return Account;
     }
-    public static void ManageAccount(int customerindex){
+    public static void ManageAccount(int customerindex) throws IOException {
         boolean AccountFound = false;
         Bank_Accounts Account;
         int AccountNumber;
