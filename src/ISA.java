@@ -1,6 +1,5 @@
 public class ISA extends Bank_Accounts {
     public static int MaxAnnualDeposit = 2_000_000;
-    private int InterestRate = 2;
     public int CurrentAnnualDeposit;
 
     public ISA(int bankNumber, String PIN, int balance, int bankindex, String accountType, int index, int currentAnnualDeposit) {
@@ -10,7 +9,15 @@ public class ISA extends Bank_Accounts {
     }
 
     public int getInterestRate() {
-        return InterestRate;
+        if(getBalance()<2000000){
+            return 1;
+        }else if(getBalance()<5000000){
+            return 2;
+        } else if (getBalance()<20000000) {
+            return 4;
+        }else{
+            return 5;
+        }
     }
 
     public static int getMaxAnnualDeposit() {
@@ -112,7 +119,7 @@ public class ISA extends Bank_Accounts {
     }
 
     public void addInterest(int interestRate){
-        setBalance((int)(getBalance()*((double)interestRate/100)));
+        setBalance((int)(getBalance()+getBalance()*((double)interestRate/100)));
     }
 
 }
