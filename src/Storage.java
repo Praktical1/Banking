@@ -37,7 +37,7 @@ public class Storage {
                 }
                 AddressString += (i.getAddress())[j].getHouse() + "_" + (i.getAddress())[j].getRoad() + "_" + (i.getAddress())[j].getTown() + "_" + (i.getAddress())[j].getCounty() + "_" + (i.getAddress())[j].getPostCode();
             }
-            CustomerWriter.write(i.getIndex()+"/"+i.getName()+"/"+i.getAge()+"/"+i.getDOB()+"/"+i.getPhoneNumber()+"/"+i.getMobNumber()+"/"+AddressString+"\n");
+            CustomerWriter.write(i.getIndex()+"/"+i.getName()+"/"+"/"+i.getDOB()+"/"+i.getPhoneNumber()+"/"+i.getMobNumber()+"/"+AddressString+"\n");
         }
         CustomerWriter.close();
         //Writes data on each account type with ID numbers instead of Banks and Customers in format (AccountNumber,PIN,Balance,BankID,AccountType,CustomerID(,OtherInfo)

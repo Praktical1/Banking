@@ -217,12 +217,12 @@ public class Main_Program {
                     3: Exit
                     """);
             Scanner in = new Scanner(System.in);
-            int answer;
-            answer = in.nextInt();
+            String answer =  in.nextLine();
             switch (answer) {
-                case 1 -> CreateCustomer();
-                case 2 -> ManageCustomer();
-                case 3 -> Exit = true;
+                case "1" -> CreateCustomer();
+                case "2" -> ManageCustomer();
+                case "3" -> Exit = true;
+                default -> System.out.println("Please choose either option 1, 2 or 3");
             }
         }
         Storage.SaveData();
