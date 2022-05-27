@@ -72,7 +72,7 @@ public class Business extends Bank_Accounts{
                     if (ISAAccount.getCurrentAnnualDeposit() + Value < ISA.MaxAnnualDeposit) {
                         //if ISA limit has not been reached and will not be surpassed
                         account.setBalance(account.getBalance() + Value);
-                        ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit() + Value);
+                        ISAAccount.setCurrentAnnualDeposit((int)(ISAAccount.getCurrentAnnualDeposit() + Value*1.25));
                     } else {
                         setBalance(getBalance() + Value);
                         System.out.println("Error: ISA deposit limit will be surpassed by this transaction");

@@ -47,7 +47,7 @@ public class ISA extends Bank_Accounts {
                     ISA Recipient = Main_Program.FindISAAccount(recipientAccount);
                     if (Recipient.getCurrentAnnualDeposit() + transferAmount <= MaxAnnualDeposit) {
                         setBalance(getBalance() - (int) (1 + transferAmount / 0.75));
-                        recipientAccount.setBalance(recipientAccount.getBalance() + transferAmount);
+                        recipientAccount.setBalance((int)(recipientAccount.getBalance() + transferAmount*1.25));
                         Recipient.setCurrentAnnualDeposit(Recipient.getCurrentAnnualDeposit() + transferAmount);
                     } else {
                         System.out.println("Max annual deposit reached");
@@ -83,7 +83,7 @@ public class ISA extends Bank_Accounts {
                     if (Recipient.getCurrentAnnualDeposit() + paymentAmount <= MaxAnnualDeposit) {
                         setBalance(getBalance() - (int) (1 + paymentAmount / 0.75));
                         recipientAccount.setBalance(recipientAccount.getBalance() + paymentAmount);
-                        Recipient.setCurrentAnnualDeposit(Recipient.getCurrentAnnualDeposit() + paymentAmount);
+                        Recipient.setCurrentAnnualDeposit((int)(Recipient.getCurrentAnnualDeposit() + 1.25*paymentAmount));
                     } else {
                         System.out.println("Max annual deposit reached");
                     }

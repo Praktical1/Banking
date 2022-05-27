@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Current.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Current.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ISA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ISA.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -389,7 +392,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653662987347</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Scaling ISA interest rate">
+      <created>1653663438367</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1653663438367</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Load order">
+      <created>1653663688093</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1653663688093</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,6 +445,8 @@
     <MESSAGE value="Added transfer, payment and deposit function." />
     <MESSAGE value="Fixed typo" />
     <MESSAGE value="Fixed ISA interest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed ISA interest" />
+    <MESSAGE value="Scaling ISA interest rate" />
+    <MESSAGE value="Load order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Load order" />
   </component>
 </project>

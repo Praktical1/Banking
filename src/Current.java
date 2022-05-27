@@ -12,7 +12,7 @@ public class Current extends Bank_Accounts{
                     if (account.getAccountType().equals("ISA")) {
                         ISA ISAAccount = Main_Program.FindISAAccount(account);
                         if (ISAAccount.getCurrentAnnualDeposit() + Transferred <= ISA.MaxAnnualDeposit) {
-                            account.setBalance(account.getBalance() + Transferred);
+                            account.setBalance((int)(account.getBalance() + Transferred*1.25));
                             setBalance(getBalance() - Transferred);
                             ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit()+Transferred);
                         } else {
@@ -39,7 +39,7 @@ public class Current extends Bank_Accounts{
                     if (account.getAccountType().equals("ISA")) {
                         ISA ISAAccount = Main_Program.FindISAAccount(account);
                         if (ISAAccount.getCurrentAnnualDeposit() + Payment <= ISA.MaxAnnualDeposit) {
-                            account.setBalance(account.getBalance() + Payment);
+                            account.setBalance((int)(account.getBalance() + Payment*1.25));
                             setBalance(getBalance() - Payment);
                             ISAAccount.setCurrentAnnualDeposit(ISAAccount.getCurrentAnnualDeposit() + Payment);
                             Log.Log(getBankNumber(), Main_Program.FindBank(getBank()).getCurrentSortCode(), account.getBankNumber(), Main_Program.FindBank(account.getBank()).getISASortCode(), Payment);
