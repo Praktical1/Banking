@@ -4,7 +4,7 @@ public class Address {
 
     @Override
     public String toString() {
-        return House+","+Road+","+Town+","+County+","+PostCode;
+        return House+"_"+Road+"_"+Town+"_"+County+"_"+PostCode;
     }
 
     private String Town;
