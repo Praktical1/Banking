@@ -24,18 +24,8 @@ public class Main_Program {
                 Banks.add(new Bank(Integer.parseInt(bankparts[0]),Integer.parseInt(bankparts[1]),Integer.parseInt(bankparts[2]),bankparts[3],Integer.parseInt(bankparts[4])));
             }
             myReader.close();
-        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+        } catch (FileNotFoundException e) {                                         //If database is not discovered
             System.out.println("Banks database missing, creating new empty database");
-            //Creates new database with default admin login included
-            try {
-                FileWriter myWriter = new FileWriter("Banks.txt");
-                myWriter.close();
-                System.out.println("Successfully Written File");
-            } catch (IOException g) {
-                System.out.println("Error occurred with writing");
-                g.printStackTrace();
-            }
-            //Adds samples?
         }
     }
     static ArrayList<Customer> Users = new ArrayList<>();
@@ -59,21 +49,8 @@ public class Main_Program {
                 Users.add(new Customer(Integer.parseInt(userparts[0]),userparts[1],userparts[2],userparts[3],userparts[4], home));
             }
             myReader.close();
-        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+        } catch (FileNotFoundException e) {                                         //If database is not discovered
             System.out.println("Customers database missing, creating new empty database");
-            //Variables holding sample?
-
-            //Creates new database with default admin login included
-            try {
-                FileWriter myWriter = new FileWriter("Customers.txt");
-                myWriter.close();
-                System.out.println("Successfully Written File");
-            } catch (IOException g) {
-                System.out.println("Error occurred with writing");
-                g.printStackTrace();
-            }
-            //Adds samples?
-
         }
     }
     static ArrayList<Business> BusinessAccounts = new ArrayList<>();
@@ -87,21 +64,8 @@ public class Main_Program {
                 BusinessAccounts.add(new Business(Integer.parseInt(businessparts[0]),businessparts[1],Integer.parseInt(businessparts[2]),Integer.parseInt(businessparts[3]),businessparts[4],Integer.parseInt(businessparts[5]),Integer.parseInt(businessparts[6])));
             }
             myReader.close();
-        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+        } catch (FileNotFoundException e) {                                         //If database is not discovered
             System.out.println("Business Accounts database missing, creating new empty database");
-            //Variables holding sample?
-
-            //Creates new database with default admin login included
-            try {
-                FileWriter myWriter = new FileWriter("BusinessAccounts.txt");
-                myWriter.close();
-                System.out.println("Successfully Written File");
-            } catch (IOException g) {
-                System.out.println("Error occurred with writing");
-                g.printStackTrace();
-            }
-            //Adds samples?
-
         }
     }
     static ArrayList<ISA> ISAAccounts = new ArrayList<>();
@@ -115,21 +79,8 @@ public class Main_Program {
                 ISAAccounts.add(new ISA(Integer.parseInt(isaparts[0]),isaparts[1],Integer.parseInt(isaparts[2]),Integer.parseInt(isaparts[3]),isaparts[4],Integer.parseInt(isaparts[5]),Integer.parseInt(isaparts[6])));
             }
             myReader.close();
-        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+        } catch (FileNotFoundException e) {                                         //If database is not discovered
             System.out.println("ISA Accounts database missing, creating new empty database");
-            //Variables holding sample?
-
-            //Creates new database with default admin login included
-            try {
-                FileWriter myWriter = new FileWriter("ISAAccounts.txt");
-                myWriter.close();
-                System.out.println("Successfully Written File");
-            } catch (IOException g) {
-                System.out.println("Error occurred with writing");
-                g.printStackTrace();
-            }
-            //Adds samples?
-
         }
     }
     static ArrayList<Current> CurrentAccounts = new ArrayList<>();
@@ -151,21 +102,8 @@ public class Main_Program {
                 CurrentAccounts.add(new Current(Integer.parseInt(currentparts[0]),currentparts[1],Integer.parseInt(currentparts[2]),Integer.parseInt(currentparts[3]),currentparts[4],Integer.parseInt(currentparts[5])));
             }
             myReader.close();
-        } catch (FileNotFoundException e) {                                         //If database is not discovered creates a new one
+        } catch (FileNotFoundException e) {                                         //If database is not discovered
             System.out.println("Current Accounts database missing, creating new empty database");
-            //Variables holding sample?
-
-            //Creates new database with default admin login included
-            try {
-                FileWriter myWriter = new FileWriter("CurrentAccounts.txt");
-                myWriter.close();
-                System.out.println("Successfully Written File");
-            } catch (IOException g) {
-                System.out.println("Error occurred with writing");
-                g.printStackTrace();
-            }
-            //Adds samples?
-
         }
     }
     static String Username;
@@ -189,7 +127,6 @@ public class Main_Program {
             FileWriter myWriter = new FileWriter("LastAccessed.txt");
             myWriter.write(Integer.toString(currentyear));
             myWriter.close();
-            System.out.println("Successfully Written File");
         } catch (IOException g) {
             System.out.println("Error occurred with writing");
             g.printStackTrace();
