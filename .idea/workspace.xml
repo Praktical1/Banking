@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="">
+    <list default="true" id="ac6cb029-ad64-4f02-b9a4-64ad066e49a1" name="Changes" comment="Fixed typo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main_Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main_Program.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,32 +24,6 @@
     <option name="BRANCH" value="origin/master" />
   </component>
   <component name="Git.Settings">
-    <excluded-from-favorite>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/master" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </excluded-from-favorite>
-    <favorite-branches>
-      <branch-storage>
-        <map>
-          <entry type="REMOTE">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="origin/DoNotPull" />
-              </list>
-            </value>
-          </entry>
-        </map>
-      </branch-storage>
-    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
@@ -79,7 +53,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/prize/OneDrive/Documents/Capita Training/Java/Banking1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/abrah/IdeaProjects/Banking&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -90,47 +64,52 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main_Program">
-    <configuration name="Main_Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main_Program" />
-      <module name="Banking" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Business_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.Business_Tests.TransferNotSame">
+    <configuration name="Business_Tests.DepositNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Business_Tests.PayMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Banking" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
-      <option name="METHOD_NAME" value="PayMoney" />
+      <option name="METHOD_NAME" value="DepositNegative" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Current_Tests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Business_Tests.TransferMoney" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Current_Tests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferMoney" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StorageTest.SaveData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Business_Tests.TransferNegative" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Banking" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StorageTest" />
-      <option name="METHOD_NAME" value="SaveData" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferNegative" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferNotSame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferNotSame" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Business_Tests.TransferTooMuch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Banking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Business_Tests" />
+      <option name="METHOD_NAME" value="TransferTooMuch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main_Program" />
-        <item itemvalue="JUnit.StorageTest.SaveData" />
-        <item itemvalue="JUnit.Business_Tests" />
-        <item itemvalue="JUnit.Business_Tests.PayMoney" />
-        <item itemvalue="JUnit.Current_Tests" />
+        <item itemvalue="JUnit.Business_Tests.TransferNotSame" />
+        <item itemvalue="JUnit.Business_Tests.TransferNegative" />
+        <item itemvalue="JUnit.Business_Tests.TransferTooMuch" />
+        <item itemvalue="JUnit.Business_Tests.TransferMoney" />
+        <item itemvalue="JUnit.Business_Tests.DepositNegative" />
       </list>
     </recent_temporary>
   </component>
@@ -172,14 +151,9 @@
       <workItem from="1653472648620" duration="1506000" />
       <workItem from="1653474719380" duration="1406000" />
       <workItem from="1653476641909" duration="728000" />
-      <workItem from="1653509693315" duration="643000" />
-      <workItem from="1653555467406" duration="5643000" />
-      <workItem from="1653562067210" duration="5633000" />
-      <workItem from="1653584355513" duration="19754000" />
-      <workItem from="1653634171969" duration="8422000" />
-      <workItem from="1653645718205" duration="22000" />
-      <workItem from="1653645750455" duration="25000" />
-      <workItem from="1653645857249" duration="705000" />
+      <workItem from="1653576084246" duration="7116000" />
+      <workItem from="1653644740163" duration="2204000" />
+      <workItem from="1653657380898" duration="2559000" />
     </task>
     <task id="LOCAL-00001" summary="Worked on ISA changes">
       <created>1652888230580</created>
@@ -363,126 +337,56 @@
       <option name="project" value="LOCAL" />
       <updated>1653475980407</updated>
     </task>
-    <task id="LOCAL-00027" summary="Attempt at Storage">
-      <created>1653494067121</created>
+    <task id="LOCAL-00027" summary="Added transfer, payment and deposit function.">
+      <created>1653490964375</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1653494067121</updated>
+      <updated>1653490964375</updated>
     </task>
-    <task id="LOCAL-00028" summary="Read completed for arrays Bank and users, just account types left">
-      <created>1653560517947</created>
+    <task id="LOCAL-00028" summary="Added transfer, payment and deposit function.">
+      <created>1653579535745</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1653560517947</updated>
+      <updated>1653579535745</updated>
     </task>
-    <task id="LOCAL-00029" summary="Read completed for arrays Bank and users, just account types left">
-      <created>1653560569779</created>
+    <task id="LOCAL-00029" summary="Added transfer, payment and deposit function.">
+      <created>1653582255859</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1653560569779</updated>
+      <updated>1653582255859</updated>
     </task>
-    <task id="LOCAL-00030" summary="changed dividers between addresses to represent information better">
-      <created>1653561210786</created>
+    <task id="LOCAL-00030" summary="Added transfer, payment and deposit function.">
+      <created>1653582549143</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1653561210786</updated>
+      <updated>1653582549143</updated>
     </task>
-    <task id="LOCAL-00031" summary="changed variable names for easier transition into account types">
-      <created>1653561525148</created>
+    <task id="LOCAL-00031" summary="Added transfer, payment and deposit function.">
+      <created>1653582560857</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1653561525148</updated>
+      <updated>1653582560857</updated>
     </task>
-    <task id="LOCAL-00032" summary="changed variable names for easier transition into account types">
-      <created>1653591230703</created>
+    <task id="LOCAL-00032" summary="Fixed typo">
+      <created>1653657675131</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1653591230703</updated>
+      <updated>1653657675131</updated>
     </task>
-    <task id="LOCAL-00033" summary="...so many errors spotted that needs work, a couple of exceptions resolved, Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...)">
-      <created>1653610909756</created>
+    <task id="LOCAL-00033" summary="Fixed typo">
+      <created>1653660586158</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1653610909756</updated>
+      <updated>1653660586158</updated>
     </task>
-    <task id="LOCAL-00034" summary="Resolved an issue relating to a bit of old code I seemingly left in the read for populateusers in regards to the address[] variable.&#10;Resolved a loop issue with identifying customer&#10;&#10;Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...) - probably age variable will be removed">
-      <created>1653641079099</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1653641079099</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account">
-      <created>1653642421390</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1653642421390</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account">
-      <created>1653644201743</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1653644201744</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Checked age to create bank account">
-      <created>1653650128242</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1653650128242</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Checked age to create bank account">
-      <created>1653653519121</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1653653519121</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Fixed stuff">
-      <created>1653654135191</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1653654135191</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Fixed stuff again">
-      <created>1653654278344</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1653654278344</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Deleted writing of file at start and writing file messages">
-      <created>1653657068037</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1653657068037</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Fixed Ghost user bug">
-      <created>1653658285892</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1653658285892</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Small Optimisations">
-      <created>1653659291650</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1653659291650</updated>
-    </task>
-    <option name="localTasksCounter" value="44" />
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,6 +404,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added interest rate constructor and amountAddedIntoAccount variable" />
+    <MESSAGE value="Worked on ISA changes" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/Prakishere/Banking into ISA_Branch&#10;&#10; Conflicts:&#10;&#9;.idea/workspace.xml" />
+    <MESSAGE value="Fixed FindISAAccount" />
+    <MESSAGE value="Fixed Customer creating new ISA account" />
     <MESSAGE value="Created method to search for bank accounts with the account number and sort code" />
     <MESSAGE value="Added remove customer function" />
     <MESSAGE value="PIN was a string for some reason" />
@@ -512,29 +421,9 @@
     <MESSAGE value="Added update business number to menu option and exit for account management menu" />
     <MESSAGE value="Added confirmation for changing business number and added in view current annual deposit onto manage account." />
     <MESSAGE value="Loop added for menu and attempt counter for pin added" />
-    <MESSAGE value="Attempt at Storage" />
-    <MESSAGE value="Read completed for arrays Bank and users, just account types left" />
-    <MESSAGE value="changed dividers between addresses to represent information better" />
-    <MESSAGE value="changed variable names for easier transition into account types" />
-    <MESSAGE value="...so many errors spotted that needs work, a couple of exceptions resolved, Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...)" />
-    <MESSAGE value="Resolved an issue relating to a bit of old code I seemingly left in the read for populateusers in regards to the address[] variable.&#10;Resolved a loop issue with identifying customer&#10;&#10;Problems yet to fix = age and DOB not stored as intended...(will convert to my type later...) - probably age variable will be removed" />
-    <MESSAGE value="Age removed, DOB converted to string&#10;&#10;need to do's :&#10;check required for age on customer creation, &#10;need to remove age requirement for creating account" />
-    <MESSAGE value="Checked age to create bank account" />
-    <MESSAGE value="Fixed stuff" />
-    <MESSAGE value="Fixed stuff again" />
-    <MESSAGE value="Deleted writing of file at start and writing file messages" />
-    <MESSAGE value="Fixed Ghost user bug" />
-    <MESSAGE value="Small Optimisations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small Optimisations" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Changed double to int" />
+    <MESSAGE value="Added transfer, payment and deposit function." />
+    <MESSAGE value="Fixed typo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed typo" />
   </component>
 </project>

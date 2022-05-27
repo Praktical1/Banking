@@ -9,6 +9,10 @@ public class ISA extends Bank_Accounts {
 
     }
 
+    public int getInterestRate() {
+        return InterestRate;
+    }
+
     public static int getMaxAnnualDeposit() {
         return MaxAnnualDeposit;
     }
@@ -107,8 +111,8 @@ public class ISA extends Bank_Accounts {
         }
     }
 
-    public void addInterest(int interestAmount){
-        this.InterestRate += interestAmount;
+    public void addInterest(int interestRate){
+        setBalance((int)(getBalance()*((double)interestRate/100)));
     }
 
 }
